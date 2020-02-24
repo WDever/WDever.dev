@@ -5,14 +5,21 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import Image from "gatsby-image"
+import React, { ReactElement } from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
+import Image from 'gatsby-image';
+import styled from 'styled-components';
 
-import { rhythm } from "../utils/typography"
+import { rhythm } from '../utils/typography';
+import { BioQueryQuery } from '../types/graphqlTypes';
 
-const Bio = () => {
-  const data = useStaticQuery(graphql`
+const Wrapper = styled.div`
+  display: flex;
+  margin-bottom: ${rhythm(2.5)};
+`;
+
+export default function Bio(): ReactElement {
+  const data: BioQueryQuery = useStaticQuery<BioQueryQuery>(graphql`
     query BioQuery {
       avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
         childImageSharp {
@@ -25,21 +32,17 @@ const Bio = () => {
         siteMetadata {
           author
           social {
-            twitter
+            instagram
           }
         }
       }
     }
-  `)
+  `);
 
-  const { author, social } = data.site.siteMetadata
+  const { author, social } = data.site.siteMetadata;
+
   return (
-    <div
-      style={{
-        display: `flex`,
-        marginBottom: rhythm(2.5),
-      }}
-    >
+    <Wrapper>
       <Image
         fixed={data.avatar.childImageSharp.fixed}
         alt={author}
@@ -56,13 +59,14 @@ const Bio = () => {
       <p>
         Written by <strong>{author}</strong> who lives and works in San
         Francisco building useful things.
-        {` `}
-        <a href={`https://twitter.com/${social.twitter}`}>
-          You should follow him on Twitter
+        <a
+          rel='noopener noreferrer'
+          target='_blank'
+          href={`${social.instagram}`}
+        >
+          You should follow him on Instagram
         </a>
       </p>
-    </div>
-  )
+    </Wrapper>
+  );
 }
-
-export default Bio
