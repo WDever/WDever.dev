@@ -1,5 +1,10 @@
-import React, { ReactNode, ReactElement, useState, useRef, RefObject } from 'react';
-import { useScrolling } from 'react-use';
+import React, {
+  ReactNode,
+  ReactElement,
+  useState,
+  useRef,
+  RefObject,
+} from 'react';
 import { ThemeProvider } from 'styled-components';
 import { Light, Dark } from 'lib/style';
 
@@ -19,8 +24,6 @@ export default function Layout({
 }: LayoutProps): ReactElement {
   const [checked, setChecked] = useState<boolean>(false);
   const scrollRef: RefObject<HTMLDivElement> = useRef(null);
-
-  const scrolling = useScrolling(scrollRef);
 
   const rootPath: string = `/`;
   let header: ReactNode;

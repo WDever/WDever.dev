@@ -4,6 +4,7 @@ import { pxToRem } from 'utils';
 
 interface HeaderProps {
   scrolled: boolean;
+  visibility: boolean;
 }
 
 export const Header = styled.header<HeaderProps>`
@@ -13,13 +14,18 @@ export const Header = styled.header<HeaderProps>`
   display: flex;
   justify-content: center;
 
+  transition: all 0.2s ease-in-out;
+
   position: sticky;
-  top: 0;
+  top: ${({ visibility }): number | string => {
+    return visibility ? 0 : pxToRem(-56);
+  }};
+
   z-index: 5;
 
   background-color: ${({ theme }): string => theme.item};
-  box-shadow: ${({ scrolled, theme }): false | string =>
-    scrolled && theme.headerShadow};
+  box-shadow: ${({ scrolled, theme, visibility }): false | string =>
+    scrolled && visibility && theme.headerShadow};
 `;
 
 export const Inner = styled.div`

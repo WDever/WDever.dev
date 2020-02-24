@@ -1,1 +1,2 @@
-export * from './pxToRem';
+export * from './functions';
+export * from './typography';
