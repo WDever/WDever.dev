@@ -1,0 +1,61 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "prettier"],
+  "extends": [
+    "airbnb-typescript",
+    "prettier/@typescript-eslint",
+    "prettier",
+    "prettier/react",
+    "plugin:prettier/recommended"
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "@typescript-eslint/explicit-function-return-type": 2,
+    "@typescript-eslint/typedef": [
+      "error",
+      {
+        // "arrayDestructuring": true,
+        "arrayDestructuring": false,
+        "arrowParameter": false,
+        "memberVariableDeclaration": true,
+        // "objectDestructuring": true,
+        "objectDestructuring": false,
+        "parameter": true,
+        "propertyDeclaration": true,
+        // "variableDeclaration": true
+        "variableDeclaration": false
+      }
+    ],
+    "@typescript-eslint/no-unused-vars": 1,
+    "@typescript-eslint/camelcase": 0,
+    "@typescript-eslint/no-empty-interface": 0,
+
+    "react/destructuring-assignment": 1,
+    "react/jsx-props-no-spreading": 1,
+    "react/jsx-no-bind": 1,
+    "react/no-array-index-key": 1,
+    "react/button-has-type": 1,
+    "react/state-in-constructor": 0,
+    "react/no-did-update-set-state": 0,
+    "react/no-did-mount-set-state": 0,
+    "react/prop-types": 0,
+
+    "react/no-unescaped-entities": 0,
+
+    "jsx-a11y/no-autofocus": 0,
+    "jsx-a11y/click-events-have-key-events": 0,
+    "jsx-a11y/no-noninteractive-element-interactions": 1,
+    "jsx-a11y/label-has-associated-control": 0,
+
+    "import/extensions": 2,
+    "import/no-unresolved": 0,
+    "import/prefer-default-export": 0,
+    "max-classes-per-file": 0,
+    "no-shadow": 0,
+    "no-param-reassign": ["error", { "props": false }],
+    "no-alert": 0
+  }
+}

@@ -1,0 +1,25 @@
+# overwrite: true
+# schema: 'http://localhost:8000/___graphql'
+# documents: '**/*.graphql'
+# generates:
+#   ./src/types/graphql-types.d.ts:
+#     plugins:
+#       - 'typescript'
+
+overwrite: true
+schema: http://localhost:8000/___graphql
+documents:
+  - ./src/**/*.{ts,tsx}
+  - ./node_modules/gatsby*/!(node_modules)/**/*.js
+generates:
+  ./src/types/graphqlTypes.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+    config:
+      maybeValue: T
+      skipTypename: true
+      # preResolveTypes: true
+      avoidOptionals:
+        inputValue: true
+        object: true
