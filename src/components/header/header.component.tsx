@@ -5,9 +5,15 @@ import { Header, Title, ContentWrapper, Links, Inner } from './header.style';
 
 interface Props {
   title: string;
+  isDark: boolean;
+  setIsDark: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export default function HeaderComponent({ title }: Props): ReactElement {
+export default function HeaderComponent({
+  title,
+  isDark,
+  setIsDark,
+}: Props): ReactElement {
   const visibility = useRef<boolean>(false);
   const setVisibility = (bool: boolean): void => {
     visibility.current = bool;
@@ -34,7 +40,7 @@ export default function HeaderComponent({ title }: Props): ReactElement {
         <ContentWrapper>
           <Links to='/about'>About</Links>
           <Links to='/life'>Life</Links>
-          <ThemeSwitchComponent />
+          <ThemeSwitchComponent isDark={isDark} setIsDark={setIsDark} />
         </ContentWrapper>
       </Inner>
     </Header>

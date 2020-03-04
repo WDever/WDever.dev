@@ -18,7 +18,7 @@ export default function Layout({
   title,
   children,
 }: Props): ReactElement {
-  const [isDark] = useLocalStorage<boolean>('theme');
+  const [isDark, setIsDark] = useLocalStorage<boolean>('theme');
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
   const rootPath: string = `/`;
@@ -34,7 +34,7 @@ export default function Layout({
     <ThemeProvider theme={isDark ? Dark : Light}>
       <Wrapper>
         <GlobalStyle />
-        <HeaderComponent title={title} />
+        <HeaderComponent title={title} isDark={isDark} setIsDark={setIsDark} />
         {tagBar}
         {children}
         <FooterComponent />
