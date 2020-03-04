@@ -9,6 +9,7 @@ import {
   Date,
   Excerpt,
   TagList,
+  StyledLink,
 } from './postItem.style';
 import PostTagItemComponent from '../postTagItem';
 
@@ -27,6 +28,7 @@ export default function PostItemComponent({
   title,
   excerpt,
   tags,
+  slug,
 }: Props): ReactElement {
   const tagList = tags.map((item, i) => (
     <PostTagItemComponent key={i} tag={item} />
@@ -34,14 +36,24 @@ export default function PostItemComponent({
 
   return (
     <Wrapper>
-      <Img src={img} alt='post' />
+      <StyledLink to={slug} isTitle>
+        <Img src={img} alt='post' />
+      </StyledLink>
       <PostInfoWrapper>
         <PostInfo>
           <TagList>{tagList}</TagList>
           <Date>{date}</Date>
         </PostInfo>
-        <Title>{title}</Title>
-        <Excerpt>{excerpt}</Excerpt>
+        <Title>
+          <StyledLink to={slug} isTitle>
+            {title}
+          </StyledLink>
+        </Title>
+        <Excerpt>
+          <StyledLink to={slug} isTitle={false}>
+            {excerpt}
+          </StyledLink>
+        </Excerpt>
       </PostInfoWrapper>
     </Wrapper>
   );

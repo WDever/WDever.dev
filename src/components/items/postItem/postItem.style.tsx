@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { pxToRem } from 'utils';
 import { Default } from 'utils/style';
+import { Link } from 'gatsby';
 
 export const Wrapper = styled.article`
   width: ${pxToRem(412)};
@@ -70,7 +71,6 @@ export const Title = styled.h1`
 
   font-family: 'Gothic A1';
   font-size: ${pxToRem(30)};
-  color: ${({ theme }): string => theme.mainFont};
   line-height: 1.3;
 
   cursor: pointer;
@@ -87,4 +87,10 @@ export const Excerpt = styled.h2`
   line-height: 1.7;
 
   cursor: pointer;
+`;
+
+export const StyledLink = styled(Link)<{ isTitle: boolean }>`
+  box-shadow: none;
+  color: ${({ theme, isTitle }): string =>
+    isTitle ? theme.mainFont : theme.subFont};
 `;

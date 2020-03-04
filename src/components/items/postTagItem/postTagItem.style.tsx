@@ -25,7 +25,5 @@ export const Wrapper = styled.li`
   font-size: ${pxToRem(10)};
   font-weight: bold;
 
-  cursor: pointer;
-
   background-color: ${Default.tagItem};
 `;
