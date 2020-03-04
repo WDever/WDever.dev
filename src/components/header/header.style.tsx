@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 import { pxToRem } from 'utils';
+import { BaseInner, Default, ThemeChangeTransition } from 'utils/style';
 
 interface HeaderProps {
   scrolled: boolean;
@@ -9,12 +10,9 @@ interface HeaderProps {
 
 export const Header = styled.header<HeaderProps>`
   width: 100%;
-  height: ${pxToRem(56)};
 
-  display: flex;
-  justify-content: center;
-
-  transition: all 0.2s ease-in-out;
+  transition: top 0.2s ease-in-out;
+  ${ThemeChangeTransition}
 
   position: sticky;
   top: ${({ visibility }): number | string => {
@@ -29,13 +27,12 @@ export const Header = styled.header<HeaderProps>`
 `;
 
 export const Inner = styled.div`
-  max-width: ${pxToRem(1392)};
-  width: 100%;
+  ${BaseInner}
+
+  height: ${pxToRem(56)};
 
   display: flex;
   justify-content: space-between;
-
-  margin: 0 ${pxToRem(24)};
 `;
 
 export const ContentWrapper = styled.div`
@@ -47,7 +44,7 @@ export const Title = styled(Link)`
   font-family: 'Ubuntu';
   font-weight: bold;
   font-size: ${pxToRem(28)};
-  color: ${({ theme }): string => theme.main};
+  color: ${Default.main};
 
   text-decoration: none;
   box-shadow: none;

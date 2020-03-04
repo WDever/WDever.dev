@@ -1,19 +1,13 @@
 import React, { ReactElement, useEffect, useState, useRef } from 'react';
 import { useWindowScroll } from 'react-use';
 import ThemeSwitchComponent from 'components/themeSwitch';
-import { Header, Inner, Title, ContentWrapper, Links } from './header.style';
+import { Header, Title, ContentWrapper, Links, Inner } from './header.style';
 
-interface HeaderProps {
+interface Props {
   title: string;
-  checked: boolean;
-  setChecked: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export default function HeaderComponent({
-  title,
-  checked,
-  setChecked,
-}: HeaderProps): ReactElement {
+export default function HeaderComponent({ title }: Props): ReactElement {
   const visibility = useRef<boolean>(false);
   const setVisibility = (bool: boolean): void => {
     visibility.current = bool;
@@ -23,9 +17,10 @@ export default function HeaderComponent({
   const { y } = useWindowScroll();
 
   useEffect(() => {
+    const pageBottom = document.body.scrollHeight - window.innerHeight;
     setMemoedY(y);
 
-    if (y < memoedY || y === window.innerHeight) {
+    if (y < memoedY || y === pageBottom) {
       setVisibility(true);
     } else {
       setVisibility(false);
@@ -39,7 +34,7 @@ export default function HeaderComponent({
         <ContentWrapper>
           <Links to='/about'>About</Links>
           <Links to='/life'>Life</Links>
-          <ThemeSwitchComponent checked={checked} setChecked={setChecked} />
+          <ThemeSwitchComponent />
         </ContentWrapper>
       </Inner>
     </Header>

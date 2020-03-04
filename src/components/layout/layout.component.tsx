@@ -3,6 +3,7 @@ import { ThemeProvider } from 'styled-components';
 import { Light, Dark } from 'utils/style';
 import TagBarComponent from 'components/tagBar/tagBar.component';
 import FooterComponent from 'components/footer';
+import { useLocalStorage } from 'utils/hooks';
 import HeaderComponent from '../header';
 import { GlobalStyle, Wrapper } from './layout.style';
 
@@ -17,7 +18,7 @@ export default function Layout({
   title,
   children,
 }: Props): ReactElement {
-  const [isDark, setIsDark] = useState<boolean>(false);
+  const [isDark] = useLocalStorage<boolean>('theme');
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
   const rootPath: string = `/`;
@@ -33,7 +34,7 @@ export default function Layout({
     <ThemeProvider theme={isDark ? Dark : Light}>
       <Wrapper>
         <GlobalStyle />
-        <HeaderComponent title={title} isDark={isDark} setIsDark={setIsDark} />
+        <HeaderComponent title={title} />
         {tagBar}
         {children}
         <FooterComponent />

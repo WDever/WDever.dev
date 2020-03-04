@@ -1,17 +1,11 @@
 import React, { ReactElement } from 'react';
 import Switch from 'react-switch';
 import { Light, Dark, Default } from 'utils/style';
+import { useLocalStorage } from 'utils/hooks';
 import { SwitchIcon, Label } from './themeSwitch.style';
 
-interface Props {
-  isDark: boolean;
-  setIsDark: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-export default function ThemeSwitchComponent({
-  isDark,
-  setIsDark,
-}: Props): ReactElement {
+export default function ThemeSwitchComponent(): ReactElement {
+  const [isDark, setIsDark] = useLocalStorage<boolean>('theme');
   const handleChange = (isDark: boolean): void => {
     setIsDark(isDark);
   };
