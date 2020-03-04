@@ -1,19 +1,8 @@
 import styled, { createGlobalStyle } from 'styled-components';
-import { rhythm, styledScale } from '../../utils/typography';
+import { ThemeChangeTransition } from 'utils/style';
+import { styledScale } from '../../utils/typography';
 
 export const GlobalStyle = createGlobalStyle`
-  /* @font-face {
-    font-family: 'Ubuntu';
-    font-weight: normal;
-    src: local('Ubuntu'), url('../../lib/fonts/Ubuntu-Regular.ttf') format('truetype');
-  }
-
-  @font-face {
-    font-family: 'Ubuntu';
-    font-weight: bold;
-    src: local('Ubuntu'), url('../../lib/fonts/Ubuntu-Bold.ttf') format('truetype');
-  }
- */
   @font-face {
       font-family: 'Ubuntu';
       src: local('Ubuntu Bold'), local('Ubuntu-Bold'),
@@ -53,10 +42,39 @@ export const GlobalStyle = createGlobalStyle`
       font-weight: normal;
       font-style: normal;
   }
+
+  @font-face {
+      font-family: 'SpoqaHanSans';
+      src: local('../../lib/fonts/SpoqaHanSans Regular'), local('Spoqa-Han-Sans-Regular'),
+          url('../../lib/fonts/SpoqaHanSansRegular.woff2') format('woff2'),
+          url('../../lib/fonts/SpoqaHanSansRegular.woff') format('woff'),
+          url('../../lib/fonts/SpoqaHanSansRegular.ttf') format('ttf');
+      font-weight: normal;
+      font-style: normal;
+  }
+
+  @font-face {
+      font-family: 'SpoqaHanSans';
+      src: local('../../lib/fonts/SpoqaHanSansBold'), local('Spoqa-Han-Sans-Bold'),
+          url('../../lib/fonts/SpoqaHanSansBold.woff2') format('woff2'),
+          url('../../lib/fonts/SpoqaHanSansBold.woff') format('woff'),
+          url('../../lib/fonts/SpoqaHanSansBold.ttf') format('ttf');
+      font-weight: bold;
+      font-style: normal;
+  }
+
+  body {
+    background-color: ${({ theme }): string => theme.bg};
+    ${ThemeChangeTransition}
+  }
 `;
 
 export const Wrapper = styled.div`
   width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const H1 = styled.h1`

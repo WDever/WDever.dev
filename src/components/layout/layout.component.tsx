@@ -1,17 +1,12 @@
-import React, {
-  ReactNode,
-  ReactElement,
-  useState,
-  useRef,
-  RefObject,
-} from 'react';
+import React, { ReactNode, ReactElement, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
-import { Light, Dark } from 'lib/style';
-
+import { Light, Dark } from 'utils/style';
+import TagBarComponent from 'components/tagBar/tagBar.component';
+import FooterComponent from 'components/footer';
 import HeaderComponent from '../header';
-import { GlobalStyle } from './layout.style';
+import { GlobalStyle, Wrapper } from './layout.style';
 
-interface LayoutProps {
+interface Props {
   location: Location;
   title: string;
   children?: ReactNode;
@@ -21,69 +16,28 @@ export default function Layout({
   location,
   title,
   children,
-}: LayoutProps): ReactElement {
-  const [checked, setChecked] = useState<boolean>(false);
-  const scrollRef: RefObject<HTMLDivElement> = useRef(null);
+}: Props): ReactElement {
+  const [isDark, setIsDark] = useState<boolean>(false);
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
   const rootPath: string = `/`;
-  let header: ReactNode;
 
-  // if (location.pathname === rootPath) {
-  //   header = (
-  //     <h1
-  //       style={{
-  //         ...styledScale(1.5),
-  //         marginBottom: rhythm(1.5),
-  //         marginTop: 0,
-  //       }}
-  //     >
-  //       <Link
-  //         style={{
-  //           boxShadow: `none`,
-  //           textDecoration: `none`,
-  //           color: `inherit`,
-  //         }}
-  //         to='/'
-  //       >
-  //         {title}
-  //       </Link>
-  //     </h1>
-  //   );
-  // } else {
-  //   header = (
-  //     <h3
-  //       style={{
-  //         fontFamily: `Montserrat, sans-serif`,
-  //         marginTop: 0,
-  //       }}
-  //     >
-  //       <Link
-  //         style={{
-  //           boxShadow: `none`,
-  //           textDecoration: `none`,
-  //           color: `inherit`,
-  //         }}
-  //         to='/'
-  //       >
-  //         {title}
-  //       </Link>
-  //     </h3>
-  //   );
-  // }
+  const tagBar: ReactNode = location.pathname === rootPath && (
+    <TagBarComponent
+      selectedTags={selectedTags}
+      setSelectedTags={setSelectedTags}
+    />
+  );
+
   return (
-    <ThemeProvider theme={checked ? Dark : Light}>
-      <GlobalStyle />
-      <HeaderComponent
-        title={title}
-        checked={checked}
-        setChecked={setChecked}
-      />
-      <main>{children}</main>
-      <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href='https://www.gatsbyjs.org'>Gatsby</a>
-      </footer>
+    <ThemeProvider theme={isDark ? Dark : Light}>
+      <Wrapper>
+        <GlobalStyle />
+        <HeaderComponent title={title} isDark={isDark} setIsDark={setIsDark} />
+        {tagBar}
+        {children}
+        <FooterComponent />
+      </Wrapper>
     </ThemeProvider>
   );
 }
