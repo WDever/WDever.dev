@@ -1,23 +1,23 @@
-import React, { ReactElement, useState } from 'react';
+import React, { ReactElement } from 'react';
 import Switch from 'react-switch';
-import { Light, Dark } from 'lib/style';
+import { Light, Dark, Default } from 'utils/style';
 import { SwitchIcon, Label } from './themeSwitch.style';
 
-interface ThemeSwitchProps {
-  checked: boolean;
-  setChecked: React.Dispatch<React.SetStateAction<boolean>>;
+interface Props {
+  isDark: boolean;
+  setIsDark: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export default function ThemeSwitchComponent({
-  checked,
-  setChecked,
-}: ThemeSwitchProps): ReactElement {
-  const handleChange = (checked: boolean): void => {
-    setChecked(checked);
+  isDark,
+  setIsDark,
+}: Props): ReactElement {
+  const handleChange = (isDark: boolean): void => {
+    setIsDark(isDark);
   };
 
-  const icon = (checked: boolean): JSX.Element => (
-    <SwitchIcon checked={checked}>{checked ? 'D' : 'L'}</SwitchIcon>
+  const icon = (isDark: boolean): JSX.Element => (
+    <SwitchIcon isDark={isDark}>{isDark ? 'D' : 'L'}</SwitchIcon>
   );
 
   return (
@@ -25,14 +25,14 @@ export default function ThemeSwitchComponent({
       <Switch
         id='theme-switch'
         onChange={handleChange}
-        checked={checked}
+        checked={isDark}
         width={48}
         height={24}
-        checkedIcon={icon(checked)}
-        uncheckedIcon={icon(checked)}
-        offColor={Light.main}
+        checkedIcon={icon(isDark)}
+        uncheckedIcon={icon(isDark)}
+        offColor={Default.main}
         offHandleColor={Light.bg}
-        onColor={Dark.main}
+        onColor={Default.main}
         onHandleColor={Dark.bg}
       />
     </Label>

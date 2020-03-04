@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import { pxToRem } from 'utils';
 
-export const SwitchIcon = styled.div<{ checked: boolean }>`
+export const SwitchIcon = styled.div<{ isDark: boolean }>`
   font-size: ${pxToRem(16)};
   font-family: 'Ubuntu';
-  color: ${({ checked }): string =>
-    checked ? 'rgba(255, 255, 255, 0.87)' : '#ffffff'};
+  color: ${({ isDark }): string =>
+    isDark ? 'rgba(255, 255, 255, 0.87)' : '#ffffff'};
   text-align: center;
 
   width: 100%;
