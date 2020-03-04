@@ -3,10 +3,10 @@ import 'styled-components';
 interface Colors {
   bg: string;
   item: string;
-  main: string;
   mainFont: string;
   subFont: string;
   headerShadow: string;
+  postItemShadow: string;
 }
 
 declare module 'styled-components' {

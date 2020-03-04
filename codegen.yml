@@ -18,7 +18,7 @@ generates:
       - typescript-operations
     config:
       maybeValue: T
-      skipTypename: true
+      # skipTypename: true
       # preResolveTypes: true
       avoidOptionals:
         inputValue: true

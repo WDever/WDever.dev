@@ -29,6 +29,7 @@ export type DateQueryOperatorInput = {
 };
 
 export type Directory = Node & {
+  __typename?: 'Directory';
   sourceInstanceName: Scalars['String'];
   absolutePath: Scalars['String'];
   relativePath: Scalars['String'];
@@ -118,6 +119,7 @@ export type DirectoryCtimeArgs = {
 };
 
 export type DirectoryConnection = {
+  __typename?: 'DirectoryConnection';
   totalCount: Scalars['Int'];
   edges: Array<DirectoryEdge>;
   nodes: Array<Directory>;
@@ -137,6 +139,7 @@ export type DirectoryConnectionGroupArgs = {
 };
 
 export type DirectoryEdge = {
+  __typename?: 'DirectoryEdge';
   next: Maybe<Directory>;
   node: Directory;
   previous: Maybe<Directory>;
@@ -305,6 +308,7 @@ export type DirectoryFilterInput = {
 };
 
 export type DirectoryGroupConnection = {
+  __typename?: 'DirectoryGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<DirectoryEdge>;
   nodes: Array<Directory>;
@@ -325,6 +329,7 @@ export type DuotoneGradient = {
 };
 
 export type File = Node & {
+  __typename?: 'File';
   sourceInstanceName: Scalars['String'];
   absolutePath: Scalars['String'];
   relativePath: Scalars['String'];
@@ -417,6 +422,7 @@ export type FileCtimeArgs = {
 };
 
 export type FileConnection = {
+  __typename?: 'FileConnection';
   totalCount: Scalars['Int'];
   edges: Array<FileEdge>;
   nodes: Array<File>;
@@ -436,6 +442,7 @@ export type FileConnectionGroupArgs = {
 };
 
 export type FileEdge = {
+  __typename?: 'FileEdge';
   next: Maybe<File>;
   node: File;
   previous: Maybe<File>;
@@ -657,6 +664,7 @@ export enum FileFieldsEnum {
   ChildMarkdownRemarkFrontmatterTitle = 'childMarkdownRemark___frontmatter___title',
   ChildMarkdownRemarkFrontmatterDate = 'childMarkdownRemark___frontmatter___date',
   ChildMarkdownRemarkFrontmatterDescription = 'childMarkdownRemark___frontmatter___description',
+  ChildMarkdownRemarkFrontmatterTags = 'childMarkdownRemark___frontmatter___tags',
   ChildMarkdownRemarkExcerpt = 'childMarkdownRemark___excerpt',
   ChildMarkdownRemarkRawMarkdownBody = 'childMarkdownRemark___rawMarkdownBody',
   ChildMarkdownRemarkFileAbsolutePath = 'childMarkdownRemark___fileAbsolutePath',
@@ -755,6 +763,7 @@ export type FileFilterInput = {
 };
 
 export type FileGroupConnection = {
+  __typename?: 'FileGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<FileEdge>;
   nodes: Array<File>;
@@ -807,6 +816,7 @@ export enum ImageFormat {
 }
 
 export type ImageSharp = Node & {
+  __typename?: 'ImageSharp';
   fixed: Maybe<ImageSharpFixed>;
   resolutions: Maybe<ImageSharpResolutions>;
   fluid: Maybe<ImageSharpFluid>;
@@ -934,6 +944,7 @@ export type ImageSharpResizeArgs = {
 };
 
 export type ImageSharpConnection = {
+  __typename?: 'ImageSharpConnection';
   totalCount: Scalars['Int'];
   edges: Array<ImageSharpEdge>;
   nodes: Array<ImageSharp>;
@@ -953,6 +964,7 @@ export type ImageSharpConnectionGroupArgs = {
 };
 
 export type ImageSharpEdge = {
+  __typename?: 'ImageSharpEdge';
   next: Maybe<ImageSharp>;
   node: ImageSharp;
   previous: Maybe<ImageSharp>;
@@ -1114,6 +1126,7 @@ export type ImageSharpFilterInput = {
 };
 
 export type ImageSharpFixed = {
+  __typename?: 'ImageSharpFixed';
   base64: Maybe<Scalars['String']>;
   tracedSVG: Maybe<Scalars['String']>;
   aspectRatio: Maybe<Scalars['Float']>;
@@ -1140,6 +1153,7 @@ export type ImageSharpFixedFilterInput = {
 };
 
 export type ImageSharpFluid = {
+  __typename?: 'ImageSharpFluid';
   base64: Maybe<Scalars['String']>;
   tracedSVG: Maybe<Scalars['String']>;
   aspectRatio: Scalars['Float'];
@@ -1170,6 +1184,7 @@ export type ImageSharpFluidFilterInput = {
 };
 
 export type ImageSharpGroupConnection = {
+  __typename?: 'ImageSharpGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<ImageSharpEdge>;
   nodes: Array<ImageSharp>;
@@ -1179,6 +1194,7 @@ export type ImageSharpGroupConnection = {
 };
 
 export type ImageSharpOriginal = {
+  __typename?: 'ImageSharpOriginal';
   width: Maybe<Scalars['Float']>;
   height: Maybe<Scalars['Float']>;
   src: Maybe<Scalars['String']>;
@@ -1191,6 +1207,7 @@ export type ImageSharpOriginalFilterInput = {
 };
 
 export type ImageSharpResize = {
+  __typename?: 'ImageSharpResize';
   src: Maybe<Scalars['String']>;
   tracedSVG: Maybe<Scalars['String']>;
   width: Maybe<Scalars['Int']>;
@@ -1209,6 +1226,7 @@ export type ImageSharpResizeFilterInput = {
 };
 
 export type ImageSharpResolutions = {
+  __typename?: 'ImageSharpResolutions';
   base64: Maybe<Scalars['String']>;
   tracedSVG: Maybe<Scalars['String']>;
   aspectRatio: Maybe<Scalars['Float']>;
@@ -1235,6 +1253,7 @@ export type ImageSharpResolutionsFilterInput = {
 };
 
 export type ImageSharpSizes = {
+  __typename?: 'ImageSharpSizes';
   base64: Maybe<Scalars['String']>;
   tracedSVG: Maybe<Scalars['String']>;
   aspectRatio: Scalars['Float'];
@@ -1270,6 +1289,7 @@ export type ImageSharpSortInput = {
 };
 
 export type Internal = {
+  __typename?: 'Internal';
   content: Maybe<Scalars['String']>;
   contentDigest: Scalars['String'];
   description: Maybe<Scalars['String']>;
@@ -1318,6 +1338,7 @@ export enum MarkdownExcerptFormats {
 }
 
 export type MarkdownHeading = {
+  __typename?: 'MarkdownHeading';
   value: Maybe<Scalars['String']>;
   depth: Maybe<Scalars['Int']>;
 };
@@ -1341,6 +1362,7 @@ export enum MarkdownHeadingLevels {
 }
 
 export type MarkdownRemark = Node & {
+  __typename?: 'MarkdownRemark';
   id: Scalars['ID'];
   frontmatter: Maybe<MarkdownRemarkFrontmatter>;
   excerpt: Maybe<Scalars['String']>;
@@ -1382,6 +1404,7 @@ export type MarkdownRemarkTableOfContentsArgs = {
 };
 
 export type MarkdownRemarkConnection = {
+  __typename?: 'MarkdownRemarkConnection';
   totalCount: Scalars['Int'];
   edges: Array<MarkdownRemarkEdge>;
   nodes: Array<MarkdownRemark>;
@@ -1401,12 +1424,14 @@ export type MarkdownRemarkConnectionGroupArgs = {
 };
 
 export type MarkdownRemarkEdge = {
+  __typename?: 'MarkdownRemarkEdge';
   next: Maybe<MarkdownRemark>;
   node: MarkdownRemark;
   previous: Maybe<MarkdownRemark>;
 };
 
 export type MarkdownRemarkFields = {
+  __typename?: 'MarkdownRemarkFields';
   slug: Maybe<Scalars['String']>;
 };
 
@@ -1415,6 +1440,7 @@ export enum MarkdownRemarkFieldsEnum {
   FrontmatterTitle = 'frontmatter___title',
   FrontmatterDate = 'frontmatter___date',
   FrontmatterDescription = 'frontmatter___description',
+  FrontmatterTags = 'frontmatter___tags',
   Excerpt = 'excerpt',
   RawMarkdownBody = 'rawMarkdownBody',
   FileAbsolutePath = 'fileAbsolutePath',
@@ -1541,9 +1567,11 @@ export type MarkdownRemarkFilterInput = {
 };
 
 export type MarkdownRemarkFrontmatter = {
+  __typename?: 'MarkdownRemarkFrontmatter';
   title: Maybe<Scalars['String']>;
   date: Maybe<Scalars['Date']>;
   description: Maybe<Scalars['String']>;
+  tags: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 export type MarkdownRemarkFrontmatterDateArgs = {
@@ -1557,9 +1585,11 @@ export type MarkdownRemarkFrontmatterFilterInput = {
   title: Maybe<StringQueryOperatorInput>;
   date: Maybe<DateQueryOperatorInput>;
   description: Maybe<StringQueryOperatorInput>;
+  tags: Maybe<StringQueryOperatorInput>;
 };
 
 export type MarkdownRemarkGroupConnection = {
+  __typename?: 'MarkdownRemarkGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<MarkdownRemarkEdge>;
   nodes: Array<MarkdownRemark>;
@@ -1574,6 +1604,7 @@ export type MarkdownRemarkSortInput = {
 };
 
 export type MarkdownWordCount = {
+  __typename?: 'MarkdownWordCount';
   paragraphs: Maybe<Scalars['Int']>;
   sentences: Maybe<Scalars['Int']>;
   words: Maybe<Scalars['Int']>;
@@ -1604,6 +1635,7 @@ export type NodeFilterListInput = {
 };
 
 export type PageInfo = {
+  __typename?: 'PageInfo';
   currentPage: Scalars['Int'];
   hasPreviousPage: Scalars['Boolean'];
   hasNextPage: Scalars['Boolean'];
@@ -1634,6 +1666,7 @@ export enum PotraceTurnPolicy {
 }
 
 export type Query = {
+  __typename?: 'Query';
   file: Maybe<File>;
   allFile: FileConnection;
   directory: Maybe<Directory>;
@@ -1801,6 +1834,8 @@ export type QuerySiteArgs = {
   siteMetadata: Maybe<SiteSiteMetadataFilterInput>;
   port: Maybe<IntQueryOperatorInput>;
   host: Maybe<StringQueryOperatorInput>;
+  polyfill: Maybe<BooleanQueryOperatorInput>;
+  pathPrefix: Maybe<StringQueryOperatorInput>;
   buildTime: Maybe<DateQueryOperatorInput>;
 };
 
@@ -1839,8 +1874,8 @@ export type QuerySitePageArgs = {
   parent: Maybe<NodeFilterInput>;
   children: Maybe<NodeFilterListInput>;
   internal: Maybe<InternalFilterInput>;
-  internalComponentName: Maybe<StringQueryOperatorInput>;
   path: Maybe<StringQueryOperatorInput>;
+  internalComponentName: Maybe<StringQueryOperatorInput>;
   component: Maybe<StringQueryOperatorInput>;
   componentChunkName: Maybe<StringQueryOperatorInput>;
   isCreatedByStatefulCreatePages: Maybe<BooleanQueryOperatorInput>;
@@ -1858,6 +1893,7 @@ export type QueryAllSitePageArgs = {
 };
 
 export type Site = Node & {
+  __typename?: 'Site';
   id: Scalars['ID'];
   parent: Maybe<Node>;
   children: Array<Node>;
@@ -1865,6 +1901,8 @@ export type Site = Node & {
   siteMetadata: Maybe<SiteSiteMetadata>;
   port: Maybe<Scalars['Int']>;
   host: Maybe<Scalars['String']>;
+  polyfill: Maybe<Scalars['Boolean']>;
+  pathPrefix: Maybe<Scalars['String']>;
   buildTime: Maybe<Scalars['Date']>;
 };
 
@@ -1876,6 +1914,7 @@ export type SiteBuildTimeArgs = {
 };
 
 export type SiteConnection = {
+  __typename?: 'SiteConnection';
   totalCount: Scalars['Int'];
   edges: Array<SiteEdge>;
   nodes: Array<Site>;
@@ -1895,6 +1934,7 @@ export type SiteConnectionGroupArgs = {
 };
 
 export type SiteEdge = {
+  __typename?: 'SiteEdge';
   next: Maybe<Site>;
   node: Site;
   previous: Maybe<Site>;
@@ -1994,6 +2034,8 @@ export enum SiteFieldsEnum {
   SiteMetadataSocialInstagram = 'siteMetadata___social___instagram',
   Port = 'port',
   Host = 'host',
+  Polyfill = 'polyfill',
+  PathPrefix = 'pathPrefix',
   BuildTime = 'buildTime',
 }
 
@@ -2005,10 +2047,13 @@ export type SiteFilterInput = {
   siteMetadata: Maybe<SiteSiteMetadataFilterInput>;
   port: Maybe<IntQueryOperatorInput>;
   host: Maybe<StringQueryOperatorInput>;
+  polyfill: Maybe<BooleanQueryOperatorInput>;
+  pathPrefix: Maybe<StringQueryOperatorInput>;
   buildTime: Maybe<DateQueryOperatorInput>;
 };
 
 export type SiteGroupConnection = {
+  __typename?: 'SiteGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<SiteEdge>;
   nodes: Array<Site>;
@@ -2018,12 +2063,13 @@ export type SiteGroupConnection = {
 };
 
 export type SitePage = Node & {
+  __typename?: 'SitePage';
   id: Scalars['ID'];
   parent: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
-  internalComponentName: Maybe<Scalars['String']>;
   path: Maybe<Scalars['String']>;
+  internalComponentName: Maybe<Scalars['String']>;
   component: Maybe<Scalars['String']>;
   componentChunkName: Maybe<Scalars['String']>;
   isCreatedByStatefulCreatePages: Maybe<Scalars['Boolean']>;
@@ -2034,6 +2080,7 @@ export type SitePage = Node & {
 };
 
 export type SitePageConnection = {
+  __typename?: 'SitePageConnection';
   totalCount: Scalars['Int'];
   edges: Array<SitePageEdge>;
   nodes: Array<SitePage>;
@@ -2053,6 +2100,7 @@ export type SitePageConnectionGroupArgs = {
 };
 
 export type SitePageContext = {
+  __typename?: 'SitePageContext';
   slug: Maybe<Scalars['String']>;
   previous: Maybe<SitePageContextPrevious>;
   next: Maybe<SitePageContextNext>;
@@ -2065,11 +2113,13 @@ export type SitePageContextFilterInput = {
 };
 
 export type SitePageContextNext = {
+  __typename?: 'SitePageContextNext';
   fields: Maybe<SitePageContextNextFields>;
   frontmatter: Maybe<SitePageContextNextFrontmatter>;
 };
 
 export type SitePageContextNextFields = {
+  __typename?: 'SitePageContextNextFields';
   slug: Maybe<Scalars['String']>;
 };
 
@@ -2083,6 +2133,7 @@ export type SitePageContextNextFilterInput = {
 };
 
 export type SitePageContextNextFrontmatter = {
+  __typename?: 'SitePageContextNextFrontmatter';
   title: Maybe<Scalars['String']>;
 };
 
@@ -2091,11 +2142,13 @@ export type SitePageContextNextFrontmatterFilterInput = {
 };
 
 export type SitePageContextPrevious = {
+  __typename?: 'SitePageContextPrevious';
   fields: Maybe<SitePageContextPreviousFields>;
   frontmatter: Maybe<SitePageContextPreviousFrontmatter>;
 };
 
 export type SitePageContextPreviousFields = {
+  __typename?: 'SitePageContextPreviousFields';
   slug: Maybe<Scalars['String']>;
 };
 
@@ -2109,6 +2162,7 @@ export type SitePageContextPreviousFilterInput = {
 };
 
 export type SitePageContextPreviousFrontmatter = {
+  __typename?: 'SitePageContextPreviousFrontmatter';
   title: Maybe<Scalars['String']>;
 };
 
@@ -2117,6 +2171,7 @@ export type SitePageContextPreviousFrontmatterFilterInput = {
 };
 
 export type SitePageEdge = {
+  __typename?: 'SitePageEdge';
   next: Maybe<SitePage>;
   node: SitePage;
   previous: Maybe<SitePage>;
@@ -2209,8 +2264,8 @@ export enum SitePageFieldsEnum {
   InternalMediaType = 'internal___mediaType',
   InternalOwner = 'internal___owner',
   InternalType = 'internal___type',
-  InternalComponentName = 'internalComponentName',
   Path = 'path',
+  InternalComponentName = 'internalComponentName',
   Component = 'component',
   ComponentChunkName = 'componentChunkName',
   IsCreatedByStatefulCreatePages = 'isCreatedByStatefulCreatePages',
@@ -2270,7 +2325,18 @@ export enum SitePageFieldsEnum {
   PluginCreatorPluginOptionsPath = 'pluginCreator___pluginOptions___path',
   PluginCreatorPluginOptionsName = 'pluginCreator___pluginOptions___name',
   PluginCreatorPluginOptionsMaxWidth = 'pluginCreator___pluginOptions___maxWidth',
+  PluginCreatorPluginOptionsPathPrefix = 'pluginCreator___pluginOptions___pathPrefix',
   PluginCreatorPluginOptionsWrapperStyle = 'pluginCreator___pluginOptions___wrapperStyle',
+  PluginCreatorPluginOptionsBackgroundColor = 'pluginCreator___pluginOptions___backgroundColor',
+  PluginCreatorPluginOptionsLinkImagesToOriginal = 'pluginCreator___pluginOptions___linkImagesToOriginal',
+  PluginCreatorPluginOptionsShowCaptions = 'pluginCreator___pluginOptions___showCaptions',
+  PluginCreatorPluginOptionsMarkdownCaptions = 'pluginCreator___pluginOptions___markdownCaptions',
+  PluginCreatorPluginOptionsWithWebp = 'pluginCreator___pluginOptions___withWebp',
+  PluginCreatorPluginOptionsTracedSvg = 'pluginCreator___pluginOptions___tracedSVG',
+  PluginCreatorPluginOptionsLoading = 'pluginCreator___pluginOptions___loading',
+  PluginCreatorPluginOptionsDisableBgImageOnAlpha = 'pluginCreator___pluginOptions___disableBgImageOnAlpha',
+  PluginCreatorPluginOptionsDisableBgImage = 'pluginCreator___pluginOptions___disableBgImage',
+  PluginCreatorPluginOptionsIgnoreFileExtensions = 'pluginCreator___pluginOptions___ignoreFileExtensions',
   PluginCreatorPluginOptionsShortName = 'pluginCreator___pluginOptions___short_name',
   PluginCreatorPluginOptionsStartUrl = 'pluginCreator___pluginOptions___start_url',
   PluginCreatorPluginOptionsBackgroundColor = 'pluginCreator___pluginOptions___background_color',
@@ -2308,8 +2374,8 @@ export type SitePageFilterInput = {
   parent: Maybe<NodeFilterInput>;
   children: Maybe<NodeFilterListInput>;
   internal: Maybe<InternalFilterInput>;
-  internalComponentName: Maybe<StringQueryOperatorInput>;
   path: Maybe<StringQueryOperatorInput>;
+  internalComponentName: Maybe<StringQueryOperatorInput>;
   component: Maybe<StringQueryOperatorInput>;
   componentChunkName: Maybe<StringQueryOperatorInput>;
   isCreatedByStatefulCreatePages: Maybe<BooleanQueryOperatorInput>;
@@ -2320,6 +2386,7 @@ export type SitePageFilterInput = {
 };
 
 export type SitePageGroupConnection = {
+  __typename?: 'SitePageGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<SitePageEdge>;
   nodes: Array<SitePage>;
@@ -2334,6 +2401,7 @@ export type SitePageSortInput = {
 };
 
 export type SitePlugin = Node & {
+  __typename?: 'SitePlugin';
   id: Scalars['ID'];
   parent: Maybe<Node>;
   children: Array<Node>;
@@ -2350,6 +2418,7 @@ export type SitePlugin = Node & {
 };
 
 export type SitePluginConnection = {
+  __typename?: 'SitePluginConnection';
   totalCount: Scalars['Int'];
   edges: Array<SitePluginEdge>;
   nodes: Array<SitePlugin>;
@@ -2369,6 +2438,7 @@ export type SitePluginConnectionGroupArgs = {
 };
 
 export type SitePluginEdge = {
+  __typename?: 'SitePluginEdge';
   next: Maybe<SitePlugin>;
   node: SitePlugin;
   previous: Maybe<SitePlugin>;
@@ -2470,13 +2540,35 @@ export enum SitePluginFieldsEnum {
   PluginOptionsPluginsName = 'pluginOptions___plugins___name',
   PluginOptionsPluginsVersion = 'pluginOptions___plugins___version',
   PluginOptionsPluginsPluginOptionsMaxWidth = 'pluginOptions___plugins___pluginOptions___maxWidth',
+  PluginOptionsPluginsPluginOptionsPathPrefix = 'pluginOptions___plugins___pluginOptions___pathPrefix',
   PluginOptionsPluginsPluginOptionsWrapperStyle = 'pluginOptions___plugins___pluginOptions___wrapperStyle',
+  PluginOptionsPluginsPluginOptionsBackgroundColor = 'pluginOptions___plugins___pluginOptions___backgroundColor',
+  PluginOptionsPluginsPluginOptionsLinkImagesToOriginal = 'pluginOptions___plugins___pluginOptions___linkImagesToOriginal',
+  PluginOptionsPluginsPluginOptionsShowCaptions = 'pluginOptions___plugins___pluginOptions___showCaptions',
+  PluginOptionsPluginsPluginOptionsMarkdownCaptions = 'pluginOptions___plugins___pluginOptions___markdownCaptions',
+  PluginOptionsPluginsPluginOptionsWithWebp = 'pluginOptions___plugins___pluginOptions___withWebp',
+  PluginOptionsPluginsPluginOptionsTracedSvg = 'pluginOptions___plugins___pluginOptions___tracedSVG',
+  PluginOptionsPluginsPluginOptionsLoading = 'pluginOptions___plugins___pluginOptions___loading',
+  PluginOptionsPluginsPluginOptionsDisableBgImageOnAlpha = 'pluginOptions___plugins___pluginOptions___disableBgImageOnAlpha',
+  PluginOptionsPluginsPluginOptionsDisableBgImage = 'pluginOptions___plugins___pluginOptions___disableBgImage',
+  PluginOptionsPluginsPluginOptionsIgnoreFileExtensions = 'pluginOptions___plugins___pluginOptions___ignoreFileExtensions',
   PluginOptionsPluginsBrowserApIs = 'pluginOptions___plugins___browserAPIs',
   PluginOptionsPluginsPluginFilepath = 'pluginOptions___plugins___pluginFilepath',
   PluginOptionsPath = 'pluginOptions___path',
   PluginOptionsName = 'pluginOptions___name',
   PluginOptionsMaxWidth = 'pluginOptions___maxWidth',
+  PluginOptionsPathPrefix = 'pluginOptions___pathPrefix',
   PluginOptionsWrapperStyle = 'pluginOptions___wrapperStyle',
+  PluginOptionsBackgroundColor = 'pluginOptions___backgroundColor',
+  PluginOptionsLinkImagesToOriginal = 'pluginOptions___linkImagesToOriginal',
+  PluginOptionsShowCaptions = 'pluginOptions___showCaptions',
+  PluginOptionsMarkdownCaptions = 'pluginOptions___markdownCaptions',
+  PluginOptionsWithWebp = 'pluginOptions___withWebp',
+  PluginOptionsTracedSvg = 'pluginOptions___tracedSVG',
+  PluginOptionsLoading = 'pluginOptions___loading',
+  PluginOptionsDisableBgImageOnAlpha = 'pluginOptions___disableBgImageOnAlpha',
+  PluginOptionsDisableBgImage = 'pluginOptions___disableBgImage',
+  PluginOptionsIgnoreFileExtensions = 'pluginOptions___ignoreFileExtensions',
   PluginOptionsShortName = 'pluginOptions___short_name',
   PluginOptionsStartUrl = 'pluginOptions___start_url',
   PluginOptionsBackgroundColor = 'pluginOptions___background_color',
@@ -2524,6 +2616,7 @@ export type SitePluginFilterInput = {
 };
 
 export type SitePluginGroupConnection = {
+  __typename?: 'SitePluginGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<SitePluginEdge>;
   nodes: Array<SitePlugin>;
@@ -2533,6 +2626,7 @@ export type SitePluginGroupConnection = {
 };
 
 export type SitePluginPackageJson = {
+  __typename?: 'SitePluginPackageJson';
   name: Maybe<Scalars['String']>;
   description: Maybe<Scalars['String']>;
   version: Maybe<Scalars['String']>;
@@ -2546,6 +2640,7 @@ export type SitePluginPackageJson = {
 };
 
 export type SitePluginPackageJsonDependencies = {
+  __typename?: 'SitePluginPackageJsonDependencies';
   name: Maybe<Scalars['String']>;
   version: Maybe<Scalars['String']>;
 };
@@ -2560,6 +2655,7 @@ export type SitePluginPackageJsonDependenciesFilterListInput = {
 };
 
 export type SitePluginPackageJsonDevDependencies = {
+  __typename?: 'SitePluginPackageJsonDevDependencies';
   name: Maybe<Scalars['String']>;
   version: Maybe<Scalars['String']>;
 };
@@ -2587,6 +2683,7 @@ export type SitePluginPackageJsonFilterInput = {
 };
 
 export type SitePluginPackageJsonPeerDependencies = {
+  __typename?: 'SitePluginPackageJsonPeerDependencies';
   name: Maybe<Scalars['String']>;
   version: Maybe<Scalars['String']>;
 };
@@ -2601,11 +2698,23 @@ export type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 };
 
 export type SitePluginPluginOptions = {
+  __typename?: 'SitePluginPluginOptions';
   plugins: Maybe<Array<Maybe<SitePluginPluginOptionsPlugins>>>;
   path: Maybe<Scalars['String']>;
   name: Maybe<Scalars['String']>;
   maxWidth: Maybe<Scalars['Int']>;
+  pathPrefix: Maybe<Scalars['String']>;
   wrapperStyle: Maybe<Scalars['String']>;
+  backgroundColor: Maybe<Scalars['String']>;
+  linkImagesToOriginal: Maybe<Scalars['Boolean']>;
+  showCaptions: Maybe<Scalars['Boolean']>;
+  markdownCaptions: Maybe<Scalars['Boolean']>;
+  withWebp: Maybe<Scalars['Boolean']>;
+  tracedSVG: Maybe<Scalars['Boolean']>;
+  loading: Maybe<Scalars['String']>;
+  disableBgImageOnAlpha: Maybe<Scalars['Boolean']>;
+  disableBgImage: Maybe<Scalars['Boolean']>;
+  ignoreFileExtensions: Maybe<Array<Maybe<Scalars['String']>>>;
   short_name: Maybe<Scalars['String']>;
   start_url: Maybe<Scalars['String']>;
   background_color: Maybe<Scalars['String']>;
@@ -2621,7 +2730,18 @@ export type SitePluginPluginOptionsFilterInput = {
   path: Maybe<StringQueryOperatorInput>;
   name: Maybe<StringQueryOperatorInput>;
   maxWidth: Maybe<IntQueryOperatorInput>;
+  pathPrefix: Maybe<StringQueryOperatorInput>;
   wrapperStyle: Maybe<StringQueryOperatorInput>;
+  backgroundColor: Maybe<StringQueryOperatorInput>;
+  linkImagesToOriginal: Maybe<BooleanQueryOperatorInput>;
+  showCaptions: Maybe<BooleanQueryOperatorInput>;
+  markdownCaptions: Maybe<BooleanQueryOperatorInput>;
+  withWebp: Maybe<BooleanQueryOperatorInput>;
+  tracedSVG: Maybe<BooleanQueryOperatorInput>;
+  loading: Maybe<StringQueryOperatorInput>;
+  disableBgImageOnAlpha: Maybe<BooleanQueryOperatorInput>;
+  disableBgImage: Maybe<BooleanQueryOperatorInput>;
+  ignoreFileExtensions: Maybe<StringQueryOperatorInput>;
   short_name: Maybe<StringQueryOperatorInput>;
   start_url: Maybe<StringQueryOperatorInput>;
   background_color: Maybe<StringQueryOperatorInput>;
@@ -2633,6 +2753,7 @@ export type SitePluginPluginOptionsFilterInput = {
 };
 
 export type SitePluginPluginOptionsPlugins = {
+  __typename?: 'SitePluginPluginOptionsPlugins';
   resolve: Maybe<Scalars['String']>;
   id: Maybe<Scalars['String']>;
   name: Maybe<Scalars['String']>;
@@ -2657,13 +2778,36 @@ export type SitePluginPluginOptionsPluginsFilterListInput = {
 };
 
 export type SitePluginPluginOptionsPluginsPluginOptions = {
+  __typename?: 'SitePluginPluginOptionsPluginsPluginOptions';
   maxWidth: Maybe<Scalars['Int']>;
+  pathPrefix: Maybe<Scalars['String']>;
   wrapperStyle: Maybe<Scalars['String']>;
+  backgroundColor: Maybe<Scalars['String']>;
+  linkImagesToOriginal: Maybe<Scalars['Boolean']>;
+  showCaptions: Maybe<Scalars['Boolean']>;
+  markdownCaptions: Maybe<Scalars['Boolean']>;
+  withWebp: Maybe<Scalars['Boolean']>;
+  tracedSVG: Maybe<Scalars['Boolean']>;
+  loading: Maybe<Scalars['String']>;
+  disableBgImageOnAlpha: Maybe<Scalars['Boolean']>;
+  disableBgImage: Maybe<Scalars['Boolean']>;
+  ignoreFileExtensions: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 export type SitePluginPluginOptionsPluginsPluginOptionsFilterInput = {
   maxWidth: Maybe<IntQueryOperatorInput>;
+  pathPrefix: Maybe<StringQueryOperatorInput>;
   wrapperStyle: Maybe<StringQueryOperatorInput>;
+  backgroundColor: Maybe<StringQueryOperatorInput>;
+  linkImagesToOriginal: Maybe<BooleanQueryOperatorInput>;
+  showCaptions: Maybe<BooleanQueryOperatorInput>;
+  markdownCaptions: Maybe<BooleanQueryOperatorInput>;
+  withWebp: Maybe<BooleanQueryOperatorInput>;
+  tracedSVG: Maybe<BooleanQueryOperatorInput>;
+  loading: Maybe<StringQueryOperatorInput>;
+  disableBgImageOnAlpha: Maybe<BooleanQueryOperatorInput>;
+  disableBgImage: Maybe<BooleanQueryOperatorInput>;
+  ignoreFileExtensions: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePluginSortInput = {
@@ -2672,6 +2816,7 @@ export type SitePluginSortInput = {
 };
 
 export type SiteSiteMetadata = {
+  __typename?: 'SiteSiteMetadata';
   title: Maybe<Scalars['String']>;
   author: Maybe<Scalars['String']>;
   description: Maybe<Scalars['String']>;
@@ -2688,6 +2833,7 @@ export type SiteSiteMetadataFilterInput = {
 };
 
 export type SiteSiteMetadataSocial = {
+  __typename?: 'SiteSiteMetadataSocial';
   instagram: Maybe<Scalars['String']>;
 };
 
@@ -2714,47 +2860,56 @@ export type StringQueryOperatorInput = {
   glob: Maybe<Scalars['String']>;
 };
 
-export type GatsbyImageSharpFixedFragment = Pick<
-  ImageSharpFixed,
-  'base64' | 'width' | 'height' | 'src' | 'srcSet'
->;
+export type GatsbyImageSharpFixedFragment = {
+  __typename?: 'ImageSharpFixed';
+} & Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
-export type GatsbyImageSharpFixed_TracedSvgFragment = Pick<
-  ImageSharpFixed,
-  'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'
->;
+export type GatsbyImageSharpFixed_TracedSvgFragment = {
+  __typename?: 'ImageSharpFixed';
+} & Pick<ImageSharpFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
 
-export type GatsbyImageSharpFixed_WithWebpFragment = Pick<
+export type GatsbyImageSharpFixed_WithWebpFragment = {
+  __typename?: 'ImageSharpFixed';
+} & Pick<
   ImageSharpFixed,
   'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'
 >;
 
-export type GatsbyImageSharpFixed_WithWebp_TracedSvgFragment = Pick<
+export type GatsbyImageSharpFixed_WithWebp_TracedSvgFragment = {
+  __typename?: 'ImageSharpFixed';
+} & Pick<
   ImageSharpFixed,
   'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'
 >;
 
-export type GatsbyImageSharpFixed_NoBase64Fragment = Pick<
-  ImageSharpFixed,
-  'width' | 'height' | 'src' | 'srcSet'
->;
+export type GatsbyImageSharpFixed_NoBase64Fragment = {
+  __typename?: 'ImageSharpFixed';
+} & Pick<ImageSharpFixed, 'width' | 'height' | 'src' | 'srcSet'>;
 
-export type GatsbyImageSharpFixed_WithWebp_NoBase64Fragment = Pick<
+export type GatsbyImageSharpFixed_WithWebp_NoBase64Fragment = {
+  __typename?: 'ImageSharpFixed';
+} & Pick<
   ImageSharpFixed,
   'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'
 >;
 
-export type GatsbyImageSharpFluidFragment = Pick<
+export type GatsbyImageSharpFluidFragment = {
+  __typename?: 'ImageSharpFluid';
+} & Pick<
   ImageSharpFluid,
   'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'
 >;
 
-export type GatsbyImageSharpFluid_TracedSvgFragment = Pick<
+export type GatsbyImageSharpFluid_TracedSvgFragment = {
+  __typename?: 'ImageSharpFluid';
+} & Pick<
   ImageSharpFluid,
   'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'
 >;
 
-export type GatsbyImageSharpFluid_WithWebpFragment = Pick<
+export type GatsbyImageSharpFluid_WithWebpFragment = {
+  __typename?: 'ImageSharpFluid';
+} & Pick<
   ImageSharpFluid,
   | 'base64'
   | 'aspectRatio'
@@ -2765,7 +2920,9 @@ export type GatsbyImageSharpFluid_WithWebpFragment = Pick<
   | 'sizes'
 >;
 
-export type GatsbyImageSharpFluid_WithWebp_TracedSvgFragment = Pick<
+export type GatsbyImageSharpFluid_WithWebp_TracedSvgFragment = {
+  __typename?: 'ImageSharpFluid';
+} & Pick<
   ImageSharpFluid,
   | 'tracedSVG'
   | 'aspectRatio'
@@ -2776,57 +2933,73 @@ export type GatsbyImageSharpFluid_WithWebp_TracedSvgFragment = Pick<
   | 'sizes'
 >;
 
-export type GatsbyImageSharpFluid_NoBase64Fragment = Pick<
-  ImageSharpFluid,
-  'aspectRatio' | 'src' | 'srcSet' | 'sizes'
->;
+export type GatsbyImageSharpFluid_NoBase64Fragment = {
+  __typename?: 'ImageSharpFluid';
+} & Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
-export type GatsbyImageSharpFluid_WithWebp_NoBase64Fragment = Pick<
+export type GatsbyImageSharpFluid_WithWebp_NoBase64Fragment = {
+  __typename?: 'ImageSharpFluid';
+} & Pick<
   ImageSharpFluid,
   'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'
 >;
 
-export type GatsbyImageSharpResolutionsFragment = Pick<
+export type GatsbyImageSharpResolutionsFragment = {
+  __typename?: 'ImageSharpResolutions';
+} & Pick<
   ImageSharpResolutions,
   'base64' | 'width' | 'height' | 'src' | 'srcSet'
 >;
 
-export type GatsbyImageSharpResolutions_TracedSvgFragment = Pick<
+export type GatsbyImageSharpResolutions_TracedSvgFragment = {
+  __typename?: 'ImageSharpResolutions';
+} & Pick<
   ImageSharpResolutions,
   'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'
 >;
 
-export type GatsbyImageSharpResolutions_WithWebpFragment = Pick<
+export type GatsbyImageSharpResolutions_WithWebpFragment = {
+  __typename?: 'ImageSharpResolutions';
+} & Pick<
   ImageSharpResolutions,
   'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'
 >;
 
-export type GatsbyImageSharpResolutions_WithWebp_TracedSvgFragment = Pick<
+export type GatsbyImageSharpResolutions_WithWebp_TracedSvgFragment = {
+  __typename?: 'ImageSharpResolutions';
+} & Pick<
   ImageSharpResolutions,
   'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'
 >;
 
-export type GatsbyImageSharpResolutions_NoBase64Fragment = Pick<
-  ImageSharpResolutions,
-  'width' | 'height' | 'src' | 'srcSet'
->;
+export type GatsbyImageSharpResolutions_NoBase64Fragment = {
+  __typename?: 'ImageSharpResolutions';
+} & Pick<ImageSharpResolutions, 'width' | 'height' | 'src' | 'srcSet'>;
 
-export type GatsbyImageSharpResolutions_WithWebp_NoBase64Fragment = Pick<
+export type GatsbyImageSharpResolutions_WithWebp_NoBase64Fragment = {
+  __typename?: 'ImageSharpResolutions';
+} & Pick<
   ImageSharpResolutions,
   'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'
 >;
 
-export type GatsbyImageSharpSizesFragment = Pick<
+export type GatsbyImageSharpSizesFragment = {
+  __typename?: 'ImageSharpSizes';
+} & Pick<
   ImageSharpSizes,
   'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'
 >;
 
-export type GatsbyImageSharpSizes_TracedSvgFragment = Pick<
+export type GatsbyImageSharpSizes_TracedSvgFragment = {
+  __typename?: 'ImageSharpSizes';
+} & Pick<
   ImageSharpSizes,
   'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'
 >;
 
-export type GatsbyImageSharpSizes_WithWebpFragment = Pick<
+export type GatsbyImageSharpSizes_WithWebpFragment = {
+  __typename?: 'ImageSharpSizes';
+} & Pick<
   ImageSharpSizes,
   | 'base64'
   | 'aspectRatio'
@@ -2837,7 +3010,9 @@ export type GatsbyImageSharpSizes_WithWebpFragment = Pick<
   | 'sizes'
 >;
 
-export type GatsbyImageSharpSizes_WithWebp_TracedSvgFragment = Pick<
+export type GatsbyImageSharpSizes_WithWebp_TracedSvgFragment = {
+  __typename?: 'ImageSharpSizes';
+} & Pick<
   ImageSharpSizes,
   | 'tracedSVG'
   | 'aspectRatio'
@@ -2848,79 +3023,158 @@ export type GatsbyImageSharpSizes_WithWebp_TracedSvgFragment = Pick<
   | 'sizes'
 >;
 
-export type GatsbyImageSharpSizes_NoBase64Fragment = Pick<
-  ImageSharpSizes,
-  'aspectRatio' | 'src' | 'srcSet' | 'sizes'
->;
+export type GatsbyImageSharpSizes_NoBase64Fragment = {
+  __typename?: 'ImageSharpSizes';
+} & Pick<ImageSharpSizes, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
-export type GatsbyImageSharpSizes_WithWebp_NoBase64Fragment = Pick<
+export type GatsbyImageSharpSizes_WithWebp_NoBase64Fragment = {
+  __typename?: 'ImageSharpSizes';
+} & Pick<
   ImageSharpSizes,
   'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'
 >;
 
 export type PagesQueryQueryVariables = {};
 
-export type PagesQueryQuery = {
-  allSitePage: { nodes: Array<Pick<SitePage, 'path'>> };
+export type PagesQueryQuery = { __typename?: 'Query' } & {
+  allSitePage: { __typename?: 'SitePageConnection' } & {
+    nodes: Array<{ __typename?: 'SitePage' } & Pick<SitePage, 'path'>>;
+  };
 };
 
 export type BioQueryQueryVariables = {};
 
-export type BioQueryQuery = {
-  avatar: Maybe<{
-    childImageSharp: Maybe<{ fixed: Maybe<GatsbyImageSharpFixedFragment> }>;
-  }>;
-  site: Maybe<{
-    siteMetadata: Maybe<
-      Pick<SiteSiteMetadata, 'author'> & {
-        social: Maybe<Pick<SiteSiteMetadataSocial, 'instagram'>>;
-      }
-    >;
-  }>;
+export type BioQueryQuery = { __typename?: 'Query' } & {
+  avatar: Maybe<
+    { __typename?: 'File' } & {
+      childImageSharp: Maybe<
+        { __typename?: 'ImageSharp' } & {
+          fixed: Maybe<
+            { __typename?: 'ImageSharpFixed' } & GatsbyImageSharpFixedFragment
+          >;
+        }
+      >;
+    }
+  >;
+  site: Maybe<
+    { __typename?: 'Site' } & {
+      siteMetadata: Maybe<
+        { __typename?: 'SiteSiteMetadata' } & Pick<
+          SiteSiteMetadata,
+          'author'
+        > & {
+            social: Maybe<
+              { __typename?: 'SiteSiteMetadataSocial' } & Pick<
+                SiteSiteMetadataSocial,
+                'instagram'
+              >
+            >;
+          }
+      >;
+    }
+  >;
 };
 
 export type SeoQueryQueryVariables = {};
 
-export type SeoQueryQuery = {
-  site: Maybe<{
-    siteMetadata: Maybe<
-      Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>
-    >;
-  }>;
+export type SeoQueryQuery = { __typename?: 'Query' } & {
+  site: Maybe<
+    { __typename?: 'Site' } & {
+      siteMetadata: Maybe<
+        { __typename?: 'SiteSiteMetadata' } & Pick<
+          SiteSiteMetadata,
+          'title' | 'description' | 'author'
+        >
+      >;
+    }
+  >;
+};
+
+export type TagBarQueryQueryVariables = {};
+
+export type TagBarQueryQuery = { __typename?: 'Query' } & {
+  allMarkdownRemark: { __typename?: 'MarkdownRemarkConnection' } & Pick<
+    MarkdownRemarkConnection,
+    'totalCount'
+  > & {
+      group: Array<
+        { __typename?: 'MarkdownRemarkGroupConnection' } & Pick<
+          MarkdownRemarkGroupConnection,
+          'totalCount'
+        > & { tag: MarkdownRemarkGroupConnection['fieldValue'] }
+      >;
+    };
 };
 
 export type ResultRemarkQueryQueryVariables = {};
 
-export type ResultRemarkQueryQuery = {
-  allMarkdownRemark: {
-    edges: Array<{
-      node: {
-        fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>;
-        frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'title'>>;
-      };
-    }>;
+export type ResultRemarkQueryQuery = { __typename?: 'Query' } & {
+  allMarkdownRemark: { __typename?: 'MarkdownRemarkConnection' } & {
+    edges: Array<
+      { __typename?: 'MarkdownRemarkEdge' } & {
+        node: { __typename?: 'MarkdownRemark' } & {
+          fields: Maybe<
+            { __typename?: 'MarkdownRemarkFields' } & Pick<
+              MarkdownRemarkFields,
+              'slug'
+            >
+          >;
+          frontmatter: Maybe<
+            { __typename?: 'MarkdownRemarkFrontmatter' } & Pick<
+              MarkdownRemarkFrontmatter,
+              'title'
+            >
+          >;
+        };
+      }
+    >;
   };
 };
 
 export type NotFoundPageQueryQueryVariables = {};
 
-export type NotFoundPageQueryQuery = {
-  site: Maybe<{ siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>;
+export type NotFoundPageQueryQuery = { __typename?: 'Query' } & {
+  site: Maybe<
+    { __typename?: 'Site' } & {
+      siteMetadata: Maybe<
+        { __typename?: 'SiteSiteMetadata' } & Pick<SiteSiteMetadata, 'title'>
+      >;
+    }
+  >;
 };
 
 export type BlogIndexQueryQueryVariables = {};
 
-export type BlogIndexQueryQuery = {
-  site: Maybe<{ siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>;
-  allMarkdownRemark: {
-    edges: Array<{
-      node: Pick<MarkdownRemark, 'excerpt'> & {
-        fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>;
-        frontmatter: Maybe<
-          Pick<MarkdownRemarkFrontmatter, 'date' | 'title' | 'description'>
-        >;
-      };
-    }>;
+export type BlogIndexQueryQuery = { __typename?: 'Query' } & {
+  site: Maybe<
+    { __typename?: 'Site' } & {
+      siteMetadata: Maybe<
+        { __typename?: 'SiteSiteMetadata' } & Pick<SiteSiteMetadata, 'title'>
+      >;
+    }
+  >;
+  allMarkdownRemark: { __typename?: 'MarkdownRemarkConnection' } & {
+    edges: Array<
+      { __typename?: 'MarkdownRemarkEdge' } & {
+        node: { __typename?: 'MarkdownRemark' } & Pick<
+          MarkdownRemark,
+          'excerpt'
+        > & {
+            fields: Maybe<
+              { __typename?: 'MarkdownRemarkFields' } & Pick<
+                MarkdownRemarkFields,
+                'slug'
+              >
+            >;
+            frontmatter: Maybe<
+              { __typename?: 'MarkdownRemarkFrontmatter' } & Pick<
+                MarkdownRemarkFrontmatter,
+                'date' | 'title' | 'description' | 'tags'
+              >
+            >;
+          };
+      }
+    >;
   };
 };
 
@@ -2928,13 +3182,25 @@ export type BlogPostBySlugQueryVariables = {
   slug: Scalars['String'];
 };
 
-export type BlogPostBySlugQuery = {
-  site: Maybe<{ siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>;
-  markdownRemark: Maybe<
-    Pick<MarkdownRemark, 'id' | 'excerpt' | 'html'> & {
-      frontmatter: Maybe<
-        Pick<MarkdownRemarkFrontmatter, 'title' | 'date' | 'description'>
+export type BlogPostBySlugQuery = { __typename?: 'Query' } & {
+  site: Maybe<
+    { __typename?: 'Site' } & {
+      siteMetadata: Maybe<
+        { __typename?: 'SiteSiteMetadata' } & Pick<SiteSiteMetadata, 'title'>
       >;
     }
+  >;
+  markdownRemark: Maybe<
+    { __typename?: 'MarkdownRemark' } & Pick<
+      MarkdownRemark,
+      'id' | 'excerpt' | 'html'
+    > & {
+        frontmatter: Maybe<
+          { __typename?: 'MarkdownRemarkFrontmatter' } & Pick<
+            MarkdownRemarkFrontmatter,
+            'title' | 'date' | 'description'
+          >
+        >;
+      }
   >;
 };
