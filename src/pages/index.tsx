@@ -1,7 +1,8 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useState } from 'react';
 import { graphql } from 'gatsby';
 
 import HomeTemplate from 'templates/home';
+import TagBarComponent from 'components/tag-bar';
 import Layout from '../components/layout/layout.component';
 import SEO from '../components/seo';
 import { BlogIndexQueryQuery } from '../types/graphqlTypes';
@@ -12,15 +13,21 @@ interface Props {
 }
 
 export default function BlogIndex({ data, location }: Props): ReactElement {
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+
   const siteTitle: BlogIndexQueryQuery['site']['siteMetadata']['title'] =
     data.site.siteMetadata.title;
   const posts: BlogIndexQueryQuery['allMarkdownRemark']['edges'] =
     data.allMarkdownRemark.edges;
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout location={location} title={siteTitle} selectedTags={selectedTags}>
       <SEO title='All posts' />
-      <HomeTemplate posts={posts} />
+      <TagBarComponent
+        selectedTags={selectedTags}
+        setSelectedTags={setSelectedTags}
+      />
+      <HomeTemplate posts={posts} selectedTags={selectedTags} />
     </Layout>
   );
 }

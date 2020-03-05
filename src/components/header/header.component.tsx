@@ -1,6 +1,6 @@
 import React, { ReactElement, useEffect, useState, useRef } from 'react';
 import { useWindowScroll } from 'react-use';
-import ThemeSwitchComponent from 'components/themeSwitch';
+import ThemeSwitchComponent from 'components/theme-switch';
 import { Header, Title, ContentWrapper, Links, Inner } from './header.style';
 
 interface Props {
