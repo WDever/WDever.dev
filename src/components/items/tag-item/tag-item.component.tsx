@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { Wrapper } from './tagItem.style';
+import { Wrapper } from './tag-item.style';
 
 interface Props {
   tag: string;

@@ -1,8 +1,8 @@
 import React, { ReactElement } from 'react';
-import TagItemComponent from 'components/items/tagItem';
+import TagItemComponent from 'components/items/tag-item';
 import { useStaticQuery, graphql } from 'gatsby';
 import { TagBarQueryQuery } from 'types';
-import { Wrapper, Inner } from './tagBar.style';
+import { Wrapper, Inner } from './tag-bar.style';
 
 interface Props {
   selectedTags: string[];

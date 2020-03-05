@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { Wrapper } from './postTagItem.style';
+import { Wrapper } from './post-tag-item.style';
 
 interface Props {
   tag: string;

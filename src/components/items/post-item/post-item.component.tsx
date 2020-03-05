@@ -10,8 +10,8 @@ import {
   Excerpt,
   TagList,
   StyledLink,
-} from './postItem.style';
-import PostTagItemComponent from '../postTagItem';
+} from './post-item.style';
+import PostTagItemComponent from '../post-tag-item';
 
 interface Props {
   img: string;
