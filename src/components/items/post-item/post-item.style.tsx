@@ -15,7 +15,7 @@ export const Wrapper = styled.article`
 
   border-radius: ${pxToRem(8)};
 
-  margin-bottom: ${pxToRem(56)};
+  /* margin-bottom: ${pxToRem(56)}; */
 
   transition: box-shadow 0.3s;
 
@@ -93,4 +93,9 @@ export const StyledLink = styled(Link)<{ isTitle: boolean }>`
   box-shadow: none;
   color: ${({ theme, isTitle }): string =>
     isTitle ? theme.mainFont : theme.subFont};
+`;
+
+export const ImgLink = styled(Link)`
+  height: ${pxToRem(204)};
+  box-shadow: none;
 `;

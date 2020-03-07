@@ -10,6 +10,7 @@ import {
   Excerpt,
   TagList,
   StyledLink,
+  ImgLink,
 } from './post-item.style';
 import PostTagItemComponent from '../post-tag-item';
 
@@ -36,9 +37,9 @@ export default function PostItemComponent({
 
   return (
     <Wrapper>
-      <StyledLink to={slug} isTitle>
+      <ImgLink to={slug}>
         <Img src={img} alt='post' />
-      </StyledLink>
+      </ImgLink>
       <PostInfoWrapper>
         <PostInfo>
           <TagList>{tagList}</TagList>

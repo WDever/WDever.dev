@@ -17,7 +17,8 @@ export const Inner = styled.ul`
   align-items: center;
   flex-flow: row wrap;
 
-  padding: ${pxToRem(32)} ${pxToRem(24)} ${pxToRem(16)} ${pxToRem(24)};
+  padding-top: ${pxToRem(32)};
+  padding-bottom: ${pxToRem(16)};
 
   list-style: none;
 `;

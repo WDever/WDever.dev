@@ -9,7 +9,7 @@ export const BaseInner = css`
   max-width: ${pxToRem(1440)};
   width: 100%;
 
-  padding: 0 ${pxToRem(24)};
+  padding: 0 ${pxToRem(32)};
   margin: auto;
 `;
 
