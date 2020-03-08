@@ -11,8 +11,8 @@ interface HeaderProps {
 export const Header = styled.header<HeaderProps>`
   width: 100%;
 
-  transition: top 0.2s ease-in-out;
-  ${ThemeChangeTransition}
+  transition: top 0.2s ease-in-out, background-color 0.25s, color 0.25s;
+  /* ${ThemeChangeTransition} */
 
   position: sticky;
   top: ${({ visibility }): number | string => {
@@ -40,11 +40,20 @@ export const ContentWrapper = styled.div`
   align-items: center;
 `;
 
+export const InfoWrapper = styled.div`
+  max-width: ${`calc(100% - ${pxToRem(48 + 124 + 32)})`};
+
+  display: flex;
+  align-items: center;
+`;
+
 export const Title = styled(Link)`
   font-family: 'Ubuntu';
   font-weight: bold;
   font-size: ${pxToRem(28)};
   color: ${Default.main};
+
+  margin-right: ${pxToRem(32)};
 
   text-decoration: none;
   box-shadow: none;

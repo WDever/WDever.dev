@@ -22,7 +22,7 @@ export default function BlogIndex({ data, location }: Props): ReactElement {
 
   return (
     <Layout location={location} title={siteTitle} selectedTags={selectedTags}>
-      <SEO title='All posts' />
+      <SEO title='Home' />
       <TagBarComponent
         selectedTags={selectedTags}
         setSelectedTags={setSelectedTags}
