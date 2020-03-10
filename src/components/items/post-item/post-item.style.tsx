@@ -11,7 +11,7 @@ export const Wrapper = styled.article`
   flex-direction: column;
 
   background-color: ${({ theme }): string => theme.item};
-  box-shadow: ${({ theme }): string => theme.postItemShadow};
+  box-shadow: ${({ theme }): string => theme.itemShadow};
 
   border-radius: ${pxToRem(8)};
 

@@ -6,7 +6,7 @@ interface Colors {
   mainFont: string;
   subFont: string;
   headerShadow: string;
-  postItemShadow: string;
+  itemShadow: string;
 }
 
 declare module 'styled-components' {
