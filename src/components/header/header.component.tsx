@@ -16,6 +16,8 @@ interface Props {
   isDark: boolean;
   setIsDark: React.Dispatch<React.SetStateAction<boolean>>;
   selectedTags: string[];
+  copyToClipboard: (text: string) => Promise<void>;
+  location: Location;
 }
 
 export default function HeaderComponent({
@@ -23,6 +25,8 @@ export default function HeaderComponent({
   isDark,
   setIsDark,
   selectedTags,
+  copyToClipboard,
+  location,
 }: Props): ReactElement {
   const visibility = useRef<boolean>(false);
   const setVisibility = (bool: boolean): void => {
@@ -31,6 +35,12 @@ export default function HeaderComponent({
 
   const [memoedY, setMemoedY] = useState<number>(0);
   const { y } = useWindowScroll();
+
+  const copy = (): void => {
+    const { href } = location;
+
+    copyToClipboard(href);
+  };
 
   const tagNotifierClick = (): void => {
     window.scrollTo(0, 0);
@@ -70,8 +80,10 @@ export default function HeaderComponent({
           {tagNotifier}
         </InfoWrapper>
         <ContentWrapper>
+          <button type='button' onClick={copy}>
+            Share
+          </button>
           <Links to='/about'>About</Links>
-          {/* <Links to='/life'>Life</Links> */}
           <ThemeSwitchComponent isDark={isDark} setIsDark={setIsDark} />
         </ContentWrapper>
       </Inner>

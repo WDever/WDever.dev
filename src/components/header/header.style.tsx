@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Link } from 'gatsby';
 import { pxToRem } from 'utils';
-import { BaseInner, Default, ThemeChangeTransition } from 'utils/style';
+import { BaseInner, Default } from 'utils/style';
 
 interface HeaderProps {
   scrolled: boolean;
@@ -12,7 +12,6 @@ export const Header = styled.header<HeaderProps>`
   width: 100%;
 
   transition: top 0.2s ease-in-out, background-color 0.25s, color 0.25s;
-  /* ${ThemeChangeTransition} */
 
   position: sticky;
   top: ${({ visibility }): number | string => {
@@ -35,9 +34,30 @@ export const Inner = styled.div`
   justify-content: space-between;
 `;
 
+const ContentStyle = css`
+  font-family: 'Gothic A1';
+  color: ${({ theme }): string => theme.mainFont};
+
+  text-decoration: none;
+  box-shadow: none;
+
+  margin-right: ${pxToRem(32)};
+`;
+
 export const ContentWrapper = styled.div`
   display: flex;
   align-items: center;
+
+  button {
+    ${ContentStyle}
+
+    outline: none;
+    border: none;
+
+    background-color: transparent;
+
+    cursor: pointer;
+  }
 `;
 
 export const InfoWrapper = styled.div`
@@ -60,11 +80,5 @@ export const Title = styled(Link)`
 `;
 
 export const Links = styled(Link)`
-  font-family: 'Gothic A1';
-  color: ${({ theme }): string => theme.mainFont};
-
-  text-decoration: none;
-  box-shadow: none;
-
-  margin-right: 2rem;
+  ${ContentStyle}
 `;

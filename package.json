@@ -48,7 +48,7 @@
     "@graphql-codegen/typescript": "^1.12.2",
     "@graphql-codegen/typescript-operations": "^1.12.2",
     "@types/react-helmet": "^5.0.15",
-    "@types/styled-components": "^4.4.3",
+    "@types/styled-components": "^5.0.1",
     "@types/typography": "^0.16.3",
     "@typescript-eslint/eslint-plugin": "^2.20.0",
     "@typescript-eslint/parser": "^2.20.0",
