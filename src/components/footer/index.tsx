@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { Wrapper } from './footer.style';
+import { Wrapper } from './style';
 
 export default function FooterComponent(): ReactElement {
   return (

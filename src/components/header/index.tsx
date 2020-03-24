@@ -9,7 +9,7 @@ import {
   Links,
   Inner,
   InfoWrapper,
-} from './header.style';
+} from './style';
 
 interface Props {
   title: string;

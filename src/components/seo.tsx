@@ -10,7 +10,7 @@ import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 import { SeoQueryQuery } from '../types/graphqlTypes';
 
-interface SEOProps {
+interface Props {
   description?: string;
   lang?: string;
   meta?: [];
@@ -22,7 +22,7 @@ export default function SEO({
   lang = 'en',
   meta = [],
   title,
-}: SEOProps): ReactElement {
+}: Props): ReactElement {
   const data: SeoQueryQuery = useStaticQuery<SeoQueryQuery>(
     graphql`
       query SeoQuery {
@@ -82,13 +82,6 @@ export default function SEO({
           content: metaDescription,
         },
       ].concat(meta)}
-      // link={[
-      //   {
-      //     href: `https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap`,
-      //     rel: `stylesheet`,
-      //   },
-      //   {href: ``}
-      // ]}
     />
   );
 }

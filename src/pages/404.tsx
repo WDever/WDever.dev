@@ -1,19 +1,16 @@
 import React, { ReactElement } from 'react';
 import { graphql } from 'gatsby';
 
-import Layout from '../components/layout/layout.component';
+import Layout from '../components/layout';
 import SEO from '../components/seo';
 import { NotFoundPageQueryQuery } from '../types/graphqlTypes';
 
-interface NotFoundPageProps {
+interface Props {
   data: NotFoundPageQueryQuery;
   location: Location;
 }
 
-export default function NotFoundPage({
-  data,
-  location,
-}: NotFoundPageProps): ReactElement {
+export default function NotFoundPage({ data, location }: Props): ReactElement {
   const siteTitle: NotFoundPageQueryQuery['site']['siteMetadata']['title'] =
     data.site.siteMetadata.title;
 

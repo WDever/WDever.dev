@@ -1,36 +1,22 @@
 import React, { ReactElement } from 'react';
 import { Link, graphql } from 'gatsby';
 
-import { BlogPostBySlugQuery } from 'types/graphqlTypes';
+import {
+  BlogPostBySlugQuery,
+  ResultRemarkQueryQuery,
+} from 'types/graphqlTypes';
 import Bio from '../components/bio';
-import Layout from '../components/layout/layout.component';
+import Layout from '../components/layout';
 import SEO from '../components/seo';
 import { rhythm, scale } from '../utils/typography';
 
-interface PageData {
-  fields: {
-    slug: string;
-  };
-  frontmatter: {
-    title: string;
-  };
-}
-
-interface BlogPostTemplateProps {
+interface Props {
   data: BlogPostBySlugQuery;
-  // data: {
-  //   markdownRemark: any;
-  //   site: {
-  //     siteMetadata: {
-  //       title: string;
-  //     };
-  //   };
-  // };
   pageContext: {
     isCreatedByStatefulCreatePages: boolean;
     slug: string;
-    previous: PageData;
-    next: PageData;
+    previous: ResultRemarkQueryQuery['allMarkdownRemark']['edges'][number]['node'];
+    next: ResultRemarkQueryQuery['allMarkdownRemark']['edges'][number]['node'];
   };
   location: Location;
 }
@@ -39,13 +25,17 @@ export default function BlogPostTemplate({
   data,
   pageContext,
   location,
-}: BlogPostTemplateProps): ReactElement {
+}: Props): ReactElement {
   const post = data.markdownRemark;
   const siteTitle = data.site.siteMetadata.title;
   const { previous, next } = pageContext;
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout
+      location={location}
+      title={siteTitle}
+      selectedTags={post.frontmatter.tags}
+    >
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
@@ -205,6 +195,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        tags
       }
     }
   }

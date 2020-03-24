@@ -5,7 +5,7 @@ import FooterComponent from 'components/footer';
 import { useLocalStorage, useCopyToClipboard } from 'utils/hooks';
 import ToastComponent from 'components/toast';
 import HeaderComponent from '../header';
-import { GlobalStyle, Wrapper } from './layout.style';
+import { GlobalStyle, Wrapper } from './style';
 
 interface Props {
   location: Location;

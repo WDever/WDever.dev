@@ -11,7 +11,7 @@ import {
   TagList,
   StyledLink,
   ImgLink,
-} from './post-item.style';
+} from './style';
 import PostTagItemComponent from '../post-tag-item';
 
 interface Props {

@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 import { BlogIndexQueryQuery } from 'types';
 import PostItemComponent from 'components/items/post-item';
 import { includesArr } from 'utils';
-import { Main, Inner } from './home.style';
+import { Main, Inner } from './style';
 
 interface Props {
   posts: BlogIndexQueryQuery['allMarkdownRemark']['edges'];

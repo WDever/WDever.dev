@@ -1,9 +1,9 @@
 import React, { ReactElement, useState } from 'react';
 import { graphql } from 'gatsby';
 
-import HomeTemplate from 'templates/home';
+import HomeTemplate from 'templates/home/style';
 import TagBarComponent from 'components/tag-bar';
-import Layout from '../components/layout/layout.component';
+import Layout from '../components/layout';
 import SEO from '../components/seo';
 import { BlogIndexQueryQuery } from '../types/graphqlTypes';
 

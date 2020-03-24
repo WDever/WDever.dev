@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 import Switch from 'react-switch';
 import { Light, Dark, Default } from 'utils/style';
-import { SwitchIcon, Label } from './theme-switch.style';
+import { SwitchIcon, Label } from './style';
 
 interface Props {
   isDark: boolean;

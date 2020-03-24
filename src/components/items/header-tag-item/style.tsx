@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { pxToRem } from 'utils';
-import { Wrapper as BaseWrapper } from '../tag-item/tag-item.style';
+import { Wrapper as BaseWrapper } from '../tag-item/style';
 
 export const Wrapper = styled(BaseWrapper)`
   margin: 0;

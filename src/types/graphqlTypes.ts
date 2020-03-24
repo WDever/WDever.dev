@@ -3198,7 +3198,7 @@ export type BlogPostBySlugQuery = { __typename?: 'Query' } & {
         frontmatter: Maybe<
           { __typename?: 'MarkdownRemarkFrontmatter' } & Pick<
             MarkdownRemarkFrontmatter,
-            'title' | 'date' | 'description'
+            'title' | 'date' | 'description' | 'tags'
           >
         >;
       }
