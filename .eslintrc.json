@@ -51,6 +51,7 @@
     "jsx-a11y/label-has-associated-control": 0,
 
     "import/extensions": 2,
+    "consistent-return": 0,
     "import/no-unresolved": 0,
     "import/prefer-default-export": 0,
     "max-classes-per-file": 0,

@@ -1,4 +1,11 @@
-import React, { ReactElement, useEffect, useState, useRef } from 'react';
+import React, {
+  ReactElement,
+  ReactNode,
+  useEffect,
+  useState,
+  useRef,
+  ReactNodeArray,
+} from 'react';
 import { useWindowScroll } from 'react-use';
 import HeaderTagItemComponent from 'components/items/header-tag-item';
 import ThemeSwitchComponent from 'components/theme-switch';
@@ -16,7 +23,7 @@ interface Props {
   isDark: boolean;
   setIsDark: React.Dispatch<React.SetStateAction<boolean>>;
   selectedTags: string[];
-  copyToClipboard: (text: string) => Promise<void>;
+  copyToClipboard: (text: string) => void;
   location: Location;
 }
 
@@ -48,18 +55,38 @@ export default function HeaderComponent({
 
   const isScrolled = !!memoedY;
 
-  const tagNotifier =
-    isScrolled && selectedTags.length === 0 ? (
-      <HeaderTagItemComponent tag='#All' tagNotifierClick={tagNotifierClick} />
-    ) : (
-      selectedTags.map((item, i) => (
-        <HeaderTagItemComponent
-          key={i}
-          tag={item}
-          tagNotifierClick={tagNotifierClick}
-        />
-      ))
-    );
+  // const tagNotifier =
+  //   isScrolled || selectedTags.length === 0 ? (
+  //     <HeaderTagItemComponent tag='#All' tagNotifierClick={tagNotifierClick} />
+  //   ) : (
+  //     selectedTags.map((item, i) => (
+  //       <HeaderTagItemComponent
+  //         key={i}
+  //         tag={item}
+  //         tagNotifierClick={tagNotifierClick}
+  //       />
+  //     ))
+  //   );
+
+  const tagNotifier = (): ReactNodeArray | undefined => {
+    if (!isScrolled) {
+      return;
+    }
+
+    if (selectedTags.length === 0) {
+      return;
+    }
+
+    const tags: ReactNodeArray = selectedTags.map((item, i) => (
+      <HeaderTagItemComponent
+        key={i}
+        tag={item}
+        tagNotifierClick={tagNotifierClick}
+      />
+    ));
+
+    return tags;
+  };
 
   useEffect(() => {
     const pageBottom = document.body.scrollHeight - window.innerHeight;
@@ -77,7 +104,7 @@ export default function HeaderComponent({
       <Inner>
         <InfoWrapper>
           <Title to='/'>{title}</Title>
-          {tagNotifier}
+          {tagNotifier()}
         </InfoWrapper>
         <ContentWrapper>
           <button type='button' onClick={copy}>
