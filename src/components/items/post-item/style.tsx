@@ -5,7 +5,7 @@ import { Link } from 'gatsby';
 
 export const Wrapper = styled.article`
   width: ${pxToRem(412)};
-  height: ${pxToRem(440)};
+  height: ${pxToRem(416)};
 
   display: flex;
   flex-direction: column;
@@ -14,8 +14,6 @@ export const Wrapper = styled.article`
   box-shadow: ${({ theme }): string => theme.itemShadow};
 
   border-radius: ${pxToRem(8)};
-
-  /* margin-bottom: ${pxToRem(56)}; */
 
   transition: box-shadow 0.3s;
 
@@ -42,7 +40,7 @@ export const PostInfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
 
-  padding: ${pxToRem(16)} ${pxToRem(10)};
+  padding: ${pxToRem(10)} ${pxToRem(10)} ${pxToRem(24)} ${pxToRem(10)};
 `;
 
 export const PostInfo = styled.div`
@@ -67,7 +65,7 @@ export const Date = styled.p`
 
 export const Title = styled.h1`
   margin: 0;
-  margin-top: ${pxToRem(16)};
+  margin-top: ${pxToRem(14)};
 
   font-family: 'Gothic A1';
   font-size: ${pxToRem(30)};
@@ -76,7 +74,7 @@ export const Title = styled.h1`
   cursor: pointer;
 `;
 
-export const Excerpt = styled.h2`
+export const Description = styled.h2`
   margin: 0;
   margin-top: ${pxToRem(16)};
 

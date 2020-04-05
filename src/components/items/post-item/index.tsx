@@ -7,7 +7,7 @@ import {
   PostInfo,
   Title,
   Date,
-  Excerpt,
+  Description,
   TagList,
   StyledLink,
   ImgLink,
@@ -19,7 +19,7 @@ interface Props {
   tags: BlogIndexQueryQuery['allMarkdownRemark']['edges'][number]['node']['frontmatter']['tags'];
   date: BlogIndexQueryQuery['allMarkdownRemark']['edges'][number]['node']['frontmatter']['date'];
   title: BlogIndexQueryQuery['allMarkdownRemark']['edges'][number]['node']['frontmatter']['title'];
-  excerpt: BlogIndexQueryQuery['allMarkdownRemark']['edges'][number]['node']['excerpt'];
+  description: BlogIndexQueryQuery['allMarkdownRemark']['edges'][number]['node']['frontmatter']['description'];
   slug: BlogIndexQueryQuery['allMarkdownRemark']['edges'][number]['node']['fields']['slug'];
 }
 
@@ -27,7 +27,7 @@ export default function PostItemComponent({
   img,
   date,
   title,
-  excerpt,
+  description,
   tags,
   slug,
 }: Props): ReactElement {
@@ -50,11 +50,11 @@ export default function PostItemComponent({
             {title}
           </StyledLink>
         </Title>
-        <Excerpt>
+        <Description>
           <StyledLink to={slug} isTitle={false}>
-            {excerpt}
+            {description}
           </StyledLink>
-        </Excerpt>
+        </Description>
       </PostInfoWrapper>
     </Wrapper>
   );

@@ -1,7 +1,7 @@
 import React, { ReactElement, useState } from 'react';
 import { graphql } from 'gatsby';
 
-import HomeTemplate from 'templates/home/style';
+import HomeTemplate from 'templates/home';
 import TagBarComponent from 'components/tag-bar';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -42,7 +42,7 @@ export const pageQuery = graphql`
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
-          excerpt
+          excerpt(pruneLength: 100)
           fields {
             slug
           }

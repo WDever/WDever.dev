@@ -27,7 +27,7 @@ export default function HomeTemplate({
           img='https://miro.medium.com/max/10368/1*RF2MAfjB1_0FowzOmTW78Q.jpeg'
           title={title}
           date={node.frontmatter.date}
-          excerpt={node.excerpt}
+          description={node.frontmatter.description}
           tags={node.frontmatter.tags}
           slug={node.fields.slug}
         />
@@ -51,7 +51,7 @@ export default function HomeTemplate({
               img='https://miro.medium.com/max/10368/1*RF2MAfjB1_0FowzOmTW78Q.jpeg'
               title={title}
               date={node.frontmatter.date}
-              excerpt={node.excerpt}
+              description={node.frontmatter.description}
               tags={node.frontmatter.tags}
               slug={node.fields.slug}
             />
