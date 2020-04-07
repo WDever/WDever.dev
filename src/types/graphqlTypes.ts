@@ -1834,8 +1834,6 @@ export type QuerySiteArgs = {
   siteMetadata: Maybe<SiteSiteMetadataFilterInput>;
   port: Maybe<IntQueryOperatorInput>;
   host: Maybe<StringQueryOperatorInput>;
-  polyfill: Maybe<BooleanQueryOperatorInput>;
-  pathPrefix: Maybe<StringQueryOperatorInput>;
   buildTime: Maybe<DateQueryOperatorInput>;
 };
 
@@ -1874,8 +1872,8 @@ export type QuerySitePageArgs = {
   parent: Maybe<NodeFilterInput>;
   children: Maybe<NodeFilterListInput>;
   internal: Maybe<InternalFilterInput>;
-  path: Maybe<StringQueryOperatorInput>;
   internalComponentName: Maybe<StringQueryOperatorInput>;
+  path: Maybe<StringQueryOperatorInput>;
   component: Maybe<StringQueryOperatorInput>;
   componentChunkName: Maybe<StringQueryOperatorInput>;
   isCreatedByStatefulCreatePages: Maybe<BooleanQueryOperatorInput>;
@@ -1901,8 +1899,6 @@ export type Site = Node & {
   siteMetadata: Maybe<SiteSiteMetadata>;
   port: Maybe<Scalars['Int']>;
   host: Maybe<Scalars['String']>;
-  polyfill: Maybe<Scalars['Boolean']>;
-  pathPrefix: Maybe<Scalars['String']>;
   buildTime: Maybe<Scalars['Date']>;
 };
 
@@ -2032,10 +2028,11 @@ export enum SiteFieldsEnum {
   SiteMetadataDescription = 'siteMetadata___description',
   SiteMetadataSiteUrl = 'siteMetadata___siteUrl',
   SiteMetadataSocialInstagram = 'siteMetadata___social___instagram',
+  SiteMetadataSocialEMail = 'siteMetadata___social___eMail',
+  SiteMetadataSocialGitHub = 'siteMetadata___social___gitHub',
+  SiteMetadataSocialBlog = 'siteMetadata___social___blog',
   Port = 'port',
   Host = 'host',
-  Polyfill = 'polyfill',
-  PathPrefix = 'pathPrefix',
   BuildTime = 'buildTime',
 }
 
@@ -2047,8 +2044,6 @@ export type SiteFilterInput = {
   siteMetadata: Maybe<SiteSiteMetadataFilterInput>;
   port: Maybe<IntQueryOperatorInput>;
   host: Maybe<StringQueryOperatorInput>;
-  polyfill: Maybe<BooleanQueryOperatorInput>;
-  pathPrefix: Maybe<StringQueryOperatorInput>;
   buildTime: Maybe<DateQueryOperatorInput>;
 };
 
@@ -2068,8 +2063,8 @@ export type SitePage = Node & {
   parent: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
-  path: Maybe<Scalars['String']>;
   internalComponentName: Maybe<Scalars['String']>;
+  path: Maybe<Scalars['String']>;
   component: Maybe<Scalars['String']>;
   componentChunkName: Maybe<Scalars['String']>;
   isCreatedByStatefulCreatePages: Maybe<Scalars['Boolean']>;
@@ -2264,8 +2259,8 @@ export enum SitePageFieldsEnum {
   InternalMediaType = 'internal___mediaType',
   InternalOwner = 'internal___owner',
   InternalType = 'internal___type',
-  Path = 'path',
   InternalComponentName = 'internalComponentName',
+  Path = 'path',
   Component = 'component',
   ComponentChunkName = 'componentChunkName',
   IsCreatedByStatefulCreatePages = 'isCreatedByStatefulCreatePages',
@@ -2363,8 +2358,8 @@ export type SitePageFilterInput = {
   parent: Maybe<NodeFilterInput>;
   children: Maybe<NodeFilterListInput>;
   internal: Maybe<InternalFilterInput>;
-  path: Maybe<StringQueryOperatorInput>;
   internalComponentName: Maybe<StringQueryOperatorInput>;
+  path: Maybe<StringQueryOperatorInput>;
   component: Maybe<StringQueryOperatorInput>;
   componentChunkName: Maybe<StringQueryOperatorInput>;
   isCreatedByStatefulCreatePages: Maybe<BooleanQueryOperatorInput>;
@@ -2758,10 +2753,16 @@ export type SiteSiteMetadataFilterInput = {
 export type SiteSiteMetadataSocial = {
   __typename?: 'SiteSiteMetadataSocial';
   instagram: Maybe<Scalars['String']>;
+  eMail: Maybe<Scalars['String']>;
+  gitHub: Maybe<Scalars['String']>;
+  blog: Maybe<Scalars['String']>;
 };
 
 export type SiteSiteMetadataSocialFilterInput = {
   instagram: Maybe<StringQueryOperatorInput>;
+  eMail: Maybe<StringQueryOperatorInput>;
+  gitHub: Maybe<StringQueryOperatorInput>;
+  blog: Maybe<StringQueryOperatorInput>;
 };
 
 export type SiteSortInput = {
@@ -2989,7 +2990,7 @@ export type BioQueryQuery = { __typename?: 'Query' } & {
             social: Maybe<
               { __typename?: 'SiteSiteMetadataSocial' } & Pick<
                 SiteSiteMetadataSocial,
-                'instagram'
+                'instagram' | 'eMail' | 'gitHub' | 'blog'
               >
             >;
           }

@@ -7,6 +7,7 @@ interface Colors {
   subFont: string;
   headerShadow: string;
   itemShadow: string;
+  bio: string;
 }
 
 declare module 'styled-components' {

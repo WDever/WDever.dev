@@ -7,6 +7,7 @@ export const Light: DefaultTheme = {
   subFont: '#000000',
   headerShadow: '0 4px 32px 0 rgba(0, 0, 0, 0.08);',
   itemShadow: '0 4px 12px 0 rgba(0, 0, 0, 0.1)',
+  bio: '#f0f0f0',
 };
 
 export const Dark: DefaultTheme = {
@@ -16,6 +17,7 @@ export const Dark: DefaultTheme = {
   subFont: 'rgba(255, 255, 255, 0.6)',
   headerShadow: '0 4px 16px 0 rgba(0, 0, 0, 0.32);',
   itemShadow: '0 4px 16px 0 rgba(0, 0, 0, 0.36);',
+  bio: '#363639',
 };
 
 export interface DefaultColor {

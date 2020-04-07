@@ -6,6 +6,9 @@ module.exports = {
     siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
     social: {
       instagram: 'https://www.instagram.com/_m1n_9_/',
+      eMail: 'wdever0279@gmail.com',
+      gitHub: 'github.com/wdever',
+      blog: 'WDever.dev',
     },
   },
   plugins: [
