@@ -3,9 +3,6 @@ import { pxToRem } from 'utils';
 import { CodeStyle } from 'utils/style';
 
 export const Wrapper = styled.article`
-  /* max-width: ${pxToRem(720)};
-  width: ${pxToRem(720)}; */
-
   max-width: ${pxToRem(700)};
   width: ${pxToRem(700)};
 

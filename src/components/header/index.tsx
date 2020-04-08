@@ -25,6 +25,7 @@ interface Props {
   selectedTags: string[];
   copyToClipboard: (text: string) => void;
   location: Location;
+  postTitle: string;
 }
 
 export default function HeaderComponent({
@@ -34,6 +35,7 @@ export default function HeaderComponent({
   selectedTags,
   copyToClipboard,
   location,
+  postTitle,
 }: Props): ReactElement {
   const visibility = useRef<boolean>(false);
   const setVisibility = (bool: boolean): void => {
@@ -55,19 +57,6 @@ export default function HeaderComponent({
 
   const isScrolled = !!memoedY;
 
-  // const tagNotifier =
-  //   isScrolled || selectedTags.length === 0 ? (
-  //     <HeaderTagItemComponent tag='#All' tagNotifierClick={tagNotifierClick} />
-  //   ) : (
-  //     selectedTags.map((item, i) => (
-  //       <HeaderTagItemComponent
-  //         key={i}
-  //         tag={item}
-  //         tagNotifierClick={tagNotifierClick}
-  //       />
-  //     ))
-  //   );
-
   const tagNotifier = (): ReactNodeArray | undefined => {
     if (!isScrolled) {
       return;
@@ -88,6 +77,20 @@ export default function HeaderComponent({
     return tags;
   };
 
+  const postInfo = (): ReactNode => {
+    const { pathname } = location;
+
+    if (!isScrolled) {
+      return;
+    }
+
+    if (!(pathname.length > 1)) {
+      return;
+    }
+
+    return <h1>{postTitle}</h1>;
+  };
+
   useEffect(() => {
     const pageBottom = document.body.scrollHeight - window.innerHeight;
     setMemoedY(y);
@@ -105,6 +108,7 @@ export default function HeaderComponent({
         <InfoWrapper>
           <Title to='/'>{title}</Title>
           {tagNotifier()}
+          {postInfo()}
         </InfoWrapper>
         <ContentWrapper>
           <button type='button' onClick={copy}>

@@ -12,6 +12,7 @@ interface Props {
   title: string;
   children?: ReactNode;
   selectedTags: string[];
+  postTitle?: string;
 }
 
 export default function Layout({
@@ -19,6 +20,7 @@ export default function Layout({
   children,
   selectedTags,
   location,
+  postTitle,
 }: Props): ReactElement {
   const [isDark, setIsDark] = useLocalStorage<boolean>('theme');
   const [clipboardState, copyToClipboard] = useCopyToClipboard();
@@ -58,6 +60,7 @@ export default function Layout({
           selectedTags={selectedTags}
           copyToClipboard={copyToClipboardWithSetState}
           location={location}
+          postTitle={postTitle}
         />
         {children}
         <FooterComponent />

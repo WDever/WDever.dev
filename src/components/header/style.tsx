@@ -65,6 +65,20 @@ export const InfoWrapper = styled.div`
 
   display: flex;
   align-items: center;
+
+  h1 {
+    font-family: 'Gothic A1';
+    font-size: ${pxToRem(20)};
+
+    margin: 0;
+    padding: 0;
+
+    margin-left: ${pxToRem(16)};
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 `;
 
 export const Title = styled(Link)`

@@ -30,16 +30,17 @@ export default function BlogPostTemplate({
   const post = data.markdownRemark;
   const siteTitle = data.site.siteMetadata.title;
   const { previous, next } = pageContext;
+  const postTitle = data.markdownRemark.frontmatter.title;
 
   console.log(data);
   console.log(pageContext);
-  console.log(location);
 
   return (
     <Layout
       location={location}
       title={siteTitle}
       selectedTags={post.frontmatter.tags}
+      postTitle={postTitle}
     >
       <SEO
         title={post.frontmatter.title}
