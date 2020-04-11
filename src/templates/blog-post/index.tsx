@@ -1,14 +1,13 @@
 import React, { ReactElement } from 'react';
 import { Link, graphql } from 'gatsby';
-
 import {
   BlogPostBySlugQuery,
   ResultRemarkQueryQuery,
 } from 'types/graphqlTypes';
+import NavComponent from 'components/nav';
 import Bio from '../../components/bio';
 import Layout from '../../components/layout';
 import SEO from '../../components/seo';
-import { rhythm, scale } from '../../utils/typography';
 import { Wrapper } from './style';
 
 interface Props {
@@ -32,38 +31,30 @@ export default function BlogPostTemplate({
   const { previous, next } = pageContext;
   const postTitle = data.markdownRemark.frontmatter.title;
 
-  console.log(data);
-  console.log(pageContext);
+  const { tags, title, description, date } = post.frontmatter;
 
   return (
     <Layout
       location={location}
       title={siteTitle}
-      selectedTags={post.frontmatter.tags}
+      selectedTags={tags}
       postTitle={postTitle}
     >
-      <SEO
-        title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
-      />
+      <SEO title={title} description={description || post.excerpt} />
       <Wrapper>
         <header>
-          <h1>{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
+          <h1>{title}</h1>
+          <p>{date}</p>
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
-        <hr
-          style={{
-            marginBottom: rhythm(1),
-          }}
-        />
+        <hr />
         <footer>
           <Bio />
         </footer>
+        <NavComponent previous={previous} next={next} />
       </Wrapper>
 
-      <nav>
-        <ul
+      {/* <ul
           style={{
             display: `flex`,
             flexWrap: `wrap`,
@@ -86,90 +77,10 @@ export default function BlogPostTemplate({
               </Link>
             )}
           </li>
-        </ul>
-      </nav>
+        </ul> */}
     </Layout>
   );
 }
-
-// class BlogPostTemplate extends React.Component {
-//   render() {
-//     const post = this.props.data.markdownRemark;
-//     const siteTitle = this.props.data.site.siteMetadata.title;
-//     const { previous, next } = this.props.pageContext;
-
-//     console.log(this.props.pageContext);
-//     console.log(this.props.location);
-
-//     return (
-//       <Layout location={this.props.location} title={siteTitle}>
-//         <SEO
-//           title={post.frontmatter.title}
-//           description={post.frontmatter.description || post.excerpt}
-//         />
-//         <article>
-//           <header>
-//             <h1
-//               style={{
-//                 marginTop: rhythm(1),
-//                 marginBottom: 0,
-//               }}
-//             >
-//               {post.frontmatter.title}
-//             </h1>
-//             <p
-//               style={{
-//                 ...scale(-1 / 5),
-//                 display: `block`,
-//                 marginBottom: rhythm(1),
-//               }}
-//             >
-//               {post.frontmatter.date}
-//             </p>
-//           </header>
-//           <section dangerouslySetInnerHTML={{ __html: post.html }} />
-//           <hr
-//             style={{
-//               marginBottom: rhythm(1),
-//             }}
-//           />
-//           <footer>
-//             <Bio />
-//           </footer>
-//         </article>
-
-//         <nav>
-//           <ul
-//             style={{
-//               display: `flex`,
-//               flexWrap: `wrap`,
-//               justifyContent: `space-between`,
-//               listStyle: `none`,
-//               padding: 0,
-//             }}
-//           >
-//             <li>
-//               {previous && (
-//                 <Link to={previous.fields.slug} rel="prev">
-//                   ← {previous.frontmatter.title}
-//                 </Link>
-//               )}
-//             </li>
-//             <li>
-//               {next && (
-//                 <Link to={next.fields.slug} rel="next">
-//                   {next.frontmatter.title} →
-//                 </Link>
-//               )}
-//             </li>
-//           </ul>
-//         </nav>
-//       </Layout>
-//     );
-//   }
-// }
-
-// export default BlogPostTemplate;
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {

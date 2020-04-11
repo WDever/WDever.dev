@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 import { pxToRem } from 'utils';
-import { CodeStyle } from 'utils/style';
+import { CodeStyle, Default } from 'utils/style';
 
 export const Wrapper = styled.article`
+  ${CodeStyle}
+
   max-width: ${pxToRem(700)};
   width: ${pxToRem(700)};
 
@@ -28,5 +30,11 @@ export const Wrapper = styled.article`
     }
   }
 
-  ${CodeStyle}
+  hr {
+    background-image: ${Default.gradient};
+    height: ${pxToRem(3)};
+
+    margin-top: ${pxToRem(60)};
+    margin-bottom: ${pxToRem(24)};
+  }
 `;
