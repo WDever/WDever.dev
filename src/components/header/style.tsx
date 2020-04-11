@@ -75,6 +75,8 @@ export const InfoWrapper = styled.div`
 
     margin-left: ${pxToRem(16)};
 
+    color: ${({ theme }): string => theme.mainFont};
+
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

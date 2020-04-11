@@ -7,7 +7,8 @@ export const Wrapper = styled.footer`
 
   height: ${pxToRem(160)};
 
-  background-image: ${Default.reverseGradient};
+  /* background-image: ${Default.reverseGradient}; */
+  background-color: #f0f0f0;
 
   display: flex;
   justify-content: center;
