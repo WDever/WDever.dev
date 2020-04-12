@@ -8,7 +8,7 @@ export const createPages: ({
 }: CreatePagesArgs) => void = async ({ graphql, actions }: CreatePagesArgs) => {
   const { createPage }: { createPage: Actions['createPage'] } = actions;
 
-  const blogPost: string = path.resolve(`./src/templates/blog-post.tsx`);
+  const blogPost: string = path.resolve(`./src/templates/blog-post/index.tsx`);
   const result: {
     errors?: any;
     data?: ResultRemarkQueryQuery | undefined;

@@ -1,1 +1,2 @@
-declare module 'typography-theme-wordpress-2016';
+declare module 'typography-theme-github';
+declare module '*.svg';
