@@ -20,6 +20,12 @@ export const Wrapper = styled.article`
   :hover {
     box-shadow: ${Default.postItemHoverShadow};
   }
+
+  h1,
+  h2,
+  p {
+    padding: 0;
+  }
 `;
 
 export const Img = styled.img`
@@ -67,9 +73,17 @@ export const Title = styled.h1`
   margin: 0;
   margin-top: ${pxToRem(14)};
 
+  max-height: ${pxToRem(70)};
+
   font-family: 'Gothic A1';
   font-size: ${pxToRem(30)};
   line-height: 1.3;
+
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  display: flex;
+  align-items: flex-start;
 
   cursor: pointer;
 `;
