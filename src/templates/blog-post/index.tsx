@@ -48,9 +48,7 @@ export default function BlogPostTemplate({
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr />
-        <footer>
-          <Bio />
-        </footer>
+        <Bio />
         <NavComponent previous={previous} next={next} />
       </Wrapper>
 

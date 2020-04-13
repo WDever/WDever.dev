@@ -25,7 +25,7 @@ interface Props {
   selectedTags: string[];
   copyToClipboard: (text: string) => void;
   location: Location;
-  postTitle: string;
+  postTitle?: string;
 }
 
 export default function HeaderComponent({

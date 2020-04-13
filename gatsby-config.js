@@ -4,6 +4,7 @@ module.exports = {
     author: `최민규 WDever`,
     description: `About My Development`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    repo: 'WDever/WDever.dev',
     social: {
       instagram: 'https://www.instagram.com/_m1n_9_/',
       eMail: 'wdever0279@gmail.com',
