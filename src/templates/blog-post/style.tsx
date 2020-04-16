@@ -37,4 +37,11 @@ export const Wrapper = styled.article`
     margin-top: ${pxToRem(60)};
     margin-bottom: ${pxToRem(24)};
   }
+
+  .tags {
+    width: 100%;
+    display: flex;
+
+    margin: ${pxToRem(24)} 0;
+  }
 `;

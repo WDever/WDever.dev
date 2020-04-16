@@ -1,10 +1,11 @@
 import React, { ReactElement } from 'react';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 import {
   BlogPostBySlugQuery,
   ResultRemarkQueryQuery,
 } from 'types/graphqlTypes';
 import NavComponent from 'components/nav';
+import PostTagItemComponent from 'components/items/post-tag-item';
 import Bio from '../../components/bio';
 import Layout from '../../components/layout';
 import SEO from '../../components/seo';
@@ -33,6 +34,10 @@ export default function BlogPostTemplate({
 
   const { tags, title, description, date } = post.frontmatter;
 
+  const tagList = tags.map((item, i) => (
+    <PostTagItemComponent tag={item} key={i} />
+  ));
+
   return (
     <Layout
       location={location}
@@ -42,6 +47,7 @@ export default function BlogPostTemplate({
     >
       <SEO title={title} description={description || post.excerpt} />
       <Wrapper>
+        <section className='tags'>{tagList}</section>
         <header>
           <h1>{title}</h1>
           <p>{date}</p>
@@ -51,31 +57,6 @@ export default function BlogPostTemplate({
         <Bio />
         <NavComponent previous={previous} next={next} />
       </Wrapper>
-
-      {/* <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
-          <li>
-            {previous && (
-              <Link to={previous.fields.slug} rel='prev'>
-                ← {previous.frontmatter.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={next.fields.slug} rel='next'>
-                {next.frontmatter.title} →
-              </Link>
-            )}
-          </li>
-        </ul> */}
     </Layout>
   );
 }
