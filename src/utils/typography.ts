@@ -2,13 +2,14 @@ import { CSSObject } from 'styled-components';
 import Typography from 'typography';
 import GitHubTheme from 'typography-theme-github';
 import { pxToRem } from './functions';
+import { Default } from './style';
 
 GitHubTheme.overrideThemeStyles = (): object => {
   return {
     a: {
       boxShadow: `none`,
       textDecoration: `none`,
-      color: `#0687f0`,
+      color: Default.main,
     },
     'a.gatsby-resp-image-link': {
       boxShadow: `none`,

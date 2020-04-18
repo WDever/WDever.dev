@@ -3090,6 +3090,18 @@ export type NotFoundPageQueryQuery = { __typename?: 'Query' } & {
   >;
 };
 
+export type AboutPageQueryQueryVariables = {};
+
+export type AboutPageQueryQuery = { __typename?: 'Query' } & {
+  site: Maybe<
+    { __typename?: 'Site' } & {
+      siteMetadata: Maybe<
+        { __typename?: 'SiteSiteMetadata' } & Pick<SiteSiteMetadata, 'title'>
+      >;
+    }
+  >;
+};
+
 export type BlogIndexQueryQueryVariables = {};
 
 export type BlogIndexQueryQuery = { __typename?: 'Query' } & {

@@ -1,9 +1,10 @@
 import React, { ReactElement } from 'react';
 import { graphql } from 'gatsby';
 
-import Layout from '../components/layout';
-import SEO from '../components/seo';
-import { NotFoundPageQueryQuery } from '../types/graphqlTypes';
+import Layout from '../../components/layout';
+import SEO from '../../components/seo';
+import { NotFoundPageQueryQuery } from '../../types/graphqlTypes';
+import { Wrapper, HomeBtn } from './style';
 
 interface Props {
   data: NotFoundPageQueryQuery;
@@ -15,10 +16,14 @@ export default function NotFoundPage({ data, location }: Props): ReactElement {
     data.site.siteMetadata.title;
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout location={location} title={siteTitle} selectedTags={[]}>
       <SEO title='404: Not Found' />
-      <h1>Not Found</h1>
-      <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+      <Wrapper>
+        <h1>404</h1>
+        <h2>Page Not Found</h2>
+        <h3>찾으시는 페이지가 없습니다.</h3>
+        <HomeBtn to='/'>홈으로</HomeBtn>
+      </Wrapper>
     </Layout>
   );
 }
