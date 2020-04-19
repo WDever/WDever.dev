@@ -24,6 +24,7 @@ export const Wrapper = styled.li`
   font-family: 'SpoqaHanSans';
   font-size: ${pxToRem(10)};
   font-weight: bold;
+  color: ${Default.tagFont};
 
   background-color: ${Default.tagItem};
 `;

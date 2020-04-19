@@ -27,6 +27,12 @@ module.exports = {
         name: `assets`,
       },
     },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     path: `${__dirname}/`
+    //   }
+    // },
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -34,7 +40,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 590,
+              maxWidth: 700,
             },
           },
           {
@@ -55,7 +61,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
+        trackingId: `UA-163923948-1`,
       },
     },
     `gatsby-plugin-feed`,
