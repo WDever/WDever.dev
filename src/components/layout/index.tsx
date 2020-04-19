@@ -64,7 +64,6 @@ export default function Layout({
           postTitle={postTitle || undefined}
         />
         {children}
-        <CommentComponent location={location} />
         <FooterComponent />
       </Wrapper>
     </ThemeProvider>

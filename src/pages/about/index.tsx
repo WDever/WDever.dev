@@ -111,6 +111,7 @@ export default function AboutPage({ location, data }: Props): ReactElement {
         <ul>
           <li>Redux</li>
         </ul>
+        <hr />
       </Wrapper>
     </Layout>
   );

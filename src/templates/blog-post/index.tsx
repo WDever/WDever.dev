@@ -6,6 +6,7 @@ import {
 } from 'types/graphqlTypes';
 import NavComponent from 'components/nav';
 import PostTagItemComponent from 'components/items/post-tag-item';
+import CommentComponent from 'components/comment';
 import Bio from '../../components/bio';
 import Layout from '../../components/layout';
 import SEO from '../../components/seo';
@@ -56,6 +57,7 @@ export default function BlogPostTemplate({
         <hr />
         <Bio />
         <NavComponent previous={previous} next={next} />
+        <CommentComponent location={location} />
       </Wrapper>
     </Layout>
   );
