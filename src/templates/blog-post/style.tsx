@@ -10,6 +10,14 @@ export const Wrapper = styled.article`
 
   color: ${({ theme }): string => theme.mainFont};
 
+  line-height: 1.9;
+
+  blockquote, h6 {
+    color: ${({ theme }): string => theme.mainFont};
+
+    border-color: ${Default.main};
+  }
+
   h1,
   h2 {
     border: none;

@@ -32,6 +32,7 @@ export const Wrapper = styled.main`
   h2 {
     font-size: ${pxToRem(36)};
     font-family: inherit;
+    color: ${({ theme }): string => theme.mainFont};
 
     margin: 0;
     margin-bottom: ${pxToRem(18)};
@@ -41,6 +42,7 @@ export const Wrapper = styled.main`
     font-size: ${pxToRem(24)};
     font-weight: normal;
     font-family: inherit;
+    color: ${({ theme }): string => theme.mainFont};
 
     margin: 0;
     margin-bottom: ${pxToRem(42)};
