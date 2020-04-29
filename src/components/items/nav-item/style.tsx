@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { pxToRem } from 'utils';
-import { Default } from 'utils/style';
+import { Default, media } from 'utils/style';
 import { Link } from 'gatsby';
 
 export const Wrapper = styled(Link)<{ isNext: boolean }>`
@@ -23,6 +23,13 @@ export const Wrapper = styled(Link)<{ isNext: boolean }>`
 
   padding: ${pxToRem(16)} ${pxToRem(20)};
 
+  ${media.phone} {
+    width: 100%;
+    height: auto;
+
+    margin: 0;
+  }
+
   p {
     color: ${Default.main};
 
@@ -35,6 +42,10 @@ export const Wrapper = styled(Link)<{ isNext: boolean }>`
 
     p {
       font-size: ${pxToRem(10)};
+    }
+
+    ${media.phone} {
+      display: none;
     }
   }
 
@@ -53,8 +64,18 @@ export const Wrapper = styled(Link)<{ isNext: boolean }>`
     overflow: hidden;
 
     margin-top: ${pxToRem(16)};
-    margin-bottom: ${pxToRem(14)};
+    margin-bottom: ${pxToRem(10)};
+
     padding: 0;
+
+    ${media.phone} {
+      font-size: ${pxToRem(20)};
+
+      height: ${pxToRem(52)};
+      max-height: ${pxToRem(52)};
+
+      margin-top: 0;
+    }
   }
 
   .guide {

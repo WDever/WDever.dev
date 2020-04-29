@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { pxToRem } from 'utils';
-import { CodeStyle, Default } from 'utils/style';
+import { CodeStyle, Default, media } from 'utils/style';
 
 export const Wrapper = styled.article`
   ${CodeStyle}
@@ -10,7 +10,7 @@ export const Wrapper = styled.article`
 
   color: ${({ theme }): string => theme.mainFont};
 
-  line-height: 1.9;
+  line-height: 1.7;
 
   blockquote, h6 {
     color: ${({ theme }): string => theme.mainFont};
@@ -18,23 +18,30 @@ export const Wrapper = styled.article`
     border-color: ${Default.main};
   }
 
-  h1,
-  h2 {
-    border: none;
+  section {
+    h1, h2 {
+      border-bottom: 1px solid ${({ theme }): string => theme.headerBorder}
+    }
   }
 
   header {
-    h1 {
-      font-size: ${pxToRem(48)};
+    border-image: ${Default.gradient};
+    border-image-slice: 1;
+    border-bottom-style: solid;
+    border-bottom-width: 3px;
 
+    margin-bottom: ${pxToRem(32)};
+
+    h1 {
       line-height: 1.3;
 
-      margin-top: ${pxToRem(24)};
-      margin-bottom: ${pxToRem(16)};
+      border: none;
     }
 
     p {
       font-size: ${pxToRem(14)};
+
+      margin-bottom: ${pxToRem(14)};
     }
   }
 
@@ -50,6 +57,12 @@ export const Wrapper = styled.article`
     width: 100%;
     display: flex;
 
-    margin: ${pxToRem(24)} 0;
+    margin-bottom: ${pxToRem(20)};
+  }
+
+  ${media.phone} {
+    width: 100%;
+
+    padding: 0 ${pxToRem(16)};
   }
 `;

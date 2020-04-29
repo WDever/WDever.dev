@@ -31,13 +31,11 @@ GitHubTheme.overrideThemeStyles = (): object => {
       lineHeight: 1.3,
       marginTop: pxToRem(56),
       marginBottom: pxToRem(20),
-      fontSize: pxToRem(24),
       fontFamily: 'Gothic A1',
     },
 
     h3: {
       lineHeight: 1.3,
-      fontSize: pxToRem(20),
       fontFamily: 'Gothic A1',
     },
 

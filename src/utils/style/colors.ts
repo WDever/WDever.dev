@@ -9,6 +9,7 @@ export const Light: DefaultTheme = {
   itemShadow: '0 4px 12px 0 rgba(0, 0, 0, 0.1)',
   bio: '#f0f0f0',
   footer: '#f0f0f0',
+  headerBorder: '1px solid hsla(0,0%,0%,0.07);',
 };
 
 export const Dark: DefaultTheme = {
@@ -20,6 +21,7 @@ export const Dark: DefaultTheme = {
   itemShadow: '0 4px 16px 0 rgba(0, 0, 0, 0.36);',
   bio: '#363639',
   footer: '#2a2a2d',
+  headerBorder: 'rgba(255, 255, 255, 0.2)',
 };
 
 export interface DefaultColor {

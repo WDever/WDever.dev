@@ -150,8 +150,7 @@ export const GlobalStyle = createGlobalStyle`
     word-break: keep-all;
   }
 
-  h1,
-  h2 {
+  h1, h2 {
     border: none;
   }
 `;

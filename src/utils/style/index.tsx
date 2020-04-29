@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 import { pxToRem } from 'utils';
-import { Default } from './colors';
+import { media } from './mediaQuery';
 
 export const BaseWrapper = css`
   width: 100%;
@@ -12,6 +12,10 @@ export const BaseInner = css`
 
   padding: 0 ${pxToRem(32)};
   margin: auto;
+
+  ${media.phone} {
+    padding: 0 ${pxToRem(16)};
+  }
 `;
 
 export const ThemeChangeTransition = css`
@@ -46,3 +50,4 @@ export const CodeStyle = css`
 `;
 
 export * from './colors';
+export * from './mediaQuery';

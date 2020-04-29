@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export interface State {
   value?: string;
@@ -19,6 +19,7 @@ export function useCopyToClipboard(): [State, (text: string) => Promise<void>] {
     } catch (e) {
       await setState({ ...state, isSuccess: false });
       console.log(e);
+      alert(e);
     }
   };
 

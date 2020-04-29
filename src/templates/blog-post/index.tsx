@@ -48,10 +48,10 @@ export default function BlogPostTemplate({
     >
       <SEO title={title} description={description || post.excerpt} />
       <Wrapper>
-        <section className='tags'>{tagList}</section>
         <header>
           <h1>{title}</h1>
           <p>{date}</p>
+          <section className='tags'>{tagList}</section>
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr />

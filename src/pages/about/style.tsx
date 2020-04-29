@@ -1,6 +1,6 @@
 import { pxToRem } from 'utils';
 import styled from 'styled-components';
-import { Default } from 'utils/style';
+import { Default, media } from 'utils/style';
 
 export const Wrapper = styled.article`
   max-width: ${pxToRem(700)};
@@ -9,6 +9,12 @@ export const Wrapper = styled.article`
   margin-top: ${pxToRem(56)};
 
   color: ${({ theme }): string => theme.mainFont};
+
+  ${media.phone} {
+    width: 100%;
+
+    padding: 0 ${pxToRem(16)};
+  }
 
   h1,
   h2 {

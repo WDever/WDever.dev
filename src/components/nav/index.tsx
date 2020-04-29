@@ -10,11 +10,19 @@ interface Props {
 
 export default function NavComponent({ previous, next }: Props): ReactElement {
   if (previous === null) {
-    return <NavItemComponent data={next} isNext />;
+    return (
+      <Wrapper>
+        <NavItemComponent data={next} isNext />
+      </Wrapper>
+    );
   }
 
   if (next === null) {
-    return <NavItemComponent data={previous} isNext={false} />;
+    return (
+      <Wrapper>
+        <NavItemComponent data={previous} isNext={false} />
+      </Wrapper>
+    );
   }
 
   return (

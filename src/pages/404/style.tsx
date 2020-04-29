@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { pxToRem } from 'utils';
-import { Default } from 'utils/style';
+import { Default, media } from 'utils/style';
 import { Link } from 'gatsby';
 
 export const Wrapper = styled.main`
@@ -27,6 +27,10 @@ export const Wrapper = styled.main`
 
     margin: 0;
     margin-bottom: ${pxToRem(24)};
+
+    ${media.phone} {
+      font-size: ${pxToRem(120)};
+    }
   }
 
   h2 {
@@ -36,6 +40,10 @@ export const Wrapper = styled.main`
 
     margin: 0;
     margin-bottom: ${pxToRem(18)};
+
+    ${media.phone} {
+      font-size: ${pxToRem(24)};
+    }
   }
 
   h3 {
@@ -46,6 +54,10 @@ export const Wrapper = styled.main`
 
     margin: 0;
     margin-bottom: ${pxToRem(42)};
+
+    ${media.phone} {
+      font-size: ${pxToRem(20)};
+    }
   }
 `;
 

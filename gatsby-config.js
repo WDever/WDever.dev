@@ -72,7 +72,7 @@ module.exports = {
         short_name: `GatsbyJS`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#663399`,
+        theme_color: `#4470ff`,
         display: `minimal-ui`,
         icon: `content/assets/wdever-icon.png`,
       },

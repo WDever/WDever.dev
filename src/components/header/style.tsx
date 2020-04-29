@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { Link } from 'gatsby';
 import { pxToRem } from 'utils';
-import { BaseInner, Default } from 'utils/style';
+import { BaseInner, Default, media } from 'utils/style';
 
 interface HeaderProps {
   scrolled: boolean;
@@ -42,6 +42,12 @@ const ContentStyle = css`
   box-shadow: none;
 
   margin-right: ${pxToRem(32)};
+
+  ${media.phone} {
+    margin-right: ${pxToRem(16)};
+
+    font-size: ${pxToRem(12)};
+  }
 `;
 
 export const ContentWrapper = styled.div`
@@ -80,6 +86,12 @@ export const InfoWrapper = styled.div`
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+  }
+
+  ${media.phone} {
+    h1 {
+      display: none;
+    }
   }
 `;
 

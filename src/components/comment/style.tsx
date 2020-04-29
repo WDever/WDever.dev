@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { pxToRem } from 'utils';
 
 export const Wrapper = styled.section`
-  width: ${pxToRem(700)};
+  width: 100%;
 
   margin-bottom: ${pxToRem(300)};
 

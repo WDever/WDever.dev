@@ -1,11 +1,14 @@
 import styled from 'styled-components';
 import { pxToRem } from 'utils';
-import { Default } from 'utils/style';
+import { Default, media } from 'utils/style';
 import { Link } from 'gatsby';
 
 export const Wrapper = styled.article`
-  width: ${pxToRem(412)};
-  height: ${pxToRem(416)};
+  /* width: ${pxToRem(412)};
+  height: ${pxToRem(416)}; */
+
+  width: 100%;
+  height: 100%;
 
   display: flex;
   flex-direction: column;
@@ -25,6 +28,8 @@ export const Wrapper = styled.article`
   h2,
   p {
     padding: 0;
+
+    border: none;
   }
 `;
 
@@ -47,6 +52,10 @@ export const PostInfoWrapper = styled.div`
   flex-direction: column;
 
   padding: ${pxToRem(10)} ${pxToRem(10)} ${pxToRem(24)} ${pxToRem(10)};
+
+  ${media.tabletM} {
+    padding-bottom: ${pxToRem(16)};
+  }
 `;
 
 export const PostInfo = styled.div`
@@ -67,6 +76,10 @@ export const Date = styled.p`
   color: ${Default.date};
 
   margin: 0;
+
+  ${media.tabletM} {
+    font-size: ${pxToRem(8)};
+  }
 `;
 
 export const Title = styled.h1`
@@ -86,6 +99,11 @@ export const Title = styled.h1`
   align-items: flex-start;
 
   cursor: pointer;
+
+  ${media.tabletM} {
+    font-size: ${pxToRem(24)};
+    margin-top: ${pxToRem(6)};
+  }
 `;
 
 export const Description = styled.h2`
@@ -99,6 +117,11 @@ export const Description = styled.h2`
   line-height: 1.7;
 
   cursor: pointer;
+
+  ${media.tabletM} {
+    font-size: ${pxToRem(12)};
+    margin-top: ${pxToRem(10)};
+  }
 `;
 
 export const StyledLink = styled(Link)<{ isTitle: boolean }>`
