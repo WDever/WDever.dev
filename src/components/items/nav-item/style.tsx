@@ -14,6 +14,8 @@ export const Wrapper = styled(Link)<{ isNext: boolean }>`
 
   font-family: 'SpoqaHanSans';
 
+  background-color: ${({theme}): string => theme.item};
+
   box-shadow: ${({ theme }): string => theme.itemShadow};
 
   border-radius: ${pxToRem(8)};
@@ -34,19 +36,6 @@ export const Wrapper = styled(Link)<{ isNext: boolean }>`
     color: ${Default.main};
 
     margin: 0;
-  }
-
-  .post-info {
-    display: flex;
-    justify-content: space-between;
-
-    p {
-      font-size: ${pxToRem(10)};
-    }
-
-    ${media.phone} {
-      display: none;
-    }
   }
 
   .date {

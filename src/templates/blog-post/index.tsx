@@ -1,9 +1,6 @@
 import React, { ReactElement } from 'react';
 import { graphql } from 'gatsby';
-import {
-  BlogPostBySlugQuery,
-  ResultRemarkQueryQuery,
-} from 'types/graphqlTypes';
+import { BlogPostBySlugQuery, SitePageContext } from 'types/graphqlTypes';
 import NavComponent from 'components/nav';
 import PostTagItemComponent from 'components/items/post-tag-item';
 import CommentComponent from 'components/comment';
@@ -14,12 +11,7 @@ import { Wrapper } from './style';
 
 interface Props {
   data: BlogPostBySlugQuery;
-  pageContext: {
-    isCreatedByStatefulCreatePages: boolean;
-    slug: string;
-    previous: ResultRemarkQueryQuery['allMarkdownRemark']['edges'][number]['node'];
-    next: ResultRemarkQueryQuery['allMarkdownRemark']['edges'][number]['node'];
-  };
+  pageContext: SitePageContext;
   location: Location;
 }
 

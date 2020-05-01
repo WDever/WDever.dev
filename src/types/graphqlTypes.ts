@@ -2139,10 +2139,12 @@ export type SitePageContextNextFilterInput = {
 export type SitePageContextNextFrontmatter = {
   __typename?: 'SitePageContextNextFrontmatter';
   title: Maybe<Scalars['String']>;
+  tags: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 export type SitePageContextNextFrontmatterFilterInput = {
   title: Maybe<StringQueryOperatorInput>;
+  tags: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageContextPrevious = {
@@ -2168,10 +2170,12 @@ export type SitePageContextPreviousFilterInput = {
 export type SitePageContextPreviousFrontmatter = {
   __typename?: 'SitePageContextPreviousFrontmatter';
   title: Maybe<Scalars['String']>;
+  tags: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 export type SitePageContextPreviousFrontmatterFilterInput = {
   title: Maybe<StringQueryOperatorInput>;
+  tags: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageEdge = {
@@ -2276,8 +2280,10 @@ export enum SitePageFieldsEnum {
   ContextSlug = 'context___slug',
   ContextPreviousFieldsSlug = 'context___previous___fields___slug',
   ContextPreviousFrontmatterTitle = 'context___previous___frontmatter___title',
+  ContextPreviousFrontmatterTags = 'context___previous___frontmatter___tags',
   ContextNextFieldsSlug = 'context___next___fields___slug',
   ContextNextFrontmatterTitle = 'context___next___frontmatter___title',
+  ContextNextFrontmatterTags = 'context___next___frontmatter___tags',
   PluginCreatorId = 'pluginCreator___id',
   PluginCreatorParentId = 'pluginCreator___parent___id',
   PluginCreatorParentParentId = 'pluginCreator___parent___parent___id',
@@ -2330,6 +2336,7 @@ export enum SitePageFieldsEnum {
   PluginCreatorPluginOptionsName = 'pluginCreator___pluginOptions___name',
   PluginCreatorPluginOptionsMaxWidth = 'pluginCreator___pluginOptions___maxWidth',
   PluginCreatorPluginOptionsWrapperStyle = 'pluginCreator___pluginOptions___wrapperStyle',
+  PluginCreatorPluginOptionsTrackingId = 'pluginCreator___pluginOptions___trackingId',
   PluginCreatorPluginOptionsShortName = 'pluginCreator___pluginOptions___short_name',
   PluginCreatorPluginOptionsStartUrl = 'pluginCreator___pluginOptions___start_url',
   PluginCreatorPluginOptionsBackgroundColor = 'pluginCreator___pluginOptions___background_color',
@@ -2540,6 +2547,7 @@ export enum SitePluginFieldsEnum {
   PluginOptionsName = 'pluginOptions___name',
   PluginOptionsMaxWidth = 'pluginOptions___maxWidth',
   PluginOptionsWrapperStyle = 'pluginOptions___wrapperStyle',
+  PluginOptionsTrackingId = 'pluginOptions___trackingId',
   PluginOptionsShortName = 'pluginOptions___short_name',
   PluginOptionsStartUrl = 'pluginOptions___start_url',
   PluginOptionsBackgroundColor = 'pluginOptions___background_color',
@@ -2675,6 +2683,7 @@ export type SitePluginPluginOptions = {
   name: Maybe<Scalars['String']>;
   maxWidth: Maybe<Scalars['Int']>;
   wrapperStyle: Maybe<Scalars['String']>;
+  trackingId: Maybe<Scalars['String']>;
   short_name: Maybe<Scalars['String']>;
   start_url: Maybe<Scalars['String']>;
   background_color: Maybe<Scalars['String']>;
@@ -2691,6 +2700,7 @@ export type SitePluginPluginOptionsFilterInput = {
   name: Maybe<StringQueryOperatorInput>;
   maxWidth: Maybe<IntQueryOperatorInput>;
   wrapperStyle: Maybe<StringQueryOperatorInput>;
+  trackingId: Maybe<StringQueryOperatorInput>;
   short_name: Maybe<StringQueryOperatorInput>;
   start_url: Maybe<StringQueryOperatorInput>;
   background_color: Maybe<StringQueryOperatorInput>;
