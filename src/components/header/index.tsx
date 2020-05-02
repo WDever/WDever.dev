@@ -20,8 +20,8 @@ import {
 
 interface Props {
   title: string;
-  isDark: boolean;
-  setIsDark: React.Dispatch<React.SetStateAction<boolean>>;
+  isDark: boolean | undefined;
+  setIsDark: React.Dispatch<React.SetStateAction<boolean | undefined>>;
   selectedTags: string[];
   copyToClipboard: (text: string) => void;
   location: Location;

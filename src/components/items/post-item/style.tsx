@@ -123,11 +123,11 @@ export const StyledLink = styled(Link)<{ isTitle: boolean }>`
     isTitle ? theme.mainFont : theme.subFont};
 `;
 
-export const ImgLink = styled(Link)<{ imgSrc: string }>`
+export const ImgLink = styled(Link)<{ imgsrc: string }>`
   height: ${pxToRem(204)};
   box-shadow: none;
 
-  background-image: ${({ imgSrc }): string => `url(${imgSrc})`};
+  background-image: ${({ imgsrc }): string => `url(${imgsrc})`};
   background-size: cover;
 
   border-top-right-radius: ${pxToRem(8)};

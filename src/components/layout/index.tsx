@@ -4,7 +4,6 @@ import { Light, Dark } from 'utils/style';
 import FooterComponent from 'components/footer';
 import { useLocalStorage, useCopyToClipboard } from 'utils/hooks';
 import ToastComponent from 'components/toast';
-import CommentComponent from 'components/comment';
 import HeaderComponent from '../header';
 import { GlobalStyle, Wrapper } from './style';
 

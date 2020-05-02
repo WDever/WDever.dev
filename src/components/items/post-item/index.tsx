@@ -39,7 +39,7 @@ export default function PostItemComponent({
 
   return (
     <Wrapper>
-      <ImgLink to={slug} imgSrc={src} />
+      <ImgLink to={slug} imgsrc={src} />
       <PostInfoWrapper>
         <PostInfo>
           <TagList>{tagList}</TagList>
