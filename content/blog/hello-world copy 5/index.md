@@ -3,6 +3,7 @@ title: 내가 생각하는 현재 한빛 FE 상태관리의 문제점
 date: '2020-03-26'
 description: '리덕스 사가는 과연 필수였을까?'
 tags: ['#React', '#Hanlight', '#Redux']
+image: ./salty_egg.jpg
 ---
 
 ```ts

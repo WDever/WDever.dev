@@ -10,7 +10,7 @@ import { Wrapper, Image, ContentWrapper, Button } from './style';
 export default function Bio(): ReactElement {
   const data: BioQueryQuery = useStaticQuery<BioQueryQuery>(graphql`
     query BioQuery {
-      avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
+      avatar: file(absolutePath: { regex: "/profile-pic.png/" }) {
         childImageSharp {
           fixed(width: 86, height: 86) {
             ...GatsbyImageSharpFixed

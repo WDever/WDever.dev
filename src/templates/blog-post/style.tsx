@@ -12,6 +12,17 @@ export const Wrapper = styled.article`
 
   line-height: 1.7;
 
+  ${media.phone} {
+    width: 100%;
+
+    padding: 0 ${pxToRem(16)};
+  }
+
+  .gatsby-resp-image-figcaption {
+    text-align: center;
+    color: ${({ theme }): string => theme.subFont};
+  }
+
   blockquote, h6 {
     color: ${({ theme }): string => theme.mainFont};
 
@@ -58,11 +69,5 @@ export const Wrapper = styled.article`
     display: flex;
 
     margin-bottom: ${pxToRem(20)};
-  }
-
-  ${media.phone} {
-    width: 100%;
-
-    padding: 0 ${pxToRem(16)};
   }
 `;

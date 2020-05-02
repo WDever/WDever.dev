@@ -24,7 +24,7 @@ export default function HomeTemplate({
       return (
         <PostItemComponent
           key={node.fields.slug}
-          img='https://miro.medium.com/max/10368/1*RF2MAfjB1_0FowzOmTW78Q.jpeg'
+          img={node.frontmatter.image}
           title={title}
           date={node.frontmatter.date}
           description={node.frontmatter.description}
@@ -48,7 +48,7 @@ export default function HomeTemplate({
           return (
             <PostItemComponent
               key={node.fields.slug}
-              img='https://miro.medium.com/max/10368/1*RF2MAfjB1_0FowzOmTW78Q.jpeg'
+              img={node.frontmatter.image}
               title={title}
               date={node.frontmatter.date}
               description={node.frontmatter.description}

@@ -4,9 +4,6 @@ import { Default, media } from 'utils/style';
 import { Link } from 'gatsby';
 
 export const Wrapper = styled.article`
-  /* width: ${pxToRem(412)};
-  height: ${pxToRem(416)}; */
-
   width: 100%;
   height: 100%;
 
@@ -76,10 +73,6 @@ export const Date = styled.p`
   color: ${Default.date};
 
   margin: 0;
-
-  ${media.tabletM} {
-    font-size: ${pxToRem(8)};
-  }
 `;
 
 export const Title = styled.h1`
@@ -130,7 +123,13 @@ export const StyledLink = styled(Link)<{ isTitle: boolean }>`
     isTitle ? theme.mainFont : theme.subFont};
 `;
 
-export const ImgLink = styled(Link)`
+export const ImgLink = styled(Link)<{ imgSrc: string }>`
   height: ${pxToRem(204)};
   box-shadow: none;
+
+  background-image: ${({ imgSrc }): string => `url(${imgSrc})`};
+  background-size: cover;
+
+  border-top-right-radius: ${pxToRem(8)};
+  border-top-left-radius: ${pxToRem(8)};
 `;

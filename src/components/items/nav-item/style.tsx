@@ -14,7 +14,7 @@ export const Wrapper = styled(Link)<{ isNext: boolean }>`
 
   font-family: 'SpoqaHanSans';
 
-  background-color: ${({theme}): string => theme.item};
+  background-color: ${({ theme }): string => theme.item};
 
   box-shadow: ${({ theme }): string => theme.itemShadow};
 
