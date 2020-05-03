@@ -9,6 +9,10 @@ interface Props {
 }
 
 export default function NavComponent({ previous, next }: Props): ReactElement {
+  if (previous === null && next === null) {
+    return <Wrapper />;
+  }
+
   if (previous === null) {
     return (
       <Wrapper>
