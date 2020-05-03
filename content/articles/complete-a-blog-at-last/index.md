@@ -1,6 +1,6 @@
 ---
 title: 마침내 블로그를 완성
-date: '2020-05-03'
+date: '2020-05-03 05:48'
 description: 'Hello World'
 tags: ['#Dev', '#Blog']
 image: ./simple-wdever-dev.png
