@@ -1,10 +1,8 @@
 import styled from 'styled-components';
-import { Default } from 'utils/style';
 import { pxToRem } from 'utils';
 
 export const Wrapper = styled.footer`
   width: 100%;
-
   height: ${pxToRem(160)};
 
   background-color: ${({ theme }): string => theme.footer};

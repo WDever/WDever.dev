@@ -1,6 +1,6 @@
 ---
 title: Vercel(now)로 블로그를 배포해보자
-date: '2020-05-03'
+date: '2020-05-03 07:07'
 description: 'Vercel로 이름을 바꾼 zeit now로 블로그를 배포하기'
 tags: ['#Dev', '#Blog', '#Deployment']
 image: ./gatsbywvercel.png

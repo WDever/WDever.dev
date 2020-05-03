@@ -158,7 +158,6 @@ export const GlobalStyle = createGlobalStyle`
 
 export const Wrapper = styled.div`
   width: 100%;
-  min-height: calc(100vh - 160px - 88px - 56px - 3.5rem - 80px);
 
   display: flex;
   flex-direction: column;
