@@ -39,7 +39,7 @@ export const Wrapper = styled.article`
     border-image: ${Default.gradient};
     border-image-slice: 1;
     border-bottom-style: solid;
-    border-bottom-width: 3px;
+    border-bottom-width: 1px;
 
     margin-bottom: ${pxToRem(32)};
 
