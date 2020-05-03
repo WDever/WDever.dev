@@ -15,7 +15,7 @@ export default function NavComponent({ previous, next }: Props): ReactElement {
 
   if (previous === null) {
     return (
-      <Wrapper>
+      <Wrapper onlyNext>
         <NavItemComponent data={next} isNext />
       </Wrapper>
     );
