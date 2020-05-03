@@ -21,7 +21,7 @@ export default function BioItemComponent({
         {children}
         <span> {title}</span>
       </div>
-      {content}
+      <div className='content'>{content}</div>
     </Wrapper>
   );
 }

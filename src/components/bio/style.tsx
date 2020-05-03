@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { pxToRem } from 'utils';
 import GatsbyImage from 'gatsby-image';
-import { Default } from 'utils/style';
+import { Default, media } from 'utils/style';
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -23,6 +23,12 @@ export const Wrapper = styled.div`
   .contacts {
     justify-content: space-between;
   }
+
+  ${media.phone} {
+    height: auto;
+
+    align-items: center;
+  }
 `;
 
 export const Image = styled(GatsbyImage)`
@@ -35,6 +41,11 @@ export const Image = styled(GatsbyImage)`
 
   img {
     margin: 0;
+  }
+
+  ${media.phone} {
+    margin: 0;
+    margin-bottom: ${pxToRem(16)};
   }
 `;
 
@@ -73,9 +84,25 @@ export const ContentWrapper = styled.div`
       padding: 0;
     }
   }
+
+  ${media.phone} {
+    flex-direction: column;
+    align-items: center;
+
+    .introduction-wrapper {
+      flex-direction: column;
+      align-items: center;
+
+      margin-bottom: ${pxToRem(10)};
+    }
+
+    .introduction {
+      align-items: center;
+    }
+  }
 `;
 
-export const Button = styled.button`
+export const Button = styled.a`
   display: flex;
 
   width: ${pxToRem(148)};
@@ -90,6 +117,7 @@ export const Button = styled.button`
 
   font-family: 'SpoqaHanSans';
   font-size: ${pxToRem(12)};
+  color: #000;
 
   padding: ${pxToRem(14)} 0 ${pxToRem(14)} ${pxToRem(14)};
 

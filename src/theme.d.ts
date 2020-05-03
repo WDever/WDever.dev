@@ -8,6 +8,8 @@ interface Colors {
   headerShadow: string;
   itemShadow: string;
   bio: string;
+  footer: string;
+  headerBorder: string;
 }
 
 declare module 'styled-components' {

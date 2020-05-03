@@ -46,13 +46,13 @@ export default function Layout({
   return (
     <ThemeProvider theme={isDark ? Dark : Light}>
       <Wrapper>
+        <GlobalStyle />
         <ToastComponent
           message='현재 페이지의 주소가 복사되었습니다!'
           timeout={3}
           state={toastState}
           setState={setToastState}
         />
-        <GlobalStyle />
         <HeaderComponent
           title={title}
           isDark={isDark}
@@ -60,7 +60,7 @@ export default function Layout({
           selectedTags={selectedTags}
           copyToClipboard={copyToClipboardWithSetState}
           location={location}
-          postTitle={postTitle}
+          postTitle={postTitle || undefined}
         />
         {children}
         <FooterComponent />

@@ -3,6 +3,7 @@ title: 내가 생각하는 현재 한빛 FE 상태관리의 문제점
 date: '2020-03-26'
 description: '리덕스 사가는 과연 필수였을까?'
 tags: ['#React', '#Hanlight', '#Redux']
+image: ./salty_egg.jpg
 ---
 
 ```ts
@@ -137,7 +138,7 @@ Saga의 가장 큰 문제점은 그 거대한 보일러플레이트이다. 현�
 
 # 그래, 그래서 해결책은?
 
-사실 이 글을 쓰게 된 이유가 여기 있다. 난 새로운 라이브러리, 기술을 배우고 사용하는 걸 좋아한다. 그리고 `[react-query](https://github.com/tannerlinsley/react-query/)`라는 꽤 멋진 라이브러리를 알게 되었다. 왜 멋지냐? `useQuery`하나만으로 상당량의 코드를 줄여주고, 다양한 기능을 제공한다.
+사실 이 글을 쓰게 된 이유가 여기 있다. 난 새로운 라이브러리, 기술을 배우고 사용하는 걸 좋아한다. 그리고 [react-query](https://github.com/tannerlinsley/react-query/)라는 꽤 멋진 라이브러리를 알게 되었다. 왜 멋지냐? `useQuery`하나만으로 상당량의 코드를 줄여주고, 다양한 기능을 제공한다.
 
 아직 써보지는 않았지만 `react-query`를 사용한다면 대충 다음과 같은 코드로 현재의 비효율적인 상태 관리 / 데이터 요청을 처리할 수 있을 것이다.
 

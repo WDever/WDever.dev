@@ -4,6 +4,7 @@ module.exports = {
     author: `최민규 WDever`,
     description: `About My Development`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    repo: 'WDever/WDever.dev',
     social: {
       instagram: 'https://www.instagram.com/_m1n_9_/',
       eMail: 'wdever0279@gmail.com',
@@ -26,6 +27,12 @@ module.exports = {
         name: `assets`,
       },
     },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     path: `${__dirname}/`
+    //   }
+    // },
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -33,7 +40,8 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 590,
+              maxWidth: 700,
+              showCaptions: true,
             },
           },
           {
@@ -54,7 +62,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
+        trackingId: `UA-163923948-1`,
       },
     },
     `gatsby-plugin-feed`,
@@ -65,7 +73,7 @@ module.exports = {
         short_name: `GatsbyJS`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#663399`,
+        theme_color: `#4470ff`,
         display: `minimal-ui`,
         icon: `content/assets/wdever-icon.png`,
       },

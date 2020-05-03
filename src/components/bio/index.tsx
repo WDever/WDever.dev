@@ -10,7 +10,7 @@ import { Wrapper, Image, ContentWrapper, Button } from './style';
 export default function Bio(): ReactElement {
   const data: BioQueryQuery = useStaticQuery<BioQueryQuery>(graphql`
     query BioQuery {
-      avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
+      avatar: file(absolutePath: { regex: "/profile-pic.png/" }) {
         childImageSharp {
           fixed(width: 86, height: 86) {
             ...GatsbyImageSharpFixed
@@ -37,7 +37,7 @@ export default function Bio(): ReactElement {
   return (
     <Wrapper>
       <ContentWrapper>
-        <div>
+        <div className='introduction-wrapper'>
           <Image fixed={fixed} alt={author} />
           <div className='introduction'>
             <h1>
@@ -46,7 +46,7 @@ export default function Bio(): ReactElement {
             <h2>더 나은 코드를 위해 노력하는 개발자입니다.</h2>
           </div>
         </div>
-        <Button>
+        <Button href='https://www.buymeacoffee.com/WDever' target='_blank'>
           <span role='img' aria-label='Coffee'>
             ☕
           </span>

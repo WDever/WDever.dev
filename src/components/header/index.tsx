@@ -20,12 +20,12 @@ import {
 
 interface Props {
   title: string;
-  isDark: boolean;
-  setIsDark: React.Dispatch<React.SetStateAction<boolean>>;
+  isDark: boolean | undefined;
+  setIsDark: React.Dispatch<React.SetStateAction<boolean | undefined>>;
   selectedTags: string[];
   copyToClipboard: (text: string) => void;
   location: Location;
-  postTitle: string;
+  postTitle?: string;
 }
 
 export default function HeaderComponent({
@@ -35,7 +35,6 @@ export default function HeaderComponent({
   selectedTags,
   copyToClipboard,
   location,
-  postTitle,
 }: Props): ReactElement {
   const visibility = useRef<boolean>(false);
   const setVisibility = (bool: boolean): void => {
@@ -66,6 +65,10 @@ export default function HeaderComponent({
       return;
     }
 
+    if (location.pathname.length > 1) {
+      return;
+    }
+
     const tags: ReactNodeArray = selectedTags.map((item, i) => (
       <HeaderTagItemComponent
         key={i}
@@ -75,20 +78,6 @@ export default function HeaderComponent({
     ));
 
     return tags;
-  };
-
-  const postInfo = (): ReactNode => {
-    const { pathname } = location;
-
-    if (!isScrolled) {
-      return;
-    }
-
-    if (!(pathname.length > 1)) {
-      return;
-    }
-
-    return <h1>{postTitle}</h1>;
   };
 
   useEffect(() => {
@@ -108,7 +97,6 @@ export default function HeaderComponent({
         <InfoWrapper>
           <Title to='/'>{title}</Title>
           {tagNotifier()}
-          {postInfo()}
         </InfoWrapper>
         <ContentWrapper>
           <button type='button' onClick={copy}>

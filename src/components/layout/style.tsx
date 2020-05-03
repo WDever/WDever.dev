@@ -1,14 +1,15 @@
 import styled, { createGlobalStyle } from 'styled-components';
 import { ThemeChangeTransition } from 'utils/style';
+import { fontFiles } from 'lib/fonts/fonts';
 import { styledScale } from '../../utils/typography';
 
 export const GlobalStyle = createGlobalStyle`
   @font-face {
       font-family: 'Ubuntu';
       src: local('Ubuntu Bold'), local('Ubuntu-Bold'),
-          url('../../lib/fonts/Ubuntu-Bold.woff2') format('woff2'),
-          url('../../lib/fonts/Ubuntu-Bold.woff') format('woff'),
-          url('../../lib/fonts/Ubuntu-Bold.ttf') format('truetype');
+          url(${fontFiles.UbuntuBoldWoff2}) format('woff2'),
+          url(${fontFiles.UbuntuBoldWoff}) format('woff'),
+          url(${fontFiles.UbuntuBoldTTF}) format('truetype');
       font-weight: bold;
       font-style: normal;
   }
@@ -16,9 +17,9 @@ export const GlobalStyle = createGlobalStyle`
   @font-face {
       font-family: 'Gothic A1';
       src: local('Gothic A1 Bold'), local('GothicA1-Bold'),
-          url('../../lib/fonts/GothicA1-Bold.woff2') format('woff2'),
-          url('../../lib/fonts/GothicA1-Bold.woff') format('woff'),
-          url('../../lib/fonts/GothicA1-Bold.ttf') format('truetype');
+          url(${fontFiles.GothicA1BoldWoff2}) format('woff2'),
+          url(${fontFiles.GothicA1BoldWoff}) format('woff'),
+          url(${fontFiles.GothicA1BoldTTF}) format('truetype');
       font-weight: bold;
       font-style: normal;
   }
@@ -26,9 +27,9 @@ export const GlobalStyle = createGlobalStyle`
   @font-face {
       font-family: 'Ubuntu';
       src: local('Ubuntu Regular'), local('Ubuntu-Regular'),
-          url('../../lib/fonts/Ubuntu-Regular.woff2') format('woff2'),
-          url('../../lib/fonts/Ubuntu-Regular.woff') format('woff'),
-          url('../../lib/fonts/Ubuntu-Regular.ttf') format('truetype');
+          url(${fontFiles.UbuntuRegularWoff2}) format('woff2'),
+          url(${fontFiles.UbuntuRegularWoff}) format('woff'),
+          url(${fontFiles.UbuntuRegularTTF}) format('truetype');
       font-weight: normal;
       font-style: normal;
   }
@@ -36,9 +37,9 @@ export const GlobalStyle = createGlobalStyle`
   @font-face {
       font-family: 'Gothic A1';
       src: local('../../lib/fonts/Gothic A1 Regular'), local('GothicA1-Regular'),
-          url('../../lib/fonts/GothicA1-Regular.woff2') format('woff2'),
-          url('../../lib/fonts/GothicA1-Regular.woff') format('woff'),
-          url('../../lib/fonts/GothicA1-Regular.ttf') format('ttf');
+          url(${fontFiles.GothicA1RegularWoff2}) format('woff2'),
+          url(${fontFiles.GothicA1RegularWoff}) format('woff'),
+          url(${fontFiles.GothicA1RegularTTF}) format('truetype');
       font-weight: normal;
       font-style: normal;
   }
@@ -46,9 +47,9 @@ export const GlobalStyle = createGlobalStyle`
   @font-face {
       font-family: 'SpoqaHanSans';
       src: local('../../lib/fonts/SpoqaHanSans Regular'), local('Spoqa-Han-Sans-Regular'),
-          url('../../lib/fonts/SpoqaHanSansRegular.woff2') format('woff2'),
-          url('../../lib/fonts/SpoqaHanSansRegular.woff') format('woff'),
-          url('../../lib/fonts/SpoqaHanSansRegular.ttf') format('ttf');
+          url(${fontFiles.SpoqaHanSansRegularWoff2}) format('woff2'),
+          url(${fontFiles.SpoqaHanSansRegularWoff}) format('woff'),
+          url(${fontFiles.SpoqaHanSansRegularTTF}) format('ttf');
       font-weight: normal;
       font-style: normal;
   }
@@ -56,9 +57,9 @@ export const GlobalStyle = createGlobalStyle`
   @font-face {
       font-family: 'SpoqaHanSans';
       src: local('../../lib/fonts/SpoqaHanSansBold'), local('Spoqa-Han-Sans-Bold'),
-          url('../../lib/fonts/SpoqaHanSansBold.woff2') format('woff2'),
-          url('../../lib/fonts/SpoqaHanSansBold.woff') format('woff'),
-          url('../../lib/fonts/SpoqaHanSansBold.ttf') format('ttf');
+          url(${fontFiles.SpoqaHanSansBoldWoff2}) format('woff2'),
+          url(${fontFiles.SpoqaHanSansBoldWoff}) format('woff'),
+          url(${fontFiles.SpoqaHanSansBoldTTF}) format('ttf');
       font-weight: bold;
       font-style: normal;
   }
@@ -150,8 +151,7 @@ export const GlobalStyle = createGlobalStyle`
     word-break: keep-all;
   }
 
-  h1,
-  h2 {
+  h1, h2 {
     border: none;
   }
 `;

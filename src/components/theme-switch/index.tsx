@@ -4,14 +4,16 @@ import { Light, Dark, Default } from 'utils/style';
 import { SwitchIcon, Label } from './style';
 
 interface Props {
-  isDark: boolean;
-  setIsDark: React.Dispatch<React.SetStateAction<boolean>>;
+  isDark: boolean | undefined;
+  setIsDark: React.Dispatch<React.SetStateAction<boolean | undefined>>;
 }
 
 export default function ThemeSwitchComponent({
   isDark,
   setIsDark,
 }: Props): ReactElement {
+  const checkedIsDark: boolean = typeof isDark === 'undefined' ? false : isDark;
+
   const handleChange = (isDark: boolean): void => {
     setIsDark(isDark);
   };
@@ -25,11 +27,11 @@ export default function ThemeSwitchComponent({
       <Switch
         id='theme-switch'
         onChange={handleChange}
-        checked={isDark}
+        checked={checkedIsDark}
         width={48}
         height={24}
-        checkedIcon={icon(isDark)}
-        uncheckedIcon={icon(isDark)}
+        checkedIcon={icon(checkedIsDark)}
+        uncheckedIcon={icon(checkedIsDark)}
         offColor={Default.main}
         offHandleColor={Light.bg}
         onColor={Default.main}

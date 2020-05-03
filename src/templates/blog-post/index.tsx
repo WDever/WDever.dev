@@ -1,10 +1,9 @@
 import React, { ReactElement } from 'react';
-import { Link, graphql } from 'gatsby';
-import {
-  BlogPostBySlugQuery,
-  ResultRemarkQueryQuery,
-} from 'types/graphqlTypes';
+import { graphql } from 'gatsby';
+import { BlogPostBySlugQuery, SitePageContext } from 'types/graphqlTypes';
 import NavComponent from 'components/nav';
+import PostTagItemComponent from 'components/items/post-tag-item';
+import CommentComponent from 'components/comment';
 import Bio from '../../components/bio';
 import Layout from '../../components/layout';
 import SEO from '../../components/seo';
@@ -12,12 +11,7 @@ import { Wrapper } from './style';
 
 interface Props {
   data: BlogPostBySlugQuery;
-  pageContext: {
-    isCreatedByStatefulCreatePages: boolean;
-    slug: string;
-    previous: ResultRemarkQueryQuery['allMarkdownRemark']['edges'][number]['node'];
-    next: ResultRemarkQueryQuery['allMarkdownRemark']['edges'][number]['node'];
-  };
+  pageContext: SitePageContext;
   location: Location;
 }
 
@@ -33,6 +27,10 @@ export default function BlogPostTemplate({
 
   const { tags, title, description, date } = post.frontmatter;
 
+  const tagList = tags.map((item, i) => (
+    <PostTagItemComponent tag={item} key={i} />
+  ));
+
   return (
     <Layout
       location={location}
@@ -45,39 +43,14 @@ export default function BlogPostTemplate({
         <header>
           <h1>{title}</h1>
           <p>{date}</p>
+          <section className='tags'>{tagList}</section>
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr />
-        <footer>
-          <Bio />
-        </footer>
+        <Bio />
         <NavComponent previous={previous} next={next} />
+        <CommentComponent location={location} />
       </Wrapper>
-
-      {/* <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
-          <li>
-            {previous && (
-              <Link to={previous.fields.slug} rel='prev'>
-                ← {previous.frontmatter.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={next.fields.slug} rel='next'>
-                {next.frontmatter.title} →
-              </Link>
-            )}
-          </li>
-        </ul> */}
     </Layout>
   );
 }
@@ -95,7 +68,7 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "YYYY년 MM월 DD일")
         description
         tags
       }

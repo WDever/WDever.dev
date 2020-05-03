@@ -2,13 +2,14 @@ import { CSSObject } from 'styled-components';
 import Typography from 'typography';
 import GitHubTheme from 'typography-theme-github';
 import { pxToRem } from './functions';
+import { Default } from './style';
 
 GitHubTheme.overrideThemeStyles = (): object => {
   return {
     a: {
       boxShadow: `none`,
       textDecoration: `none`,
-      color: `#0687f0`,
+      color: Default.main,
     },
     'a.gatsby-resp-image-link': {
       boxShadow: `none`,
@@ -30,13 +31,11 @@ GitHubTheme.overrideThemeStyles = (): object => {
       lineHeight: 1.3,
       marginTop: pxToRem(56),
       marginBottom: pxToRem(20),
-      fontSize: pxToRem(24),
       fontFamily: 'Gothic A1',
     },
 
     h3: {
       lineHeight: 1.3,
-      fontSize: pxToRem(20),
       fontFamily: 'Gothic A1',
     },
 

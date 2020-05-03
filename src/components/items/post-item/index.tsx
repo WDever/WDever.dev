@@ -15,7 +15,7 @@ import {
 import PostTagItemComponent from '../post-tag-item';
 
 interface Props {
-  img: string;
+  img: BlogIndexQueryQuery['allMarkdownRemark']['edges'][number]['node']['frontmatter']['image'];
   tags: BlogIndexQueryQuery['allMarkdownRemark']['edges'][number]['node']['frontmatter']['tags'];
   date: BlogIndexQueryQuery['allMarkdownRemark']['edges'][number]['node']['frontmatter']['date'];
   title: BlogIndexQueryQuery['allMarkdownRemark']['edges'][number]['node']['frontmatter']['title'];
@@ -31,15 +31,15 @@ export default function PostItemComponent({
   tags,
   slug,
 }: Props): ReactElement {
+  const { src } = img.childImageSharp.fluid;
+
   const tagList = tags.map((item, i) => (
     <PostTagItemComponent key={i} tag={item} />
   ));
 
   return (
     <Wrapper>
-      <ImgLink to={slug}>
-        <Img src={img} alt='post' />
-      </ImgLink>
+      <ImgLink to={slug} imgsrc={src} />
       <PostInfoWrapper>
         <PostInfo>
           <TagList>{tagList}</TagList>

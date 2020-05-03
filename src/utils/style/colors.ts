@@ -1,13 +1,15 @@
 import { DefaultTheme } from 'styled-components';
 
 export const Light: DefaultTheme = {
-  bg: '#ffffff',
-  item: '#ffffff',
-  mainFont: '#000000',
-  subFont: '#000000',
+  bg: '#fff',
+  item: '#fff',
+  mainFont: '#000',
+  subFont: '#777',
   headerShadow: '0 4px 32px 0 rgba(0, 0, 0, 0.08);',
   itemShadow: '0 4px 12px 0 rgba(0, 0, 0, 0.1)',
   bio: '#f0f0f0',
+  footer: '#f0f0f0',
+  headerBorder: 'hsla(0,0%,0%,0.07);',
 };
 
 export const Dark: DefaultTheme = {
@@ -18,6 +20,8 @@ export const Dark: DefaultTheme = {
   headerShadow: '0 4px 16px 0 rgba(0, 0, 0, 0.32);',
   itemShadow: '0 4px 16px 0 rgba(0, 0, 0, 0.36);',
   bio: '#363639',
+  footer: '#2a2a2d',
+  headerBorder: 'rgba(255, 255, 255, 0.2)',
 };
 
 export interface DefaultColor {
