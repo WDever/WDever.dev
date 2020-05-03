@@ -4,23 +4,15 @@ import { BaseInner, media } from 'utils/style';
 
 export const Main = styled.main`
   width: 100%;
+  min-height: calc(100vh - 160px - 88px - 56px - 3.5rem - 80px);
 
   margin-bottom: ${pxToRem(80)};
-
-  /* padding: 0 ${pxToRem(32)};
-
-  display: flex;
-  justify-content: center; */
 `;
 
 export const Inner = styled.div`
   ${BaseInner};
 
   display: grid;
-
-  /* grid-template-columns: ${(): string =>
-    `repeat(auto-fill, ${pxToRem(412)})`};
-  grid-template-rows: ${(): string => `repeat(auto-fill, ${pxToRem(416)})`}; */
 
   grid-template-columns: ${(): string => `repeat(auto-fill, ${pxToRem(412)})`};
 
