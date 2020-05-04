@@ -108,7 +108,7 @@ date: '2020-05-03 07:07'
 
 이 버그는 해당 레이아웃을 감싸를 Wrapper에 `justify-content: space-between`속성을 주었기 때문에 생겼다. 다음과 같이 `styled-components`의 props를 활용하여 해결했다.
 
-```tyepscript
+```typescript
 // nav/index.tsx
 
 if (previous === null) {
