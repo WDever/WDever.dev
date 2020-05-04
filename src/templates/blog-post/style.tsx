@@ -21,6 +21,7 @@ export const Wrapper = styled.article`
   .gatsby-resp-image-figcaption {
     text-align: center;
     color: ${({ theme }): string => theme.subFont};
+    font-size: ${pxToRem(12)};
   }
 
   blockquote, h6 {

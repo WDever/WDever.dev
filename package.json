@@ -86,6 +86,7 @@
   "scripts": {
     "create-post": "ts-node ./cli/create-new-post.ts",
     "build": "rm -rf .cache public && gatsby build",
+    "build-test": "rm -rf .cache public && gatsby build && gatsby serve",
     "develop": "rm -rf .cache && gatsby develop",
     "format": "prettier --write \"**/*.{ts,tsx,json,md}\"",
     "start": "npm run develop",
