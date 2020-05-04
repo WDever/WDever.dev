@@ -81,3 +81,7 @@ Vercel now를 사용하여 배포를 해봤는데 일단 크게 만족한다. �
 이 글은 배포와 동시에 스크린샷을 찍으며 작성했다. 배포 후 좀 큰 모니터를 사용해보니 문제가 있어보여 일단 그 부분을 수정하려 한다.
 
 다음 글은 이슈 수정과 커스텀 도메인 설정이 될 것 같다.
+
+---
+
+여기서는 Vercel now와 Gatsby에 대해서만 다뤘다. 다른 배포 플랫폼인 Netlify나 GitHub Page가 궁금하다면 [taenyKim님의 글](https://taeny.dev/javascript/nextjs-with-deployment-platform/)을 참고하면 좋을 것 같다.
