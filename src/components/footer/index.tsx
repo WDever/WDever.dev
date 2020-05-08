@@ -5,7 +5,7 @@ export default function FooterComponent(): ReactElement {
   return (
     <Wrapper>
       <strong>@WDever, &nbsp;</strong> Built with &nbsp;
-      <strong> Gatsby-starter-devlog</strong>
+      <strong> Gatsby-starter-blog</strong>
     </Wrapper>
   );
 }
