@@ -62,7 +62,7 @@ export default function Bio(): ReactElement {
           <MdMailOutline size='14' />
         </BioItemComponent>
         <BioItemComponent
-          title='GitGub'
+          title='GitHub'
           content={social.gitHub}
           href={`https://${social.gitHub}`}
         >
