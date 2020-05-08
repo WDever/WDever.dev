@@ -49,6 +49,9 @@ export default function AboutPage({ location, data }: Props): ReactElement {
           <li>GraphQL</li>
         </ul>
         <ul>
+          <li>Electron</li>
+        </ul>
+        <ul>
           <li>SSR</li>
         </ul>
         <ul>
