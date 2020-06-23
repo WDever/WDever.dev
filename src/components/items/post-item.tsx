@@ -1,9 +1,59 @@
+import React, { ReactElement } from 'react';
+import { BlogIndexQueryQuery } from 'types';
+
 import styled from 'styled-components';
 import { pxToRem } from 'utils';
 import { Default, media } from 'utils/style';
 import { Link } from 'gatsby';
+import PostTagItemComponent from './post-tag-item';
 
-export const Wrapper = styled.article`
+interface Props {
+  img: BlogIndexQueryQuery['allMarkdownRemark']['edges'][number]['node']['frontmatter']['image'];
+  tags: BlogIndexQueryQuery['allMarkdownRemark']['edges'][number]['node']['frontmatter']['tags'];
+  date: BlogIndexQueryQuery['allMarkdownRemark']['edges'][number]['node']['frontmatter']['date'];
+  title: BlogIndexQueryQuery['allMarkdownRemark']['edges'][number]['node']['frontmatter']['title'];
+  description: BlogIndexQueryQuery['allMarkdownRemark']['edges'][number]['node']['frontmatter']['description'];
+  slug: BlogIndexQueryQuery['allMarkdownRemark']['edges'][number]['node']['fields']['slug'];
+}
+
+export default function PostItemComponent({
+  img,
+  date,
+  title,
+  description,
+  tags,
+  slug,
+}: Props): ReactElement {
+  const { src } = img.childImageSharp.fluid;
+
+  const tagList = tags.map((item, i) => (
+    <PostTagItemComponent key={i} tag={item} />
+  ));
+
+  return (
+    <Wrapper>
+      <ImgLink to={slug} imgsrc={src} />
+      <PostInfoWrapper>
+        <PostInfo>
+          <TagList>{tagList}</TagList>
+          <Date>{date}</Date>
+        </PostInfo>
+        <Title>
+          <StyledLink to={slug} isTitle>
+            {title}
+          </StyledLink>
+        </Title>
+        <Description>
+          <StyledLink to={slug} isTitle={false}>
+            {description}
+          </StyledLink>
+        </Description>
+      </PostInfoWrapper>
+    </Wrapper>
+  );
+}
+
+const Wrapper = styled.article`
   width: 100%;
   height: 100%;
 
@@ -30,7 +80,7 @@ export const Wrapper = styled.article`
   }
 `;
 
-export const Img = styled.img`
+const Img = styled.img`
   width: 100%;
   height: ${pxToRem(204)};
 
@@ -42,7 +92,7 @@ export const Img = styled.img`
   cursor: pointer;
 `;
 
-export const PostInfoWrapper = styled.div`
+const PostInfoWrapper = styled.div`
   width: 100%;
 
   display: flex;
@@ -55,7 +105,7 @@ export const PostInfoWrapper = styled.div`
   }
 `;
 
-export const PostInfo = styled.div`
+const PostInfo = styled.div`
   width: 100%;
 
   display: flex;
@@ -63,11 +113,11 @@ export const PostInfo = styled.div`
   align-items: center;
 `;
 
-export const TagList = styled.div`
+const TagList = styled.div`
   max-width: 70%;
 `;
 
-export const Date = styled.p`
+const Date = styled.p`
   font-family: 'SpoqaHanSans';
   font-size: ${pxToRem(10)};
   color: ${Default.date};
@@ -75,7 +125,7 @@ export const Date = styled.p`
   margin: 0;
 `;
 
-export const Title = styled.h1`
+const Title = styled.h1`
   margin: 0;
   margin-top: ${pxToRem(14)};
 
@@ -99,7 +149,7 @@ export const Title = styled.h1`
   }
 `;
 
-export const Description = styled.h2`
+const Description = styled.h2`
   margin: 0;
   margin-top: ${pxToRem(16)};
 
@@ -117,13 +167,13 @@ export const Description = styled.h2`
   }
 `;
 
-export const StyledLink = styled(Link)<{ isTitle: boolean }>`
+const StyledLink = styled(Link)<{ isTitle: boolean }>`
   box-shadow: none;
   color: ${({ theme, isTitle }): string =>
     isTitle ? theme.mainFont : theme.subFont};
 `;
 
-export const ImgLink = styled(Link)<{ imgsrc: string }>`
+const ImgLink = styled(Link)<{ imgsrc: string }>`
   height: ${pxToRem(204)};
   box-shadow: none;
 

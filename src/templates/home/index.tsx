@@ -61,7 +61,7 @@ export default function HomeTemplate({
         return undefined;
       },
     )
-    .filter(item => item !== undefined);
+    .filter((item) => item !== undefined);
 
   const postList = selectedTags.length === 0 ? allPostList : filteredPostList;
 

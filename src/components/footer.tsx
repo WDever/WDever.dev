@@ -1,12 +1,28 @@
 import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 import { pxToRem } from 'utils';
+import { useSiteMetadata } from 'hooks';
 
 export default function FooterComponent(): ReactElement {
+  // get author name from gatsby-config.js/sitemetadata
+  const { siteMetadata } = useSiteMetadata();
+
+  const {
+    social: { gitHub },
+    author,
+  } = siteMetadata;
+
   return (
     <Wrapper>
-      <strong>@WDever, &nbsp;</strong> Built with &nbsp;
-      <strong>Gatsby-starter-blog</strong>
+      <strong>
+        <a href={`https://${gitHub}`}>@{author}</a>, &nbsp;
+      </strong>
+      Built with &nbsp;
+      <strong>
+        <a href='https://github.com/WDever/gatsby-starter-devlog'>
+          Gatsby-starter-devlog
+        </a>
+      </strong>
     </Wrapper>
   );
 }

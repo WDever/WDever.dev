@@ -1,8 +1,33 @@
+import React, { ReactElement, ReactNode } from 'react';
 import styled from 'styled-components';
 import { pxToRem } from 'utils';
 import { Default, media } from 'utils/style';
 
-export const Wrapper = styled.a`
+interface Props {
+  title: string;
+  content: string;
+  href: string;
+  children: ReactNode;
+}
+
+export default function BioItemComponent({
+  title,
+  content,
+  href,
+  children,
+}: Props): ReactElement {
+  return (
+    <Wrapper href={href} target='_blank'>
+      <div>
+        {children}
+        <span> {title}</span>
+      </div>
+      <div className='content'>{content}</div>
+    </Wrapper>
+  );
+}
+
+const Wrapper = styled.a`
   width: ${pxToRem(218)};
   height: ${pxToRem(64)};
 

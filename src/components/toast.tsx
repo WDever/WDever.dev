@@ -1,5 +1,36 @@
+import React, { useRef, ReactElement } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { pxToRem } from 'utils';
+
+interface Props {
+  message: string;
+  timeout: number;
+  state: boolean;
+  setState: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export default function ToastComponent({
+  message,
+  timeout,
+  state,
+  setState,
+}: Props): ReactElement {
+  const ref = useRef<HTMLDivElement>(null);
+
+  if (state) {
+    return (
+      <Wrapper
+        timeout={timeout}
+        ref={ref}
+        onAnimationEnd={(): void => setState(false)}
+      >
+        <Message>{message}</Message>
+      </Wrapper>
+    );
+  }
+
+  return <></>;
+}
 
 const ToastAnimation = keyframes`
   from {

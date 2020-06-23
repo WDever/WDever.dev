@@ -1,4 +1,5 @@
 export type Maybe<T> = T;
+export type Exact<T extends { [key: string]: any }> = { [K in keyof T]: T[K] };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -6,7 +7,9 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
+  /** A date string, such as 2007-12-03, compliant with the ISO 8601 standard for representation of dates and times using the Gregorian calendar. */
   Date: any;
+  /** The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf). */
   JSON: any;
 };
 
@@ -29,7 +32,6 @@ export type DateQueryOperatorInput = {
 };
 
 export type Directory = Node & {
-  __typename?: 'Directory';
   sourceInstanceName: Scalars['String'];
   absolutePath: Scalars['String'];
   relativePath: Scalars['String'];
@@ -59,7 +61,9 @@ export type Directory = Node & {
   atime: Scalars['Date'];
   mtime: Scalars['Date'];
   ctime: Scalars['Date'];
+  /** @deprecated Use `birthTime` instead */
   birthtime: Maybe<Scalars['Date']>;
+  /** @deprecated Use `birthTime` instead */
   birthtimeMs: Maybe<Scalars['Float']>;
   blksize: Maybe<Scalars['Int']>;
   blocks: Maybe<Scalars['Int']>;
@@ -119,7 +123,6 @@ export type DirectoryCtimeArgs = {
 };
 
 export type DirectoryConnection = {
-  __typename?: 'DirectoryConnection';
   totalCount: Scalars['Int'];
   edges: Array<DirectoryEdge>;
   nodes: Array<Directory>;
@@ -139,7 +142,6 @@ export type DirectoryConnectionGroupArgs = {
 };
 
 export type DirectoryEdge = {
-  __typename?: 'DirectoryEdge';
   next: Maybe<Directory>;
   node: Directory;
   previous: Maybe<Directory>;
@@ -308,7 +310,6 @@ export type DirectoryFilterInput = {
 };
 
 export type DirectoryGroupConnection = {
-  __typename?: 'DirectoryGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<DirectoryEdge>;
   nodes: Array<Directory>;
@@ -329,7 +330,6 @@ export type DuotoneGradient = {
 };
 
 export type File = Node & {
-  __typename?: 'File';
   sourceInstanceName: Scalars['String'];
   absolutePath: Scalars['String'];
   relativePath: Scalars['String'];
@@ -359,10 +359,13 @@ export type File = Node & {
   atime: Scalars['Date'];
   mtime: Scalars['Date'];
   ctime: Scalars['Date'];
+  /** @deprecated Use `birthTime` instead */
   birthtime: Maybe<Scalars['Date']>;
+  /** @deprecated Use `birthTime` instead */
   birthtimeMs: Maybe<Scalars['Float']>;
   blksize: Maybe<Scalars['Int']>;
   blocks: Maybe<Scalars['Int']>;
+  /** Copy file to static directory and return public url to it */
   publicURL: Maybe<Scalars['String']>;
   childImageSharp: Maybe<ImageSharp>;
   id: Scalars['ID'];
@@ -422,7 +425,6 @@ export type FileCtimeArgs = {
 };
 
 export type FileConnection = {
-  __typename?: 'FileConnection';
   totalCount: Scalars['Int'];
   edges: Array<FileEdge>;
   nodes: Array<File>;
@@ -442,7 +444,6 @@ export type FileConnectionGroupArgs = {
 };
 
 export type FileEdge = {
-  __typename?: 'FileEdge';
   next: Maybe<File>;
   node: File;
   previous: Maybe<File>;
@@ -709,6 +710,7 @@ export enum FileFieldsEnum {
   ChildMarkdownRemarkHtmlAst = 'childMarkdownRemark___htmlAst',
   ChildMarkdownRemarkExcerptAst = 'childMarkdownRemark___excerptAst',
   ChildMarkdownRemarkHeadings = 'childMarkdownRemark___headings',
+  ChildMarkdownRemarkHeadingsId = 'childMarkdownRemark___headings___id',
   ChildMarkdownRemarkHeadingsValue = 'childMarkdownRemark___headings___value',
   ChildMarkdownRemarkHeadingsDepth = 'childMarkdownRemark___headings___depth',
   ChildMarkdownRemarkTimeToRead = 'childMarkdownRemark___timeToRead',
@@ -799,7 +801,6 @@ export type FileFilterInput = {
 };
 
 export type FileGroupConnection = {
-  __typename?: 'FileGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<FileEdge>;
   nodes: Array<File>;
@@ -842,6 +843,8 @@ export enum ImageFit {
   Cover = 'COVER',
   Contain = 'CONTAIN',
   Fill = 'FILL',
+  Inside = 'INSIDE',
+  Outside = 'OUTSIDE',
 }
 
 export enum ImageFormat {
@@ -852,10 +855,11 @@ export enum ImageFormat {
 }
 
 export type ImageSharp = Node & {
-  __typename?: 'ImageSharp';
   fixed: Maybe<ImageSharpFixed>;
+  /** @deprecated Resolutions was deprecated in Gatsby v2. It's been renamed to "fixed" https://example.com/write-docs-and-fix-this-example-link */
   resolutions: Maybe<ImageSharpResolutions>;
   fluid: Maybe<ImageSharpFluid>;
+  /** @deprecated Sizes was deprecated in Gatsby v2. It's been renamed to "fluid" https://example.com/write-docs-and-fix-this-example-link */
   sizes: Maybe<ImageSharpSizes>;
   original: Maybe<ImageSharpOriginal>;
   resize: Maybe<ImageSharpResize>;
@@ -980,7 +984,6 @@ export type ImageSharpResizeArgs = {
 };
 
 export type ImageSharpConnection = {
-  __typename?: 'ImageSharpConnection';
   totalCount: Scalars['Int'];
   edges: Array<ImageSharpEdge>;
   nodes: Array<ImageSharp>;
@@ -1000,7 +1003,6 @@ export type ImageSharpConnectionGroupArgs = {
 };
 
 export type ImageSharpEdge = {
-  __typename?: 'ImageSharpEdge';
   next: Maybe<ImageSharp>;
   node: ImageSharp;
   previous: Maybe<ImageSharp>;
@@ -1162,7 +1164,6 @@ export type ImageSharpFilterInput = {
 };
 
 export type ImageSharpFixed = {
-  __typename?: 'ImageSharpFixed';
   base64: Maybe<Scalars['String']>;
   tracedSVG: Maybe<Scalars['String']>;
   aspectRatio: Maybe<Scalars['Float']>;
@@ -1189,7 +1190,6 @@ export type ImageSharpFixedFilterInput = {
 };
 
 export type ImageSharpFluid = {
-  __typename?: 'ImageSharpFluid';
   base64: Maybe<Scalars['String']>;
   tracedSVG: Maybe<Scalars['String']>;
   aspectRatio: Scalars['Float'];
@@ -1200,8 +1200,8 @@ export type ImageSharpFluid = {
   sizes: Scalars['String'];
   originalImg: Maybe<Scalars['String']>;
   originalName: Maybe<Scalars['String']>;
-  presentationWidth: Maybe<Scalars['Int']>;
-  presentationHeight: Maybe<Scalars['Int']>;
+  presentationWidth: Scalars['Int'];
+  presentationHeight: Scalars['Int'];
 };
 
 export type ImageSharpFluidFilterInput = {
@@ -1220,7 +1220,6 @@ export type ImageSharpFluidFilterInput = {
 };
 
 export type ImageSharpGroupConnection = {
-  __typename?: 'ImageSharpGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<ImageSharpEdge>;
   nodes: Array<ImageSharp>;
@@ -1230,7 +1229,6 @@ export type ImageSharpGroupConnection = {
 };
 
 export type ImageSharpOriginal = {
-  __typename?: 'ImageSharpOriginal';
   width: Maybe<Scalars['Float']>;
   height: Maybe<Scalars['Float']>;
   src: Maybe<Scalars['String']>;
@@ -1243,7 +1241,6 @@ export type ImageSharpOriginalFilterInput = {
 };
 
 export type ImageSharpResize = {
-  __typename?: 'ImageSharpResize';
   src: Maybe<Scalars['String']>;
   tracedSVG: Maybe<Scalars['String']>;
   width: Maybe<Scalars['Int']>;
@@ -1262,7 +1259,6 @@ export type ImageSharpResizeFilterInput = {
 };
 
 export type ImageSharpResolutions = {
-  __typename?: 'ImageSharpResolutions';
   base64: Maybe<Scalars['String']>;
   tracedSVG: Maybe<Scalars['String']>;
   aspectRatio: Maybe<Scalars['Float']>;
@@ -1289,7 +1285,6 @@ export type ImageSharpResolutionsFilterInput = {
 };
 
 export type ImageSharpSizes = {
-  __typename?: 'ImageSharpSizes';
   base64: Maybe<Scalars['String']>;
   tracedSVG: Maybe<Scalars['String']>;
   aspectRatio: Scalars['Float'];
@@ -1300,8 +1295,8 @@ export type ImageSharpSizes = {
   sizes: Scalars['String'];
   originalImg: Maybe<Scalars['String']>;
   originalName: Maybe<Scalars['String']>;
-  presentationWidth: Maybe<Scalars['Int']>;
-  presentationHeight: Maybe<Scalars['Int']>;
+  presentationWidth: Scalars['Int'];
+  presentationHeight: Scalars['Int'];
 };
 
 export type ImageSharpSizesFilterInput = {
@@ -1325,7 +1320,6 @@ export type ImageSharpSortInput = {
 };
 
 export type Internal = {
-  __typename?: 'Internal';
   content: Maybe<Scalars['String']>;
   contentDigest: Scalars['String'];
   description: Maybe<Scalars['String']>;
@@ -1374,12 +1368,13 @@ export enum MarkdownExcerptFormats {
 }
 
 export type MarkdownHeading = {
-  __typename?: 'MarkdownHeading';
+  id: Maybe<Scalars['String']>;
   value: Maybe<Scalars['String']>;
   depth: Maybe<Scalars['Int']>;
 };
 
 export type MarkdownHeadingFilterInput = {
+  id: Maybe<StringQueryOperatorInput>;
   value: Maybe<StringQueryOperatorInput>;
   depth: Maybe<IntQueryOperatorInput>;
 };
@@ -1398,7 +1393,6 @@ export enum MarkdownHeadingLevels {
 }
 
 export type MarkdownRemark = Node & {
-  __typename?: 'MarkdownRemark';
   id: Scalars['ID'];
   frontmatter: Maybe<MarkdownRemarkFrontmatter>;
   excerpt: Maybe<Scalars['String']>;
@@ -1440,7 +1434,6 @@ export type MarkdownRemarkTableOfContentsArgs = {
 };
 
 export type MarkdownRemarkConnection = {
-  __typename?: 'MarkdownRemarkConnection';
   totalCount: Scalars['Int'];
   edges: Array<MarkdownRemarkEdge>;
   nodes: Array<MarkdownRemark>;
@@ -1460,14 +1453,12 @@ export type MarkdownRemarkConnectionGroupArgs = {
 };
 
 export type MarkdownRemarkEdge = {
-  __typename?: 'MarkdownRemarkEdge';
   next: Maybe<MarkdownRemark>;
   node: MarkdownRemark;
   previous: Maybe<MarkdownRemark>;
 };
 
 export type MarkdownRemarkFields = {
-  __typename?: 'MarkdownRemarkFields';
   slug: Maybe<Scalars['String']>;
 };
 
@@ -1546,6 +1537,7 @@ export enum MarkdownRemarkFieldsEnum {
   HtmlAst = 'htmlAst',
   ExcerptAst = 'excerptAst',
   Headings = 'headings',
+  HeadingsId = 'headings___id',
   HeadingsValue = 'headings___value',
   HeadingsDepth = 'headings___depth',
   TimeToRead = 'timeToRead',
@@ -1664,7 +1656,6 @@ export type MarkdownRemarkFilterInput = {
 };
 
 export type MarkdownRemarkFrontmatter = {
-  __typename?: 'MarkdownRemarkFrontmatter';
   title: Maybe<Scalars['String']>;
   date: Maybe<Scalars['Date']>;
   description: Maybe<Scalars['String']>;
@@ -1688,7 +1679,6 @@ export type MarkdownRemarkFrontmatterFilterInput = {
 };
 
 export type MarkdownRemarkGroupConnection = {
-  __typename?: 'MarkdownRemarkGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<MarkdownRemarkEdge>;
   nodes: Array<MarkdownRemark>;
@@ -1703,7 +1693,6 @@ export type MarkdownRemarkSortInput = {
 };
 
 export type MarkdownWordCount = {
-  __typename?: 'MarkdownWordCount';
   paragraphs: Maybe<Scalars['Int']>;
   sentences: Maybe<Scalars['Int']>;
   words: Maybe<Scalars['Int']>;
@@ -1715,6 +1704,7 @@ export type MarkdownWordCountFilterInput = {
   words: Maybe<IntQueryOperatorInput>;
 };
 
+/** Node Interface */
 export type Node = {
   id: Scalars['ID'];
   parent: Maybe<Node>;
@@ -1734,13 +1724,13 @@ export type NodeFilterListInput = {
 };
 
 export type PageInfo = {
-  __typename?: 'PageInfo';
   currentPage: Scalars['Int'];
   hasPreviousPage: Scalars['Boolean'];
   hasNextPage: Scalars['Boolean'];
   itemCount: Scalars['Int'];
   pageCount: Scalars['Int'];
   perPage: Maybe<Scalars['Int']>;
+  totalCount: Scalars['Int'];
 };
 
 export type Potrace = {
@@ -1765,21 +1755,22 @@ export enum PotraceTurnPolicy {
 }
 
 export type Query = {
-  __typename?: 'Query';
   file: Maybe<File>;
   allFile: FileConnection;
   directory: Maybe<Directory>;
   allDirectory: DirectoryConnection;
+  sitePage: Maybe<SitePage>;
+  allSitePage: SitePageConnection;
+  site: Maybe<Site>;
+  allSite: SiteConnection;
   markdownRemark: Maybe<MarkdownRemark>;
   allMarkdownRemark: MarkdownRemarkConnection;
   imageSharp: Maybe<ImageSharp>;
   allImageSharp: ImageSharpConnection;
-  site: Maybe<Site>;
-  allSite: SiteConnection;
+  siteBuildMetadata: Maybe<SiteBuildMetadata>;
+  allSiteBuildMetadata: SiteBuildMetadataConnection;
   sitePlugin: Maybe<SitePlugin>;
   allSitePlugin: SitePluginConnection;
-  sitePage: Maybe<SitePage>;
-  allSitePage: SitePageConnection;
 };
 
 export type QueryFileArgs = {
@@ -1879,6 +1870,50 @@ export type QueryAllDirectoryArgs = {
   limit: Maybe<Scalars['Int']>;
 };
 
+export type QuerySitePageArgs = {
+  path: Maybe<StringQueryOperatorInput>;
+  component: Maybe<StringQueryOperatorInput>;
+  internalComponentName: Maybe<StringQueryOperatorInput>;
+  componentChunkName: Maybe<StringQueryOperatorInput>;
+  matchPath: Maybe<StringQueryOperatorInput>;
+  id: Maybe<StringQueryOperatorInput>;
+  parent: Maybe<NodeFilterInput>;
+  children: Maybe<NodeFilterListInput>;
+  internal: Maybe<InternalFilterInput>;
+  isCreatedByStatefulCreatePages: Maybe<BooleanQueryOperatorInput>;
+  context: Maybe<SitePageContextFilterInput>;
+  pluginCreator: Maybe<SitePluginFilterInput>;
+  pluginCreatorId: Maybe<StringQueryOperatorInput>;
+  componentPath: Maybe<StringQueryOperatorInput>;
+};
+
+export type QueryAllSitePageArgs = {
+  filter: Maybe<SitePageFilterInput>;
+  sort: Maybe<SitePageSortInput>;
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+};
+
+export type QuerySiteArgs = {
+  buildTime: Maybe<DateQueryOperatorInput>;
+  siteMetadata: Maybe<SiteSiteMetadataFilterInput>;
+  port: Maybe<DateQueryOperatorInput>;
+  host: Maybe<StringQueryOperatorInput>;
+  polyfill: Maybe<BooleanQueryOperatorInput>;
+  pathPrefix: Maybe<StringQueryOperatorInput>;
+  id: Maybe<StringQueryOperatorInput>;
+  parent: Maybe<NodeFilterInput>;
+  children: Maybe<NodeFilterListInput>;
+  internal: Maybe<InternalFilterInput>;
+};
+
+export type QueryAllSiteArgs = {
+  filter: Maybe<SiteFilterInput>;
+  sort: Maybe<SiteSortInput>;
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+};
+
 export type QueryMarkdownRemarkArgs = {
   id: Maybe<StringQueryOperatorInput>;
   frontmatter: Maybe<MarkdownRemarkFrontmatterFilterInput>;
@@ -1925,22 +1960,17 @@ export type QueryAllImageSharpArgs = {
   limit: Maybe<Scalars['Int']>;
 };
 
-export type QuerySiteArgs = {
+export type QuerySiteBuildMetadataArgs = {
   id: Maybe<StringQueryOperatorInput>;
   parent: Maybe<NodeFilterInput>;
   children: Maybe<NodeFilterListInput>;
   internal: Maybe<InternalFilterInput>;
-  siteMetadata: Maybe<SiteSiteMetadataFilterInput>;
-  port: Maybe<IntQueryOperatorInput>;
-  host: Maybe<StringQueryOperatorInput>;
-  polyfill: Maybe<BooleanQueryOperatorInput>;
-  pathPrefix: Maybe<StringQueryOperatorInput>;
   buildTime: Maybe<DateQueryOperatorInput>;
 };
 
-export type QueryAllSiteArgs = {
-  filter: Maybe<SiteFilterInput>;
-  sort: Maybe<SiteSortInput>;
+export type QueryAllSiteBuildMetadataArgs = {
+  filter: Maybe<SiteBuildMetadataFilterInput>;
+  sort: Maybe<SiteBuildMetadataSortInput>;
   skip: Maybe<Scalars['Int']>;
   limit: Maybe<Scalars['Int']>;
 };
@@ -1968,41 +1998,17 @@ export type QueryAllSitePluginArgs = {
   limit: Maybe<Scalars['Int']>;
 };
 
-export type QuerySitePageArgs = {
-  id: Maybe<StringQueryOperatorInput>;
-  parent: Maybe<NodeFilterInput>;
-  children: Maybe<NodeFilterListInput>;
-  internal: Maybe<InternalFilterInput>;
-  path: Maybe<StringQueryOperatorInput>;
-  internalComponentName: Maybe<StringQueryOperatorInput>;
-  component: Maybe<StringQueryOperatorInput>;
-  componentChunkName: Maybe<StringQueryOperatorInput>;
-  isCreatedByStatefulCreatePages: Maybe<BooleanQueryOperatorInput>;
-  context: Maybe<SitePageContextFilterInput>;
-  pluginCreator: Maybe<SitePluginFilterInput>;
-  pluginCreatorId: Maybe<StringQueryOperatorInput>;
-  componentPath: Maybe<StringQueryOperatorInput>;
-};
-
-export type QueryAllSitePageArgs = {
-  filter: Maybe<SitePageFilterInput>;
-  sort: Maybe<SitePageSortInput>;
-  skip: Maybe<Scalars['Int']>;
-  limit: Maybe<Scalars['Int']>;
-};
-
 export type Site = Node & {
-  __typename?: 'Site';
+  buildTime: Maybe<Scalars['Date']>;
+  siteMetadata: Maybe<SiteSiteMetadata>;
+  port: Maybe<Scalars['Date']>;
+  host: Maybe<Scalars['String']>;
+  polyfill: Maybe<Scalars['Boolean']>;
+  pathPrefix: Maybe<Scalars['String']>;
   id: Scalars['ID'];
   parent: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
-  siteMetadata: Maybe<SiteSiteMetadata>;
-  port: Maybe<Scalars['Int']>;
-  host: Maybe<Scalars['String']>;
-  polyfill: Maybe<Scalars['Boolean']>;
-  pathPrefix: Maybe<Scalars['String']>;
-  buildTime: Maybe<Scalars['Date']>;
 };
 
 export type SiteBuildTimeArgs = {
@@ -2012,8 +2018,166 @@ export type SiteBuildTimeArgs = {
   locale: Maybe<Scalars['String']>;
 };
 
+export type SitePortArgs = {
+  formatString: Maybe<Scalars['String']>;
+  fromNow: Maybe<Scalars['Boolean']>;
+  difference: Maybe<Scalars['String']>;
+  locale: Maybe<Scalars['String']>;
+};
+
+export type SiteBuildMetadata = Node & {
+  id: Scalars['ID'];
+  parent: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+  buildTime: Maybe<Scalars['Date']>;
+};
+
+export type SiteBuildMetadataBuildTimeArgs = {
+  formatString: Maybe<Scalars['String']>;
+  fromNow: Maybe<Scalars['Boolean']>;
+  difference: Maybe<Scalars['String']>;
+  locale: Maybe<Scalars['String']>;
+};
+
+export type SiteBuildMetadataConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<SiteBuildMetadataEdge>;
+  nodes: Array<SiteBuildMetadata>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  group: Array<SiteBuildMetadataGroupConnection>;
+};
+
+export type SiteBuildMetadataConnectionDistinctArgs = {
+  field: SiteBuildMetadataFieldsEnum;
+};
+
+export type SiteBuildMetadataConnectionGroupArgs = {
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+  field: SiteBuildMetadataFieldsEnum;
+};
+
+export type SiteBuildMetadataEdge = {
+  next: Maybe<SiteBuildMetadata>;
+  node: SiteBuildMetadata;
+  previous: Maybe<SiteBuildMetadata>;
+};
+
+export enum SiteBuildMetadataFieldsEnum {
+  Id = 'id',
+  ParentId = 'parent___id',
+  ParentParentId = 'parent___parent___id',
+  ParentParentParentId = 'parent___parent___parent___id',
+  ParentParentParentChildren = 'parent___parent___parent___children',
+  ParentParentChildren = 'parent___parent___children',
+  ParentParentChildrenId = 'parent___parent___children___id',
+  ParentParentChildrenChildren = 'parent___parent___children___children',
+  ParentParentInternalContent = 'parent___parent___internal___content',
+  ParentParentInternalContentDigest = 'parent___parent___internal___contentDigest',
+  ParentParentInternalDescription = 'parent___parent___internal___description',
+  ParentParentInternalFieldOwners = 'parent___parent___internal___fieldOwners',
+  ParentParentInternalIgnoreType = 'parent___parent___internal___ignoreType',
+  ParentParentInternalMediaType = 'parent___parent___internal___mediaType',
+  ParentParentInternalOwner = 'parent___parent___internal___owner',
+  ParentParentInternalType = 'parent___parent___internal___type',
+  ParentChildren = 'parent___children',
+  ParentChildrenId = 'parent___children___id',
+  ParentChildrenParentId = 'parent___children___parent___id',
+  ParentChildrenParentChildren = 'parent___children___parent___children',
+  ParentChildrenChildren = 'parent___children___children',
+  ParentChildrenChildrenId = 'parent___children___children___id',
+  ParentChildrenChildrenChildren = 'parent___children___children___children',
+  ParentChildrenInternalContent = 'parent___children___internal___content',
+  ParentChildrenInternalContentDigest = 'parent___children___internal___contentDigest',
+  ParentChildrenInternalDescription = 'parent___children___internal___description',
+  ParentChildrenInternalFieldOwners = 'parent___children___internal___fieldOwners',
+  ParentChildrenInternalIgnoreType = 'parent___children___internal___ignoreType',
+  ParentChildrenInternalMediaType = 'parent___children___internal___mediaType',
+  ParentChildrenInternalOwner = 'parent___children___internal___owner',
+  ParentChildrenInternalType = 'parent___children___internal___type',
+  ParentInternalContent = 'parent___internal___content',
+  ParentInternalContentDigest = 'parent___internal___contentDigest',
+  ParentInternalDescription = 'parent___internal___description',
+  ParentInternalFieldOwners = 'parent___internal___fieldOwners',
+  ParentInternalIgnoreType = 'parent___internal___ignoreType',
+  ParentInternalMediaType = 'parent___internal___mediaType',
+  ParentInternalOwner = 'parent___internal___owner',
+  ParentInternalType = 'parent___internal___type',
+  Children = 'children',
+  ChildrenId = 'children___id',
+  ChildrenParentId = 'children___parent___id',
+  ChildrenParentParentId = 'children___parent___parent___id',
+  ChildrenParentParentChildren = 'children___parent___parent___children',
+  ChildrenParentChildren = 'children___parent___children',
+  ChildrenParentChildrenId = 'children___parent___children___id',
+  ChildrenParentChildrenChildren = 'children___parent___children___children',
+  ChildrenParentInternalContent = 'children___parent___internal___content',
+  ChildrenParentInternalContentDigest = 'children___parent___internal___contentDigest',
+  ChildrenParentInternalDescription = 'children___parent___internal___description',
+  ChildrenParentInternalFieldOwners = 'children___parent___internal___fieldOwners',
+  ChildrenParentInternalIgnoreType = 'children___parent___internal___ignoreType',
+  ChildrenParentInternalMediaType = 'children___parent___internal___mediaType',
+  ChildrenParentInternalOwner = 'children___parent___internal___owner',
+  ChildrenParentInternalType = 'children___parent___internal___type',
+  ChildrenChildren = 'children___children',
+  ChildrenChildrenId = 'children___children___id',
+  ChildrenChildrenParentId = 'children___children___parent___id',
+  ChildrenChildrenParentChildren = 'children___children___parent___children',
+  ChildrenChildrenChildren = 'children___children___children',
+  ChildrenChildrenChildrenId = 'children___children___children___id',
+  ChildrenChildrenChildrenChildren = 'children___children___children___children',
+  ChildrenChildrenInternalContent = 'children___children___internal___content',
+  ChildrenChildrenInternalContentDigest = 'children___children___internal___contentDigest',
+  ChildrenChildrenInternalDescription = 'children___children___internal___description',
+  ChildrenChildrenInternalFieldOwners = 'children___children___internal___fieldOwners',
+  ChildrenChildrenInternalIgnoreType = 'children___children___internal___ignoreType',
+  ChildrenChildrenInternalMediaType = 'children___children___internal___mediaType',
+  ChildrenChildrenInternalOwner = 'children___children___internal___owner',
+  ChildrenChildrenInternalType = 'children___children___internal___type',
+  ChildrenInternalContent = 'children___internal___content',
+  ChildrenInternalContentDigest = 'children___internal___contentDigest',
+  ChildrenInternalDescription = 'children___internal___description',
+  ChildrenInternalFieldOwners = 'children___internal___fieldOwners',
+  ChildrenInternalIgnoreType = 'children___internal___ignoreType',
+  ChildrenInternalMediaType = 'children___internal___mediaType',
+  ChildrenInternalOwner = 'children___internal___owner',
+  ChildrenInternalType = 'children___internal___type',
+  InternalContent = 'internal___content',
+  InternalContentDigest = 'internal___contentDigest',
+  InternalDescription = 'internal___description',
+  InternalFieldOwners = 'internal___fieldOwners',
+  InternalIgnoreType = 'internal___ignoreType',
+  InternalMediaType = 'internal___mediaType',
+  InternalOwner = 'internal___owner',
+  InternalType = 'internal___type',
+  BuildTime = 'buildTime',
+}
+
+export type SiteBuildMetadataFilterInput = {
+  id: Maybe<StringQueryOperatorInput>;
+  parent: Maybe<NodeFilterInput>;
+  children: Maybe<NodeFilterListInput>;
+  internal: Maybe<InternalFilterInput>;
+  buildTime: Maybe<DateQueryOperatorInput>;
+};
+
+export type SiteBuildMetadataGroupConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<SiteBuildMetadataEdge>;
+  nodes: Array<SiteBuildMetadata>;
+  pageInfo: PageInfo;
+  field: Scalars['String'];
+  fieldValue: Maybe<Scalars['String']>;
+};
+
+export type SiteBuildMetadataSortInput = {
+  fields: Maybe<Array<Maybe<SiteBuildMetadataFieldsEnum>>>;
+  order: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
 export type SiteConnection = {
-  __typename?: 'SiteConnection';
   totalCount: Scalars['Int'];
   edges: Array<SiteEdge>;
   nodes: Array<Site>;
@@ -2033,13 +2197,29 @@ export type SiteConnectionGroupArgs = {
 };
 
 export type SiteEdge = {
-  __typename?: 'SiteEdge';
   next: Maybe<Site>;
   node: Site;
   previous: Maybe<Site>;
 };
 
 export enum SiteFieldsEnum {
+  BuildTime = 'buildTime',
+  SiteMetadataTitle = 'siteMetadata___title',
+  SiteMetadataAuthor = 'siteMetadata___author',
+  SiteMetadataName = 'siteMetadata___name',
+  SiteMetadataAuthorDescription = 'siteMetadata___authorDescription',
+  SiteMetadataDescription = 'siteMetadata___description',
+  SiteMetadataSiteUrl = 'siteMetadata___siteUrl',
+  SiteMetadataRepo = 'siteMetadata___repo',
+  SiteMetadataSocialInstagram = 'siteMetadata___social___instagram',
+  SiteMetadataSocialEMail = 'siteMetadata___social___eMail',
+  SiteMetadataSocialGitHub = 'siteMetadata___social___gitHub',
+  SiteMetadataSocialBlog = 'siteMetadata___social___blog',
+  SiteMetadataSocialBuyMeACoffee = 'siteMetadata___social___buyMeACoffee',
+  Port = 'port',
+  Host = 'host',
+  Polyfill = 'polyfill',
+  PathPrefix = 'pathPrefix',
   Id = 'id',
   ParentId = 'parent___id',
   ParentParentId = 'parent___parent___id',
@@ -2126,37 +2306,22 @@ export enum SiteFieldsEnum {
   InternalMediaType = 'internal___mediaType',
   InternalOwner = 'internal___owner',
   InternalType = 'internal___type',
-  SiteMetadataTitle = 'siteMetadata___title',
-  SiteMetadataAuthor = 'siteMetadata___author',
-  SiteMetadataDescription = 'siteMetadata___description',
-  SiteMetadataSiteUrl = 'siteMetadata___siteUrl',
-  SiteMetadataRepo = 'siteMetadata___repo',
-  SiteMetadataSocialInstagram = 'siteMetadata___social___instagram',
-  SiteMetadataSocialEMail = 'siteMetadata___social___eMail',
-  SiteMetadataSocialGitHub = 'siteMetadata___social___gitHub',
-  SiteMetadataSocialBlog = 'siteMetadata___social___blog',
-  Port = 'port',
-  Host = 'host',
-  Polyfill = 'polyfill',
-  PathPrefix = 'pathPrefix',
-  BuildTime = 'buildTime',
 }
 
 export type SiteFilterInput = {
+  buildTime: Maybe<DateQueryOperatorInput>;
+  siteMetadata: Maybe<SiteSiteMetadataFilterInput>;
+  port: Maybe<DateQueryOperatorInput>;
+  host: Maybe<StringQueryOperatorInput>;
+  polyfill: Maybe<BooleanQueryOperatorInput>;
+  pathPrefix: Maybe<StringQueryOperatorInput>;
   id: Maybe<StringQueryOperatorInput>;
   parent: Maybe<NodeFilterInput>;
   children: Maybe<NodeFilterListInput>;
   internal: Maybe<InternalFilterInput>;
-  siteMetadata: Maybe<SiteSiteMetadataFilterInput>;
-  port: Maybe<IntQueryOperatorInput>;
-  host: Maybe<StringQueryOperatorInput>;
-  polyfill: Maybe<BooleanQueryOperatorInput>;
-  pathPrefix: Maybe<StringQueryOperatorInput>;
-  buildTime: Maybe<DateQueryOperatorInput>;
 };
 
 export type SiteGroupConnection = {
-  __typename?: 'SiteGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<SiteEdge>;
   nodes: Array<Site>;
@@ -2166,15 +2331,15 @@ export type SiteGroupConnection = {
 };
 
 export type SitePage = Node & {
-  __typename?: 'SitePage';
+  path: Scalars['String'];
+  component: Scalars['String'];
+  internalComponentName: Scalars['String'];
+  componentChunkName: Scalars['String'];
+  matchPath: Maybe<Scalars['String']>;
   id: Scalars['ID'];
   parent: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
-  path: Maybe<Scalars['String']>;
-  internalComponentName: Maybe<Scalars['String']>;
-  component: Maybe<Scalars['String']>;
-  componentChunkName: Maybe<Scalars['String']>;
   isCreatedByStatefulCreatePages: Maybe<Scalars['Boolean']>;
   context: Maybe<SitePageContext>;
   pluginCreator: Maybe<SitePlugin>;
@@ -2183,7 +2348,6 @@ export type SitePage = Node & {
 };
 
 export type SitePageConnection = {
-  __typename?: 'SitePageConnection';
   totalCount: Scalars['Int'];
   edges: Array<SitePageEdge>;
   nodes: Array<SitePage>;
@@ -2203,7 +2367,6 @@ export type SitePageConnectionGroupArgs = {
 };
 
 export type SitePageContext = {
-  __typename?: 'SitePageContext';
   slug: Maybe<Scalars['String']>;
   previous: Maybe<SitePageContextPrevious>;
   next: Maybe<SitePageContextNext>;
@@ -2216,13 +2379,11 @@ export type SitePageContextFilterInput = {
 };
 
 export type SitePageContextNext = {
-  __typename?: 'SitePageContextNext';
   fields: Maybe<SitePageContextNextFields>;
   frontmatter: Maybe<SitePageContextNextFrontmatter>;
 };
 
 export type SitePageContextNextFields = {
-  __typename?: 'SitePageContextNextFields';
   slug: Maybe<Scalars['String']>;
 };
 
@@ -2236,7 +2397,6 @@ export type SitePageContextNextFilterInput = {
 };
 
 export type SitePageContextNextFrontmatter = {
-  __typename?: 'SitePageContextNextFrontmatter';
   title: Maybe<Scalars['String']>;
 };
 
@@ -2245,13 +2405,11 @@ export type SitePageContextNextFrontmatterFilterInput = {
 };
 
 export type SitePageContextPrevious = {
-  __typename?: 'SitePageContextPrevious';
   fields: Maybe<SitePageContextPreviousFields>;
   frontmatter: Maybe<SitePageContextPreviousFrontmatter>;
 };
 
 export type SitePageContextPreviousFields = {
-  __typename?: 'SitePageContextPreviousFields';
   slug: Maybe<Scalars['String']>;
 };
 
@@ -2265,7 +2423,6 @@ export type SitePageContextPreviousFilterInput = {
 };
 
 export type SitePageContextPreviousFrontmatter = {
-  __typename?: 'SitePageContextPreviousFrontmatter';
   title: Maybe<Scalars['String']>;
 };
 
@@ -2274,13 +2431,17 @@ export type SitePageContextPreviousFrontmatterFilterInput = {
 };
 
 export type SitePageEdge = {
-  __typename?: 'SitePageEdge';
   next: Maybe<SitePage>;
   node: SitePage;
   previous: Maybe<SitePage>;
 };
 
 export enum SitePageFieldsEnum {
+  Path = 'path',
+  Component = 'component',
+  InternalComponentName = 'internalComponentName',
+  ComponentChunkName = 'componentChunkName',
+  MatchPath = 'matchPath',
   Id = 'id',
   ParentId = 'parent___id',
   ParentParentId = 'parent___parent___id',
@@ -2367,10 +2528,6 @@ export enum SitePageFieldsEnum {
   InternalMediaType = 'internal___mediaType',
   InternalOwner = 'internal___owner',
   InternalType = 'internal___type',
-  Path = 'path',
-  InternalComponentName = 'internalComponentName',
-  Component = 'component',
-  ComponentChunkName = 'componentChunkName',
   IsCreatedByStatefulCreatePages = 'isCreatedByStatefulCreatePages',
   ContextSlug = 'context___slug',
   ContextPreviousFieldsSlug = 'context___previous___fields___slug',
@@ -2437,6 +2594,11 @@ export enum SitePageFieldsEnum {
   PluginCreatorPluginOptionsThemeColor = 'pluginCreator___pluginOptions___theme_color',
   PluginCreatorPluginOptionsDisplay = 'pluginCreator___pluginOptions___display',
   PluginCreatorPluginOptionsIcon = 'pluginCreator___pluginOptions___icon',
+  PluginCreatorPluginOptionsCacheBustingMode = 'pluginCreator___pluginOptions___cache_busting_mode',
+  PluginCreatorPluginOptionsIncludeFavicon = 'pluginCreator___pluginOptions___include_favicon',
+  PluginCreatorPluginOptionsLegacy = 'pluginCreator___pluginOptions___legacy',
+  PluginCreatorPluginOptionsThemeColorInHead = 'pluginCreator___pluginOptions___theme_color_in_head',
+  PluginCreatorPluginOptionsCacheDigest = 'pluginCreator___pluginOptions___cacheDigest',
   PluginCreatorPluginOptionsPathToConfigModule = 'pluginCreator___pluginOptions___pathToConfigModule',
   PluginCreatorPluginOptionsPathCheck = 'pluginCreator___pluginOptions___pathCheck',
   PluginCreatorNodeApIs = 'pluginCreator___nodeAPIs',
@@ -2464,14 +2626,15 @@ export enum SitePageFieldsEnum {
 }
 
 export type SitePageFilterInput = {
+  path: Maybe<StringQueryOperatorInput>;
+  component: Maybe<StringQueryOperatorInput>;
+  internalComponentName: Maybe<StringQueryOperatorInput>;
+  componentChunkName: Maybe<StringQueryOperatorInput>;
+  matchPath: Maybe<StringQueryOperatorInput>;
   id: Maybe<StringQueryOperatorInput>;
   parent: Maybe<NodeFilterInput>;
   children: Maybe<NodeFilterListInput>;
   internal: Maybe<InternalFilterInput>;
-  path: Maybe<StringQueryOperatorInput>;
-  internalComponentName: Maybe<StringQueryOperatorInput>;
-  component: Maybe<StringQueryOperatorInput>;
-  componentChunkName: Maybe<StringQueryOperatorInput>;
   isCreatedByStatefulCreatePages: Maybe<BooleanQueryOperatorInput>;
   context: Maybe<SitePageContextFilterInput>;
   pluginCreator: Maybe<SitePluginFilterInput>;
@@ -2480,7 +2643,6 @@ export type SitePageFilterInput = {
 };
 
 export type SitePageGroupConnection = {
-  __typename?: 'SitePageGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<SitePageEdge>;
   nodes: Array<SitePage>;
@@ -2495,7 +2657,6 @@ export type SitePageSortInput = {
 };
 
 export type SitePlugin = Node & {
-  __typename?: 'SitePlugin';
   id: Scalars['ID'];
   parent: Maybe<Node>;
   children: Array<Node>;
@@ -2512,7 +2673,6 @@ export type SitePlugin = Node & {
 };
 
 export type SitePluginConnection = {
-  __typename?: 'SitePluginConnection';
   totalCount: Scalars['Int'];
   edges: Array<SitePluginEdge>;
   nodes: Array<SitePlugin>;
@@ -2532,7 +2692,6 @@ export type SitePluginConnectionGroupArgs = {
 };
 
 export type SitePluginEdge = {
-  __typename?: 'SitePluginEdge';
   next: Maybe<SitePlugin>;
   node: SitePlugin;
   previous: Maybe<SitePlugin>;
@@ -2650,6 +2809,11 @@ export enum SitePluginFieldsEnum {
   PluginOptionsThemeColor = 'pluginOptions___theme_color',
   PluginOptionsDisplay = 'pluginOptions___display',
   PluginOptionsIcon = 'pluginOptions___icon',
+  PluginOptionsCacheBustingMode = 'pluginOptions___cache_busting_mode',
+  PluginOptionsIncludeFavicon = 'pluginOptions___include_favicon',
+  PluginOptionsLegacy = 'pluginOptions___legacy',
+  PluginOptionsThemeColorInHead = 'pluginOptions___theme_color_in_head',
+  PluginOptionsCacheDigest = 'pluginOptions___cacheDigest',
   PluginOptionsPathToConfigModule = 'pluginOptions___pathToConfigModule',
   PluginOptionsPathCheck = 'pluginOptions___pathCheck',
   NodeApIs = 'nodeAPIs',
@@ -2691,7 +2855,6 @@ export type SitePluginFilterInput = {
 };
 
 export type SitePluginGroupConnection = {
-  __typename?: 'SitePluginGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<SitePluginEdge>;
   nodes: Array<SitePlugin>;
@@ -2701,7 +2864,6 @@ export type SitePluginGroupConnection = {
 };
 
 export type SitePluginPackageJson = {
-  __typename?: 'SitePluginPackageJson';
   name: Maybe<Scalars['String']>;
   description: Maybe<Scalars['String']>;
   version: Maybe<Scalars['String']>;
@@ -2715,7 +2877,6 @@ export type SitePluginPackageJson = {
 };
 
 export type SitePluginPackageJsonDependencies = {
-  __typename?: 'SitePluginPackageJsonDependencies';
   name: Maybe<Scalars['String']>;
   version: Maybe<Scalars['String']>;
 };
@@ -2730,7 +2891,6 @@ export type SitePluginPackageJsonDependenciesFilterListInput = {
 };
 
 export type SitePluginPackageJsonDevDependencies = {
-  __typename?: 'SitePluginPackageJsonDevDependencies';
   name: Maybe<Scalars['String']>;
   version: Maybe<Scalars['String']>;
 };
@@ -2758,7 +2918,6 @@ export type SitePluginPackageJsonFilterInput = {
 };
 
 export type SitePluginPackageJsonPeerDependencies = {
-  __typename?: 'SitePluginPackageJsonPeerDependencies';
   name: Maybe<Scalars['String']>;
   version: Maybe<Scalars['String']>;
 };
@@ -2773,7 +2932,6 @@ export type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 };
 
 export type SitePluginPluginOptions = {
-  __typename?: 'SitePluginPluginOptions';
   plugins: Maybe<Array<Maybe<SitePluginPluginOptionsPlugins>>>;
   path: Maybe<Scalars['String']>;
   name: Maybe<Scalars['String']>;
@@ -2787,6 +2945,11 @@ export type SitePluginPluginOptions = {
   theme_color: Maybe<Scalars['String']>;
   display: Maybe<Scalars['String']>;
   icon: Maybe<Scalars['String']>;
+  cache_busting_mode: Maybe<Scalars['String']>;
+  include_favicon: Maybe<Scalars['Boolean']>;
+  legacy: Maybe<Scalars['Boolean']>;
+  theme_color_in_head: Maybe<Scalars['Boolean']>;
+  cacheDigest: Maybe<Scalars['String']>;
   pathToConfigModule: Maybe<Scalars['String']>;
   pathCheck: Maybe<Scalars['Boolean']>;
 };
@@ -2805,12 +2968,16 @@ export type SitePluginPluginOptionsFilterInput = {
   theme_color: Maybe<StringQueryOperatorInput>;
   display: Maybe<StringQueryOperatorInput>;
   icon: Maybe<StringQueryOperatorInput>;
+  cache_busting_mode: Maybe<StringQueryOperatorInput>;
+  include_favicon: Maybe<BooleanQueryOperatorInput>;
+  legacy: Maybe<BooleanQueryOperatorInput>;
+  theme_color_in_head: Maybe<BooleanQueryOperatorInput>;
+  cacheDigest: Maybe<StringQueryOperatorInput>;
   pathToConfigModule: Maybe<StringQueryOperatorInput>;
   pathCheck: Maybe<BooleanQueryOperatorInput>;
 };
 
 export type SitePluginPluginOptionsPlugins = {
-  __typename?: 'SitePluginPluginOptionsPlugins';
   resolve: Maybe<Scalars['String']>;
   id: Maybe<Scalars['String']>;
   name: Maybe<Scalars['String']>;
@@ -2835,7 +3002,6 @@ export type SitePluginPluginOptionsPluginsFilterListInput = {
 };
 
 export type SitePluginPluginOptionsPluginsPluginOptions = {
-  __typename?: 'SitePluginPluginOptionsPluginsPluginOptions';
   maxWidth: Maybe<Scalars['Int']>;
   showCaptions: Maybe<Scalars['Boolean']>;
   wrapperStyle: Maybe<Scalars['String']>;
@@ -2853,9 +3019,10 @@ export type SitePluginSortInput = {
 };
 
 export type SiteSiteMetadata = {
-  __typename?: 'SiteSiteMetadata';
   title: Maybe<Scalars['String']>;
   author: Maybe<Scalars['String']>;
+  name: Maybe<Scalars['String']>;
+  authorDescription: Maybe<Scalars['String']>;
   description: Maybe<Scalars['String']>;
   siteUrl: Maybe<Scalars['String']>;
   repo: Maybe<Scalars['String']>;
@@ -2865,6 +3032,8 @@ export type SiteSiteMetadata = {
 export type SiteSiteMetadataFilterInput = {
   title: Maybe<StringQueryOperatorInput>;
   author: Maybe<StringQueryOperatorInput>;
+  name: Maybe<StringQueryOperatorInput>;
+  authorDescription: Maybe<StringQueryOperatorInput>;
   description: Maybe<StringQueryOperatorInput>;
   siteUrl: Maybe<StringQueryOperatorInput>;
   repo: Maybe<StringQueryOperatorInput>;
@@ -2872,11 +3041,11 @@ export type SiteSiteMetadataFilterInput = {
 };
 
 export type SiteSiteMetadataSocial = {
-  __typename?: 'SiteSiteMetadataSocial';
   instagram: Maybe<Scalars['String']>;
   eMail: Maybe<Scalars['String']>;
   gitHub: Maybe<Scalars['String']>;
   blog: Maybe<Scalars['String']>;
+  buyMeACoffee: Maybe<Scalars['String']>;
 };
 
 export type SiteSiteMetadataSocialFilterInput = {
@@ -2884,6 +3053,7 @@ export type SiteSiteMetadataSocialFilterInput = {
   eMail: Maybe<StringQueryOperatorInput>;
   gitHub: Maybe<StringQueryOperatorInput>;
   blog: Maybe<StringQueryOperatorInput>;
+  buyMeACoffee: Maybe<StringQueryOperatorInput>;
 };
 
 export type SiteSortInput = {
@@ -2905,56 +3075,52 @@ export type StringQueryOperatorInput = {
   glob: Maybe<Scalars['String']>;
 };
 
-export type GatsbyImageSharpFixedFragment = {
-  __typename?: 'ImageSharpFixed';
-} & Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
+export type GatsbyImageSharpFixedFragment = Pick<
+  ImageSharpFixed,
+  'base64' | 'width' | 'height' | 'src' | 'srcSet'
+>;
 
-export type GatsbyImageSharpFixed_TracedSvgFragment = {
-  __typename?: 'ImageSharpFixed';
-} & Pick<ImageSharpFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
+export type GatsbyImageSharpFixed_TracedSvgFragment = Pick<
+  ImageSharpFixed,
+  'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'
+>;
 
-export type GatsbyImageSharpFixed_WithWebpFragment = {
-  __typename?: 'ImageSharpFixed';
-} & Pick<
+export type GatsbyImageSharpFixed_WithWebpFragment = Pick<
   ImageSharpFixed,
   'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'
 >;
 
-export type GatsbyImageSharpFixed_WithWebp_TracedSvgFragment = {
-  __typename?: 'ImageSharpFixed';
-} & Pick<
+export type GatsbyImageSharpFixed_WithWebp_TracedSvgFragment = Pick<
   ImageSharpFixed,
   'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'
 >;
 
-export type GatsbyImageSharpFixed_NoBase64Fragment = {
-  __typename?: 'ImageSharpFixed';
-} & Pick<ImageSharpFixed, 'width' | 'height' | 'src' | 'srcSet'>;
+export type GatsbyImageSharpFixed_NoBase64Fragment = Pick<
+  ImageSharpFixed,
+  'width' | 'height' | 'src' | 'srcSet'
+>;
 
-export type GatsbyImageSharpFixed_WithWebp_NoBase64Fragment = {
-  __typename?: 'ImageSharpFixed';
-} & Pick<
+export type GatsbyImageSharpFixed_WithWebp_NoBase64Fragment = Pick<
   ImageSharpFixed,
   'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'
 >;
 
-export type GatsbyImageSharpFluidFragment = {
-  __typename?: 'ImageSharpFluid';
-} & Pick<
+export type GatsbyImageSharpFluidFragment = Pick<
   ImageSharpFluid,
   'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'
 >;
 
-export type GatsbyImageSharpFluid_TracedSvgFragment = {
-  __typename?: 'ImageSharpFluid';
-} & Pick<
+export type GatsbyImageSharpFluidLimitPresentationSizeFragment = {
+  maxHeight: ImageSharpFluid['presentationHeight'];
+  maxWidth: ImageSharpFluid['presentationWidth'];
+};
+
+export type GatsbyImageSharpFluid_TracedSvgFragment = Pick<
   ImageSharpFluid,
   'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'
 >;
 
-export type GatsbyImageSharpFluid_WithWebpFragment = {
-  __typename?: 'ImageSharpFluid';
-} & Pick<
+export type GatsbyImageSharpFluid_WithWebpFragment = Pick<
   ImageSharpFluid,
   | 'base64'
   | 'aspectRatio'
@@ -2965,9 +3131,7 @@ export type GatsbyImageSharpFluid_WithWebpFragment = {
   | 'sizes'
 >;
 
-export type GatsbyImageSharpFluid_WithWebp_TracedSvgFragment = {
-  __typename?: 'ImageSharpFluid';
-} & Pick<
+export type GatsbyImageSharpFluid_WithWebp_TracedSvgFragment = Pick<
   ImageSharpFluid,
   | 'tracedSVG'
   | 'aspectRatio'
@@ -2978,73 +3142,57 @@ export type GatsbyImageSharpFluid_WithWebp_TracedSvgFragment = {
   | 'sizes'
 >;
 
-export type GatsbyImageSharpFluid_NoBase64Fragment = {
-  __typename?: 'ImageSharpFluid';
-} & Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+export type GatsbyImageSharpFluid_NoBase64Fragment = Pick<
+  ImageSharpFluid,
+  'aspectRatio' | 'src' | 'srcSet' | 'sizes'
+>;
 
-export type GatsbyImageSharpFluid_WithWebp_NoBase64Fragment = {
-  __typename?: 'ImageSharpFluid';
-} & Pick<
+export type GatsbyImageSharpFluid_WithWebp_NoBase64Fragment = Pick<
   ImageSharpFluid,
   'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'
 >;
 
-export type GatsbyImageSharpResolutionsFragment = {
-  __typename?: 'ImageSharpResolutions';
-} & Pick<
+export type GatsbyImageSharpResolutionsFragment = Pick<
   ImageSharpResolutions,
   'base64' | 'width' | 'height' | 'src' | 'srcSet'
 >;
 
-export type GatsbyImageSharpResolutions_TracedSvgFragment = {
-  __typename?: 'ImageSharpResolutions';
-} & Pick<
+export type GatsbyImageSharpResolutions_TracedSvgFragment = Pick<
   ImageSharpResolutions,
   'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'
 >;
 
-export type GatsbyImageSharpResolutions_WithWebpFragment = {
-  __typename?: 'ImageSharpResolutions';
-} & Pick<
+export type GatsbyImageSharpResolutions_WithWebpFragment = Pick<
   ImageSharpResolutions,
   'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'
 >;
 
-export type GatsbyImageSharpResolutions_WithWebp_TracedSvgFragment = {
-  __typename?: 'ImageSharpResolutions';
-} & Pick<
+export type GatsbyImageSharpResolutions_WithWebp_TracedSvgFragment = Pick<
   ImageSharpResolutions,
   'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'
 >;
 
-export type GatsbyImageSharpResolutions_NoBase64Fragment = {
-  __typename?: 'ImageSharpResolutions';
-} & Pick<ImageSharpResolutions, 'width' | 'height' | 'src' | 'srcSet'>;
+export type GatsbyImageSharpResolutions_NoBase64Fragment = Pick<
+  ImageSharpResolutions,
+  'width' | 'height' | 'src' | 'srcSet'
+>;
 
-export type GatsbyImageSharpResolutions_WithWebp_NoBase64Fragment = {
-  __typename?: 'ImageSharpResolutions';
-} & Pick<
+export type GatsbyImageSharpResolutions_WithWebp_NoBase64Fragment = Pick<
   ImageSharpResolutions,
   'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'
 >;
 
-export type GatsbyImageSharpSizesFragment = {
-  __typename?: 'ImageSharpSizes';
-} & Pick<
+export type GatsbyImageSharpSizesFragment = Pick<
   ImageSharpSizes,
   'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'
 >;
 
-export type GatsbyImageSharpSizes_TracedSvgFragment = {
-  __typename?: 'ImageSharpSizes';
-} & Pick<
+export type GatsbyImageSharpSizes_TracedSvgFragment = Pick<
   ImageSharpSizes,
   'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'
 >;
 
-export type GatsbyImageSharpSizes_WithWebpFragment = {
-  __typename?: 'ImageSharpSizes';
-} & Pick<
+export type GatsbyImageSharpSizes_WithWebpFragment = Pick<
   ImageSharpSizes,
   | 'base64'
   | 'aspectRatio'
@@ -3055,9 +3203,7 @@ export type GatsbyImageSharpSizes_WithWebpFragment = {
   | 'sizes'
 >;
 
-export type GatsbyImageSharpSizes_WithWebp_TracedSvgFragment = {
-  __typename?: 'ImageSharpSizes';
-} & Pick<
+export type GatsbyImageSharpSizes_WithWebp_TracedSvgFragment = Pick<
   ImageSharpSizes,
   | 'tracedSVG'
   | 'aspectRatio'
@@ -3068,222 +3214,127 @@ export type GatsbyImageSharpSizes_WithWebp_TracedSvgFragment = {
   | 'sizes'
 >;
 
-export type GatsbyImageSharpSizes_NoBase64Fragment = {
-  __typename?: 'ImageSharpSizes';
-} & Pick<ImageSharpSizes, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+export type GatsbyImageSharpSizes_NoBase64Fragment = Pick<
+  ImageSharpSizes,
+  'aspectRatio' | 'src' | 'srcSet' | 'sizes'
+>;
 
-export type GatsbyImageSharpSizes_WithWebp_NoBase64Fragment = {
-  __typename?: 'ImageSharpSizes';
-} & Pick<
+export type GatsbyImageSharpSizes_WithWebp_NoBase64Fragment = Pick<
   ImageSharpSizes,
   'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'
 >;
 
-export type PagesQueryQueryVariables = {};
+export type PagesQueryQueryVariables = Exact<{ [key: string]: never }>;
 
-export type PagesQueryQuery = { __typename?: 'Query' } & {
-  allSitePage: { __typename?: 'SitePageConnection' } & {
-    nodes: Array<{ __typename?: 'SitePage' } & Pick<SitePage, 'path'>>;
-  };
+export type PagesQueryQuery = {
+  allSitePage: { nodes: Array<Pick<SitePage, 'path'>> };
 };
 
-export type BioQueryQueryVariables = {};
+export type TagBarQueryQueryVariables = Exact<{ [key: string]: never }>;
 
-export type BioQueryQuery = { __typename?: 'Query' } & {
-  avatar: Maybe<
-    { __typename?: 'File' } & {
-      childImageSharp: Maybe<
-        { __typename?: 'ImageSharp' } & {
-          fixed: Maybe<
-            { __typename?: 'ImageSharpFixed' } & GatsbyImageSharpFixedFragment
-          >;
-        }
-      >;
-    }
-  >;
-  site: Maybe<
-    { __typename?: 'Site' } & {
-      siteMetadata: Maybe<
-        { __typename?: 'SiteSiteMetadata' } & Pick<
-          SiteSiteMetadata,
-          'author'
-        > & {
-            social: Maybe<
-              { __typename?: 'SiteSiteMetadataSocial' } & Pick<
-                SiteSiteMetadataSocial,
-                'instagram' | 'eMail' | 'gitHub' | 'blog'
-              >
-            >;
-          }
-      >;
-    }
-  >;
-};
-
-export type SeoQueryQueryVariables = {};
-
-export type SeoQueryQuery = { __typename?: 'Query' } & {
-  site: Maybe<
-    { __typename?: 'Site' } & {
-      siteMetadata: Maybe<
-        { __typename?: 'SiteSiteMetadata' } & Pick<
-          SiteSiteMetadata,
-          'title' | 'description' | 'author'
-        >
-      >;
-    }
-  >;
-};
-
-export type TagBarQueryQueryVariables = {};
-
-export type TagBarQueryQuery = { __typename?: 'Query' } & {
-  allMarkdownRemark: { __typename?: 'MarkdownRemarkConnection' } & Pick<
-    MarkdownRemarkConnection,
-    'totalCount'
-  > & {
-      group: Array<
-        { __typename?: 'MarkdownRemarkGroupConnection' } & Pick<
-          MarkdownRemarkGroupConnection,
-          'totalCount'
-        > & { tag: MarkdownRemarkGroupConnection['fieldValue'] }
-      >;
-    };
-};
-
-export type CommentQueryQueryVariables = {};
-
-export type CommentQueryQuery = { __typename?: 'Query' } & {
-  site: Maybe<
-    { __typename?: 'Site' } & {
-      siteMetadata: Maybe<
-        { __typename?: 'SiteSiteMetadata' } & Pick<SiteSiteMetadata, 'repo'>
-      >;
-    }
-  >;
-};
-
-export type ResultRemarkQueryQueryVariables = {};
-
-export type ResultRemarkQueryQuery = { __typename?: 'Query' } & {
-  allMarkdownRemark: { __typename?: 'MarkdownRemarkConnection' } & {
-    edges: Array<
-      { __typename?: 'MarkdownRemarkEdge' } & {
-        node: { __typename?: 'MarkdownRemark' } & {
-          fields: Maybe<
-            { __typename?: 'MarkdownRemarkFields' } & Pick<
-              MarkdownRemarkFields,
-              'slug'
-            >
-          >;
-          frontmatter: Maybe<
-            { __typename?: 'MarkdownRemarkFrontmatter' } & Pick<
-              MarkdownRemarkFrontmatter,
-              'title'
-            >
-          >;
-        };
+export type TagBarQueryQuery = {
+  allMarkdownRemark: Pick<MarkdownRemarkConnection, 'totalCount'> & {
+    group: Array<
+      Pick<MarkdownRemarkGroupConnection, 'totalCount'> & {
+        tag: MarkdownRemarkGroupConnection['fieldValue'];
       }
     >;
   };
 };
 
-export type NotFoundPageQueryQueryVariables = {};
+export type SiteMetadataQueryVariables = Exact<{ [key: string]: never }>;
 
-export type NotFoundPageQueryQuery = { __typename?: 'Query' } & {
-  site: Maybe<
-    { __typename?: 'Site' } & {
-      siteMetadata: Maybe<
-        { __typename?: 'SiteSiteMetadata' } & Pick<SiteSiteMetadata, 'title'>
-      >;
-    }
-  >;
-};
-
-export type AboutPageQueryQueryVariables = {};
-
-export type AboutPageQueryQuery = { __typename?: 'Query' } & {
-  site: Maybe<
-    { __typename?: 'Site' } & {
-      siteMetadata: Maybe<
-        { __typename?: 'SiteSiteMetadata' } & Pick<SiteSiteMetadata, 'title'>
-      >;
-    }
-  >;
-};
-
-export type BlogIndexQueryQueryVariables = {};
-
-export type BlogIndexQueryQuery = { __typename?: 'Query' } & {
-  site: Maybe<
-    { __typename?: 'Site' } & {
-      siteMetadata: Maybe<
-        { __typename?: 'SiteSiteMetadata' } & Pick<SiteSiteMetadata, 'title'>
-      >;
-    }
-  >;
-  allMarkdownRemark: { __typename?: 'MarkdownRemarkConnection' } & {
-    edges: Array<
-      { __typename?: 'MarkdownRemarkEdge' } & {
-        node: { __typename?: 'MarkdownRemark' } & Pick<
-          MarkdownRemark,
-          'excerpt'
-        > & {
-            fields: Maybe<
-              { __typename?: 'MarkdownRemarkFields' } & Pick<
-                MarkdownRemarkFields,
-                'slug'
-              >
-            >;
-            frontmatter: Maybe<
-              { __typename?: 'MarkdownRemarkFrontmatter' } & Pick<
-                MarkdownRemarkFrontmatter,
-                'date' | 'title' | 'description' | 'tags'
-              > & {
-                  image: Maybe<
-                    { __typename?: 'File' } & {
-                      childImageSharp: Maybe<
-                        { __typename?: 'ImageSharp' } & {
-                          fluid: Maybe<
-                            {
-                              __typename?: 'ImageSharpFluid';
-                            } & GatsbyImageSharpFluidFragment
-                          >;
-                        }
-                      >;
-                    }
-                  >;
-                }
-            >;
-          };
-      }
-    >;
-  };
-};
-
-export type BlogPostBySlugQueryVariables = {
-  slug: Scalars['String'];
-};
-
-export type BlogPostBySlugQuery = { __typename?: 'Query' } & {
-  site: Maybe<
-    { __typename?: 'Site' } & {
-      siteMetadata: Maybe<
-        { __typename?: 'SiteSiteMetadata' } & Pick<SiteSiteMetadata, 'title'>
-      >;
-    }
-  >;
-  markdownRemark: Maybe<
-    { __typename?: 'MarkdownRemark' } & Pick<
-      MarkdownRemark,
-      'id' | 'excerpt' | 'html'
-    > & {
-        frontmatter: Maybe<
-          { __typename?: 'MarkdownRemarkFrontmatter' } & Pick<
-            MarkdownRemarkFrontmatter,
-            'title' | 'date' | 'description' | 'tags'
+export type SiteMetadataQuery = {
+  avatar: Maybe<{
+    childImageSharp: Maybe<{ fixed: Maybe<GatsbyImageSharpFixedFragment> }>;
+  }>;
+  site: Maybe<{
+    siteMetadata: Maybe<
+      Pick<
+        SiteSiteMetadata,
+        'title' | 'description' | 'author' | 'name' | 'authorDescription'
+      > & {
+        social: Maybe<
+          Pick<
+            SiteSiteMetadataSocial,
+            'instagram' | 'eMail' | 'gitHub' | 'blog' | 'buyMeACoffee'
           >
         >;
       }
+    >;
+  }>;
+};
+
+export type CommentQueryQueryVariables = Exact<{ [key: string]: never }>;
+
+export type CommentQueryQuery = {
+  site: Maybe<{ siteMetadata: Maybe<Pick<SiteSiteMetadata, 'repo'>> }>;
+};
+
+export type ResultRemarkQueryQueryVariables = Exact<{ [key: string]: never }>;
+
+export type ResultRemarkQueryQuery = {
+  allMarkdownRemark: {
+    edges: Array<{
+      node: {
+        fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>;
+        frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'title'>>;
+      };
+    }>;
+  };
+};
+
+export type NotFoundPageQueryQueryVariables = Exact<{ [key: string]: never }>;
+
+export type NotFoundPageQueryQuery = {
+  site: Maybe<{ siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>;
+};
+
+export type AboutPageQueryQueryVariables = Exact<{ [key: string]: never }>;
+
+export type AboutPageQueryQuery = {
+  site: Maybe<{ siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>;
+};
+
+export type BlogIndexQueryQueryVariables = Exact<{ [key: string]: never }>;
+
+export type BlogIndexQueryQuery = {
+  site: Maybe<{ siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>;
+  allMarkdownRemark: {
+    edges: Array<{
+      node: Pick<MarkdownRemark, 'excerpt'> & {
+        fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>;
+        frontmatter: Maybe<
+          Pick<
+            MarkdownRemarkFrontmatter,
+            'date' | 'title' | 'description' | 'tags'
+          > & {
+            image: Maybe<{
+              childImageSharp: Maybe<{
+                fluid: Maybe<GatsbyImageSharpFluidFragment>;
+              }>;
+            }>;
+          }
+        >;
+      };
+    }>;
+  };
+};
+
+export type BlogPostBySlugQueryVariables = Exact<{
+  slug: Scalars['String'];
+}>;
+
+export type BlogPostBySlugQuery = {
+  site: Maybe<{ siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>;
+  markdownRemark: Maybe<
+    Pick<MarkdownRemark, 'id' | 'excerpt' | 'html'> & {
+      frontmatter: Maybe<
+        Pick<
+          MarkdownRemarkFrontmatter,
+          'title' | 'date' | 'description' | 'tags'
+        >
+      >;
+    }
   >;
 };

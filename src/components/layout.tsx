@@ -1,9 +1,50 @@
-import styled, { createGlobalStyle } from 'styled-components';
-import { ThemeChangeTransition } from 'utils/style';
+import React, { ReactNode, ReactElement } from 'react';
+import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
+import { Light, Dark, ThemeChangeTransition } from 'utils/style';
+import { useLocalStorage } from 'utils/hooks';
 import { fontFiles } from 'lib/fonts/fonts';
-import { styledScale } from '../../utils/typography';
+import FooterComponent from './footer';
+import HeaderComponent from './header';
 
-export const GlobalStyle = createGlobalStyle`
+import { styledScale } from '../utils/typography';
+
+interface Props {
+  location: Location;
+  title: string;
+  children?: ReactNode;
+  selectedTags: string[];
+  postTitle?: string;
+}
+
+export default function Layout({
+  title,
+  children,
+  selectedTags,
+  location,
+  postTitle,
+}: Props): ReactElement {
+  const [isDark, setIsDark] = useLocalStorage<boolean>('theme');
+
+  return (
+    <ThemeProvider theme={isDark ? Dark : Light}>
+      <Wrapper>
+        <GlobalStyle />
+        <HeaderComponent
+          title={title}
+          isDark={isDark}
+          setIsDark={setIsDark}
+          selectedTags={selectedTags}
+          location={location}
+          postTitle={postTitle || undefined}
+        />
+        {children}
+        <FooterComponent />
+      </Wrapper>
+    </ThemeProvider>
+  );
+}
+
+const GlobalStyle = createGlobalStyle`
   @font-face {
       font-family: 'Ubuntu';
       src: local('Ubuntu Bold'), local('Ubuntu-Bold'),
@@ -156,7 +197,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 `;
 
-export const Wrapper = styled.div`
+const Wrapper = styled.div`
   width: 100%;
 
   display: flex;
@@ -164,10 +205,4 @@ export const Wrapper = styled.div`
   align-items: center;
 
   position: relative;
-`;
-
-export const H1 = styled.h1`
-  ${styledScale(1.5)};
-  margin-bottom: rhythm(1.5);
-  margin-top: 0;
 `;

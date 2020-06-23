@@ -3,31 +3,34 @@ import BioItemComponent from 'components/items/bio-item';
 import { MdMailOutline } from 'react-icons/md';
 import { FiGithub } from 'react-icons/fi';
 import { IoMdPaper } from 'react-icons/io';
-import { useBioQuery } from 'hooks/bio';
+import { useSiteMetadata } from 'hooks';
 import styled from 'styled-components';
 import { pxToRem } from 'utils';
 import GatsbyImage from 'gatsby-image';
 import { Default, media } from 'utils/style';
 
 export default function Bio(): ReactElement {
-  const { site, avatar } = useBioQuery();
+  const { siteMetadata, childImageSharp } = useSiteMetadata();
 
-  const { author, social } = site?.siteMetadata;
-  const { fixed } = avatar.childImageSharp;
+  const { author, name, authorDescription, social } = siteMetadata;
+  const { fixed } = childImageSharp;
 
   return (
     <Wrapper>
       <ContentWrapper>
         <div className='introduction-wrapper'>
-          <Image fixed={fixed} alt={author} />
+          <Image fixed={fixed} alt={author || ''} />
           <div className='introduction'>
             <h1>
-              <span>WDever</span> · 최민규
+              <span>{author}</span> · {name}
             </h1>
-            <h2>더 나은 코드를 위해 노력하는 개발자입니다.</h2>
+            <h2>{authorDescription}</h2>
           </div>
         </div>
-        <Button href='https://www.buymeacoffee.com/WDever' target='_blank'>
+        <Button
+          href={`https://www.buymeacoffee.com/${social.buyMeACoffee}`}
+          target='_blank'
+        >
           <span role='img' aria-label='Coffee'>
             ☕
           </span>
@@ -37,21 +40,21 @@ export default function Bio(): ReactElement {
       <div className='contacts'>
         <BioItemComponent
           title='e-mail'
-          content={social.eMail}
-          href={`mailto:${social.eMail}`}
+          content={social?.eMail}
+          href={`mailto:${social?.eMail}`}
         >
           <MdMailOutline size='14' />
         </BioItemComponent>
         <BioItemComponent
           title='GitHub'
-          content={social.gitHub}
+          content={social?.gitHub}
           href={`https://${social.gitHub}`}
         >
           <FiGithub size='14' />
         </BioItemComponent>
         <BioItemComponent
           title='Blog'
-          content={social.blog}
+          content={social?.blog}
           href={`https://${social.blog}`}
         >
           <IoMdPaper size='14' />

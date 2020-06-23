@@ -1,15 +1,18 @@
 module.exports = {
   siteMetadata: {
-    title: `WDever.dev`,
-    author: `최민규 WDever`,
-    description: `About My Development`,
+    title: `Devlog`,
+    author: `Name`,
+    name: `본명`,
+    authorDescription: `유저 소개`,
+    description: `Description`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
-    repo: 'WDever/WDever.dev',
+    repo: 'WDever/gatsby-starter-devlog',
     social: {
       instagram: 'https://www.instagram.com/_m1n_9_/',
       eMail: 'wdever0279@gmail.com',
       gitHub: 'github.com/wdever',
       blog: 'WDever.dev',
+      buyMeACoffee: 'Name'
     },
   },
   plugins: [
@@ -27,12 +30,6 @@ module.exports = {
         name: `assets`,
       },
     },
-    // {
-    //   resolve: `gatsby-source-filesystem`,
-    //   options: {
-    //     path: `${__dirname}/`
-    //   }
-    // },
     {
       resolve: `gatsby-transformer-remark`,
       options: {

@@ -1,9 +1,31 @@
+import React, { ReactElement } from 'react';
+import { SitePageContext } from 'types';
 import styled from 'styled-components';
 import { pxToRem } from 'utils';
 import { Default, media } from 'utils/style';
 import { Link } from 'gatsby';
 
-export const Wrapper = styled(Link)<{ isNext: boolean }>`
+interface Props {
+  data: SitePageContext['previous'] | SitePageContext['next'];
+  isNext: boolean;
+}
+
+export default function NavItemComponent({
+  data,
+  isNext,
+}: Props): ReactElement {
+  const { title } = data.frontmatter;
+  const { slug } = data.fields;
+
+  return (
+    <Wrapper isNext={isNext} to={slug}>
+      <h1>{title}</h1>
+      <p className='guide'>{isNext ? 'Next post →' : '← Previous Post'}</p>
+    </Wrapper>
+  );
+}
+
+const Wrapper = styled(Link)<{ isNext: boolean }>`
   width: ${pxToRem(342)};
   height: ${pxToRem(152)};
 

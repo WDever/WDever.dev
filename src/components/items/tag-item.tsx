@@ -1,6 +1,28 @@
+import React, { ReactElement } from 'react';
+
 import styled from 'styled-components';
 import { pxToRem } from 'utils';
 import { Default } from 'utils/style';
+
+interface Props {
+  tag: string;
+  selected: boolean;
+  selectTag: (tag: string) => void;
+}
+
+export default function TagItemComponent({
+  tag,
+  selected,
+  selectTag,
+}: Props): ReactElement {
+  const onClick = (): void => selectTag(tag);
+
+  return (
+    <Wrapper onClick={onClick} selected={selected}>
+      {tag}
+    </Wrapper>
+  );
+}
 
 export const Wrapper = styled.li<{ selected: boolean }>`
   height: ${pxToRem(24)};

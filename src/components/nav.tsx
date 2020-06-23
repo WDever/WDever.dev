@@ -1,7 +1,9 @@
 import React, { ReactElement } from 'react';
 import NavItemComponent from 'components/items/nav-item';
 import { SitePageContext } from 'types';
-import { Wrapper } from './style';
+import styled from 'styled-components';
+import { pxToRem } from 'utils';
+import { media } from 'utils/style';
 
 interface Props {
   previous: SitePageContext['previous'];
@@ -36,3 +38,20 @@ export default function NavComponent({ previous, next }: Props): ReactElement {
     </Wrapper>
   );
 }
+
+export const Wrapper = styled.nav<{ onlyNext?: boolean }>`
+  width: 100%;
+
+  margin-top: ${pxToRem(20)};
+
+  display: flex;
+  justify-content: ${({ onlyNext }): string =>
+    onlyNext ? 'flex-end' : 'space-between'};
+
+  ${media.phone} {
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+
+    margin: ${pxToRem(32)} 0;
+  }
+`;

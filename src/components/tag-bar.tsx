@@ -2,7 +2,9 @@ import React, { ReactElement } from 'react';
 import TagItemComponent from 'components/items/tag-item';
 import { useStaticQuery, graphql } from 'gatsby';
 import { TagBarQueryQuery } from 'types';
-import { Wrapper, Inner } from './style';
+import styled from 'styled-components';
+import { pxToRem } from 'utils';
+import { Default, BaseInner, media } from 'utils/style';
 
 interface Props {
   selectedTags: string[];
@@ -55,14 +57,43 @@ export default function TagBarComponent({
 
   return (
     <Wrapper>
-      <Inner>
+      <ul>
         <TagItemComponent
           tag='#All'
           selected={isAllSelected}
           selectTag={selectTag}
         />
         {tagList}
-      </Inner>
+      </ul>
     </Wrapper>
   );
 }
+
+const Wrapper = styled.button`
+  width: 100%;
+  margin-bottom: ${pxToRem(56)};
+
+  background-image: ${Default.gradient};
+
+  ${media.phone} {
+    margin-bottom: ${pxToRem(56)};
+  }
+
+  ul {
+    ${BaseInner}
+
+    padding-top: ${pxToRem(32)};
+    padding-bottom: ${pxToRem(16)};
+
+    list-style: none;
+
+    ${media.phone} {
+      white-space: nowrap;
+
+      overflow: scroll;
+
+      padding-top: ${pxToRem(32)};
+      padding-bottom: ${pxToRem(16)};
+    }
+  }
+`;

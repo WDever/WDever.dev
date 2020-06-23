@@ -1,8 +1,17 @@
+import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 import { pxToRem } from 'utils';
 import { Default, media } from 'utils/style';
 
-export const Wrapper = styled.li`
+interface Props {
+  tag: string;
+}
+
+export default function PostTagItemComponent({ tag }: Props): ReactElement {
+  return <Wrapper>{tag}</Wrapper>;
+}
+
+const Wrapper = styled.li`
   height: ${pxToRem(24)};
 
   margin: 0;

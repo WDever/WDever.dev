@@ -12,7 +12,6 @@ import SpoqaHanSansRegularWoff from './SpoqaHanSansRegular.woff';
 import SpoqaHanSansRegularWoff2 from './SpoqaHanSansRegular.woff2';
 
 // bold
-
 import GothicA1BoldTTF from './GothicA1-Bold.ttf';
 import GothicA1BoldWoff from './GothicA1-Bold.woff';
 import GothicA1BoldWoff2 from './GothicA1-Bold.woff2';
