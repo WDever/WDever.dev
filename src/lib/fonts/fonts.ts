@@ -11,6 +11,10 @@ import SpoqaHanSansRegularTTF from './SpoqaHanSansRegular.ttf';
 import SpoqaHanSansRegularWoff from './SpoqaHanSansRegular.woff';
 import SpoqaHanSansRegularWoff2 from './SpoqaHanSansRegular.woff2';
 
+import JetBrainsMonoRegularTTF from './JetBrainsMono-Regular.ttf';
+import JetBrainsMonoRegularWOFF from './JetBrainsMono-Regular.woff';
+import JetBrainsMonoRegularWOFF2 from './JetBrainsMono-Regular.woff2';
+
 // bold
 import GothicA1BoldTTF from './GothicA1-Bold.ttf';
 import GothicA1BoldWoff from './GothicA1-Bold.woff';
@@ -23,6 +27,10 @@ import UbuntuBoldWoff2 from './Ubuntu-Bold.woff2';
 import SpoqaHanSansBoldTTF from './SpoqaHanSansBold.ttf';
 import SpoqaHanSansBoldWoff from './SpoqaHanSansBold.woff';
 import SpoqaHanSansBoldWoff2 from './SpoqaHanSansBold.woff2';
+
+import JetBrainsMonoBoldTTF from './JetBrainsMono-Bold.ttf';
+import JetBrainsMonoBoldWOFF from './JetBrainsMono-Bold.woff';
+import JetBrainsMonoBoldWOFF2 from './JetBrainsMono-Bold.woff2';
 
 export const fontFiles = {
   GothicA1RegularTTF,
@@ -37,6 +45,10 @@ export const fontFiles = {
   SpoqaHanSansRegularWoff,
   SpoqaHanSansRegularWoff2,
 
+  JetBrainsMonoRegularTTF,
+  JetBrainsMonoRegularWOFF,
+  JetBrainsMonoRegularWOFF2,
+
   GothicA1BoldTTF,
   GothicA1BoldWoff,
   GothicA1BoldWoff2,
@@ -48,4 +60,8 @@ export const fontFiles = {
   SpoqaHanSansBoldTTF,
   SpoqaHanSansBoldWoff,
   SpoqaHanSansBoldWoff2,
+
+  JetBrainsMonoBoldTTF,
+  JetBrainsMonoBoldWOFF,
+  JetBrainsMonoBoldWOFF2,
 };

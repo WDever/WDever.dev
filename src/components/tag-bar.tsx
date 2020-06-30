@@ -69,7 +69,7 @@ export default function TagBarComponent({
   );
 }
 
-const Wrapper = styled.button`
+const Wrapper = styled.nav`
   width: 100%;
   margin-bottom: ${pxToRem(56)};
 

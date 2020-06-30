@@ -6,8 +6,6 @@ import { fontFiles } from 'lib/fonts/fonts';
 import FooterComponent from './footer';
 import HeaderComponent from './header';
 
-import { styledScale } from '../utils/typography';
-
 interface Props {
   location: Location;
   title: string;
@@ -103,6 +101,26 @@ const GlobalStyle = createGlobalStyle`
           url(${fontFiles.SpoqaHanSansBoldTTF}) format('ttf');
       font-weight: bold;
       font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'JetBrainsMono';
+    src: local('../../lib/fonts/SpoqaHanSansBold'), local('Spoqa-Han-Sans-Bold'),
+          url(${fontFiles.JetBrainsMonoRegularWOFF2}) format('woff2'),
+          url(${fontFiles.JetBrainsMonoRegularWOFF}) format('woff'),
+          url(${fontFiles.JetBrainsMonoRegularTTF}) format('ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'JetBrainsMono';
+    src: local('../../lib/fonts/SpoqaHanSansBold'), local('Spoqa-Han-Sans-Bold'),
+          url(${fontFiles.JetBrainsMonoBoldWOFF2}) format('woff2'),
+          url(${fontFiles.JetBrainsMonoBoldWOFF}) format('woff'),
+          url(${fontFiles.JetBrainsMonoBoldTTF}) format('ttf');
+    font-weight: bold;
+    font-style: normal;
   }
 
   body {

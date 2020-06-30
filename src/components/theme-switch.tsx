@@ -15,9 +15,7 @@ export default function ThemeSwitchComponent({
 }: Props): ReactElement {
   const checkedIsDark: boolean = typeof isDark === 'undefined' ? false : isDark;
 
-  const handleChange = (isDark: boolean): void => {
-    setIsDark(isDark);
-  };
+  const handleChange = (isDark: boolean): void => setIsDark(isDark);
 
   const icon = (isDark: boolean): JSX.Element => (
     <SwitchIcon isDark={isDark}>{isDark ? 'D' : 'L'}</SwitchIcon>

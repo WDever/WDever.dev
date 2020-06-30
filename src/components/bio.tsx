@@ -139,6 +139,11 @@ const ContentWrapper = styled.div`
       font-size: ${pxToRem(16)};
       font-weight: normal;
 
+      width: 100%;
+      height: ${pxToRem(40)};
+
+      overflow: hidden;
+
       font-family: 'SpoqaHanSans';
 
       margin: 0;
@@ -166,7 +171,7 @@ const ContentWrapper = styled.div`
 const Button = styled.a`
   display: flex;
 
-  width: ${pxToRem(148)};
+  min-width: ${pxToRem(148)};
   height: ${pxToRem(48)};
 
   border-radius: ${pxToRem(8)};

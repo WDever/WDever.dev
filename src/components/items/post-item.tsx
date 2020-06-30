@@ -1,6 +1,5 @@
 import React, { ReactElement } from 'react';
 import { BlogIndexQueryQuery } from 'types';
-
 import styled from 'styled-components';
 import { pxToRem } from 'utils';
 import { Default, media } from 'utils/style';
@@ -24,11 +23,35 @@ export default function PostItemComponent({
   tags,
   slug,
 }: Props): ReactElement {
-  const { src } = img.childImageSharp.fluid;
-
   const tagList = tags.map((item, i) => (
     <PostTagItemComponent key={i} tag={item} />
   ));
+
+  if (img === null) {
+    return (
+      <Wrapper>
+        <PostInfoWrapper>
+          <PostInfo>
+            <TagList>{tagList}</TagList>
+            <Date>{date}</Date>
+          </PostInfo>
+          <Title>
+            <StyledLink to={slug} isTitle>
+              {title}
+            </StyledLink>
+          </Title>
+          <Description>
+            <StyledLink to={slug} isTitle={false}>
+              {description}
+            </StyledLink>
+          </Description>
+        </PostInfoWrapper>
+      </Wrapper>
+    );
+    // return <></>;
+  }
+
+  const { src } = img.childImageSharp.fluid;
 
   return (
     <Wrapper>
@@ -78,18 +101,6 @@ const Wrapper = styled.article`
 
     border: none;
   }
-`;
-
-const Img = styled.img`
-  width: 100%;
-  height: ${pxToRem(204)};
-
-  margin: 0;
-
-  border-top-left-radius: ${pxToRem(8)};
-  border-top-right-radius: ${pxToRem(8)};
-
-  cursor: pointer;
 `;
 
 const PostInfoWrapper = styled.div`
