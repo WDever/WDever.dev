@@ -12,7 +12,7 @@ module.exports = {
       eMail: 'wdever0279@gmail.com',
       gitHub: 'github.com/wdever',
       blog: 'WDever.dev',
-      buyMeACoffee: 'Name'
+      buyMeACoffee: 'Name',
     },
   },
   plugins: [
@@ -28,7 +28,7 @@ module.exports = {
       options: {
         path: `${__dirname}/content/about`,
         name: `about`,
-      }
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
@@ -66,7 +66,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: `UA-163923948-1`,
+        trackingId: ``, // Add your google analytics tracking ID
       },
     },
     `gatsby-plugin-feed`,
@@ -90,6 +90,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-styled-components`,
+    `gatsby-plugin-feed`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
