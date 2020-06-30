@@ -1,7 +1,6 @@
 import React, { ReactElement } from 'react';
-import Helmet from 'react-helmet';
-import { useStaticQuery, graphql } from 'gatsby';
-import { SeoQueryQuery } from '../types/graphqlTypes';
+import { Helmet } from 'react-helmet';
+import { useSiteMetadata } from 'hooks';
 
 interface Props {
   description?: string;
@@ -16,23 +15,9 @@ export default function SEO({
   meta = [],
   title,
 }: Props): ReactElement {
-  const data: SeoQueryQuery = useStaticQuery<SeoQueryQuery>(
-    graphql`
-      query SeoQuery {
-        site {
-          siteMetadata {
-            title
-            description
-            author
-          }
-        }
-      }
-    `,
-  );
+  const { siteMetadata } = useSiteMetadata();
 
-  const { site } = data;
-
-  const metaDescription = description || site.siteMetadata.description;
+  const metaDescription = description || siteMetadata.description;
 
   return (
     <Helmet
@@ -40,7 +25,7 @@ export default function SEO({
         lang,
       }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      titleTemplate={`%s | ${siteMetadata.title}`}
       meta={[
         {
           name: `description`,
@@ -64,7 +49,7 @@ export default function SEO({
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          content: siteMetadata.author,
         },
         {
           name: `twitter:title`,

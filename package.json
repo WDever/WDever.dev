@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "gatsby-starter-devlog",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "A starter for a blog powered by gatsby-starter-blog",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "WDever <wdever0279@gmail.com>",
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
@@ -73,7 +73,7 @@
     "eslint-plugin-react-hooks": "^4.0.4",
     "prettier": "^2.0.5"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "homepage": "https://github.com/gatsbyjs/gatsby-starter-devlog#readme",
   "keywords": [
     "gatsby"
   ],
@@ -81,7 +81,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": "git+https://github.com/gatsbyjs/gatsby-starter-devlog.git"
   },
   "scripts": {
     "create-post": "ts-node ./cli/create-new-post.ts",
@@ -94,6 +94,6 @@
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "type-check": "tsc --noEmit",
-    "codegen": "graphql-codegen --config codegen.yml && eslint --fix src/types/graphqlTypes.ts"
+    "codegen": "graphql-codegen --config codegen.yml"
   }
 }
