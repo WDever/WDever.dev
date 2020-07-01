@@ -1,7 +1,7 @@
 ---
 title: Hello World
 date: '2020-05-05 02:05:47'
-description: '나만의 도메인을 설정해봤다'
+description: 'example'
 tags: ['#Blog', '#Deployment']
 image: ./now-w-google.png
 ---

@@ -1,7 +1,7 @@
 ---
 title: lorem ipsum
 date: '2020-05-05 21:05:05'
-description: '블로그를 개발하며 배우고 생각한 것들'
+description: 'example'
 tags: ['#Dev', '#Blog']
 image: ./hello!!!.png
 ---

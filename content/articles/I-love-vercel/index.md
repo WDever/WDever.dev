@@ -1,7 +1,7 @@
 ---
 title: Deploy with vercel
 date: '2020-05-03 07:07'
-description: 'Vercel로 이름을 바꾼 zeit now로 블로그를 배포하기'
+description: 'example'
 tags: ['#Dev', '#Blog', '#Deployment']
 image: ./gatsbywvercel.png
 ---

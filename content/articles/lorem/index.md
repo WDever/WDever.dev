@@ -1,7 +1,7 @@
 ---
 title: Example
 date: '2020-05-04 22:05:52'
-description: '내 블로그 첫 기능 업데이트와 디버깅'
+description: 'example'
 tags: ['#Dev', '#Blog', '#Update']
 image: ./add-feature-and-debugging-cover.png
 ---
