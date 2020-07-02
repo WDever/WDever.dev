@@ -6,7 +6,7 @@ export const Light: DefaultTheme = {
   mainFont: '#000',
   subFont: '#777',
   headerShadow: '0 4px 32px 0 rgba(0, 0, 0, 0.08);',
-  itemShadow: '0 4px 12px 0 rgba(0, 0, 0, 0.1)',
+  itemShadow: '0px 4px 32px rgba(0, 0, 0, 0.08)',
   bio: '#f0f0f0',
   footer: '#f0f0f0',
   headerBorder: 'hsla(0,0%,0%,0.07);',

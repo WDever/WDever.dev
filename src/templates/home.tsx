@@ -31,6 +31,7 @@ export default function HomeTemplate({
           description={node.frontmatter.description}
           tags={node.frontmatter.tags}
           slug={node.fields.slug}
+          timeToRead={node.timeToRead}
         />
       );
     },
@@ -55,6 +56,7 @@ export default function HomeTemplate({
               description={node.frontmatter.description}
               tags={node.frontmatter.tags}
               slug={node.fields.slug}
+              timeToRead={node.timeToRead}
             />
           );
         }
@@ -85,11 +87,11 @@ export const Inner = styled.div`
 
   display: grid;
 
-  grid-template-columns: ${(): string => `repeat(auto-fill, ${pxToRem(412)})`};
+  grid-template-columns: ${(): string => `repeat(auto-fill, ${pxToRem(320)})`};
 
   grid-row-gap: ${pxToRem(56)};
 
-  grid-auto-rows: ${pxToRem(416)};
+  grid-auto-rows: ${pxToRem(380)};
 
   ${media.tabletL} {
     grid-template-columns: ${(): string =>
