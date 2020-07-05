@@ -88,12 +88,16 @@ export const Inner = styled.div`
   display: grid;
 
   grid-template-columns: ${(): string => `repeat(auto-fill, ${pxToRem(320)})`};
+  grid-auto-rows: ${pxToRem(380)};
 
   grid-row-gap: ${pxToRem(56)};
 
-  grid-auto-rows: ${pxToRem(380)};
-
   ${media.tabletL} {
+    grid-template-columns: ${(): string =>
+      `repeat(auto-fill, ${pxToRem(300)})`};
+  }
+
+  ${media.tabletM} {
     grid-template-columns: ${(): string =>
       `repeat(auto-fill, ${pxToRem(340)})`};
     grid-auto-rows: ${pxToRem(360)};

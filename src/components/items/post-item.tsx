@@ -91,7 +91,6 @@ const Wrapper = styled.article`
 
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
 
   background-color: ${({ theme }): string => theme.item};
   box-shadow: ${({ theme }): string => theme.itemShadow};
@@ -235,7 +234,7 @@ const Button = styled(Link)`
   margin-top: auto;
   padding: ${pxToRem(16)};
 
-  border-top: 1px solid #eee;
+  border-top: 1px solid ${({ theme }): string => theme.itemBtnBorder};
   border-bottom-left-radius: ${pxToRem(4)};
   border-bottom-right-radius: ${pxToRem(4)};
 
@@ -262,7 +261,7 @@ const Button = styled(Link)`
   }
 
   .read-more {
-    color: ${({ theme }): string => theme.mainFont};
+    color: ${({ theme }): string => theme.subFont};
   }
 
   transition: all ease 0.4s;
