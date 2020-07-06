@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { pxToRem } from 'utils';
 import { Default, media } from 'utils/style';
 import { Link } from 'gatsby';
-import PostTagItemComponent from './post-tag-item';
+import CardTagItemComponent from './card-tag-item';
 
 interface Props {
   img: BlogIndexQueryQuery['allMarkdownRemark']['edges'][number]['node']['frontmatter']['image'];
@@ -13,6 +13,7 @@ interface Props {
   title: BlogIndexQueryQuery['allMarkdownRemark']['edges'][number]['node']['frontmatter']['title'];
   description: BlogIndexQueryQuery['allMarkdownRemark']['edges'][number]['node']['frontmatter']['description'];
   slug: BlogIndexQueryQuery['allMarkdownRemark']['edges'][number]['node']['fields']['slug'];
+  timeToRead: BlogIndexQueryQuery['allMarkdownRemark']['edges'][number]['node']['timeToRead'];
 }
 
 export default function PostItemComponent({
@@ -22,9 +23,10 @@ export default function PostItemComponent({
   description,
   tags,
   slug,
+  timeToRead,
 }: Props): ReactElement {
   const tagList = tags.map((item, i) => (
-    <PostTagItemComponent key={i} tag={item} />
+    <CardTagItemComponent key={i} tag={item} />
   ));
 
   if (img === null) {
@@ -46,9 +48,12 @@ export default function PostItemComponent({
             </StyledLink>
           </Description>
         </PostInfoWrapper>
+        <Button className='button' to={slug}>
+          <span>{timeToRead} min to read</span>
+          <span className='read-more'>Read More</span>
+        </Button>
       </Wrapper>
     );
-    // return <></>;
   }
 
   const { src } = img.childImageSharp.fluid;
@@ -66,12 +71,16 @@ export default function PostItemComponent({
             {title}
           </StyledLink>
         </Title>
-        <Description>
+        <Description haveImage>
           <StyledLink to={slug} isTitle={false}>
             {description}
           </StyledLink>
         </Description>
       </PostInfoWrapper>
+      <Button className='button' to={slug}>
+        <span>{timeToRead} min to read</span>
+        <span className='read-more'>Read More</span>
+      </Button>
     </Wrapper>
   );
 }
@@ -86,7 +95,7 @@ const Wrapper = styled.article`
   background-color: ${({ theme }): string => theme.item};
   box-shadow: ${({ theme }): string => theme.itemShadow};
 
-  border-radius: ${pxToRem(8)};
+  border-radius: ${pxToRem(4)};
 
   transition: box-shadow 0.3s;
 
@@ -101,6 +110,20 @@ const Wrapper = styled.article`
 
     border: none;
   }
+
+  :hover {
+    .button {
+      background-position: left bottom;
+
+      span {
+        color: #fff;
+      }
+
+      .read-more {
+        font-weight: bold;
+      }
+    }
+  }
 `;
 
 const PostInfoWrapper = styled.div`
@@ -109,7 +132,7 @@ const PostInfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
 
-  padding: ${pxToRem(10)} ${pxToRem(10)} ${pxToRem(24)} ${pxToRem(10)};
+  padding: ${pxToRem(8)} ${pxToRem(16)} ${pxToRem(0)} ${pxToRem(16)};
 
   ${media.tabletM} {
     padding-bottom: ${pxToRem(16)};
@@ -126,6 +149,7 @@ const PostInfo = styled.div`
 
 const TagList = styled.div`
   max-width: 70%;
+  overflow: scroll;
 `;
 
 const Date = styled.p`
@@ -138,12 +162,12 @@ const Date = styled.p`
 
 const Title = styled.h1`
   margin: 0;
-  margin-top: ${pxToRem(14)};
+  margin-top: ${pxToRem(10)};
 
-  max-height: ${pxToRem(70)};
+  max-height: ${pxToRem(57)};
 
   font-family: 'Gothic A1';
-  font-size: ${pxToRem(30)};
+  font-size: ${pxToRem(22)};
   line-height: 1.3;
 
   text-overflow: ellipsis;
@@ -160,15 +184,20 @@ const Title = styled.h1`
   }
 `;
 
-const Description = styled.h2`
+const Description = styled.h2<{ haveImage?: boolean }>`
   margin: 0;
-  margin-top: ${pxToRem(16)};
+  margin-top: ${pxToRem(10)};
+
+  max-height: ${({ haveImage }): string =>
+    haveImage ? pxToRem(54) : pxToRem(216)};
+
+  overflow: hidden;
 
   font-family: 'SpoqaHanSans';
-  font-size: ${pxToRem(16)};
+  font-size: ${pxToRem(12)};
   font-weight: normal;
   color: ${({ theme }): string => theme.subFont};
-  line-height: 1.7;
+  line-height: 1.5;
 
   cursor: pointer;
 
@@ -179,18 +208,61 @@ const Description = styled.h2`
 `;
 
 const StyledLink = styled(Link)<{ isTitle: boolean }>`
+  width: 100%;
   box-shadow: none;
   color: ${({ theme, isTitle }): string =>
     isTitle ? theme.mainFont : theme.subFont};
 `;
 
 const ImgLink = styled(Link)<{ imgsrc: string }>`
-  height: ${pxToRem(204)};
+  height: ${pxToRem(156)};
   box-shadow: none;
 
   background-image: ${({ imgsrc }): string => `url(${imgsrc})`};
   background-size: cover;
 
-  border-top-right-radius: ${pxToRem(8)};
-  border-top-left-radius: ${pxToRem(8)};
+  border-top-right-radius: ${pxToRem(4)};
+  border-top-left-radius: ${pxToRem(4)};
+`;
+
+const Button = styled(Link)`
+  position: relative;
+
+  width: 100%;
+  height: ${pxToRem(48)};
+
+  margin-top: auto;
+  padding: ${pxToRem(16)};
+
+  border-top: 1px solid ${({ theme }): string => theme.itemBtnBorder};
+  border-bottom-left-radius: ${pxToRem(4)};
+  border-bottom-right-radius: ${pxToRem(4)};
+
+  display: flex;
+  justify-content: space-between;
+
+  text-decoration: none;
+  font-size: ${pxToRem(10)};
+
+  background: linear-gradient(
+    to right,
+    ${Default.main} 50%,
+    ${({ theme }): string => theme.item} 50%
+  );
+  background-size: 200% 100%;
+  background-position: right bottom;
+
+  span {
+    color: ${Default.date};
+
+    transition: all 0.4s;
+
+    z-index: 10;
+  }
+
+  .read-more {
+    color: ${({ theme }): string => theme.subFont};
+  }
+
+  transition: all ease 0.4s;
 `;

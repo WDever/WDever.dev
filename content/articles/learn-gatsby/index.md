@@ -1,7 +1,7 @@
 ---
 title: Gatsby
 date: '2020-05-12 01:05:11'
-description: '빌드를 하면 노트북이 이륙하는 걸 느껴봐요'
+description: 'example'
 tags: ['#Dev', '#Electron', '#TypeScript']
 image: ./electron-ts-parcel.png
 ---

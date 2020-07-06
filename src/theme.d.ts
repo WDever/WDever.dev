@@ -7,6 +7,7 @@ interface Colors {
   subFont: string;
   headerShadow: string;
   itemShadow: string;
+  itemBtnBorder: string;
   bio: string;
   footer: string;
   headerBorder: string;

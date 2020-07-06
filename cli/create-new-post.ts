@@ -21,7 +21,7 @@ const UTF_8 = 'utf8';
 const DATE_FORMAT = 'yyyy-MM-dd HH:MM:SS';
 
 const includesStrInArr = (long: string[], short: string[]): boolean =>
-  short.some(item => long.includes(item));
+  short.some((item) => long.includes(item));
 
 const fetchTitle = async (): Promise<string> => {
   const { title } = await prompt<{ title: string }>([
@@ -179,7 +179,7 @@ const createFrontMatter = (contents: IFrontMatter): string => {
 
   const frontMatter = createFrontMatter(frontMatterData);
 
-  fs.writeFile(`${dirName}/index.md`, frontMatter, e => {
+  fs.writeFile(`${dirName}/index.md`, frontMatter, (e) => {
     if (e) {
       log.error('Error Occurred During Write File');
       log.error(e);

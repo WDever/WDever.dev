@@ -20,14 +20,13 @@ export default function NavItemComponent({
   return (
     <Wrapper isNext={isNext} to={slug}>
       <h1>{title}</h1>
-      <p className='guide'>{isNext ? 'Next post →' : '← Previous Post'}</p>
+      <div className='guide'>{isNext ? 'Next post →' : '← Previous Post'}</div>
     </Wrapper>
   );
 }
 
 const Wrapper = styled(Link)<{ isNext: boolean }>`
-  width: ${pxToRem(342)};
-  height: ${pxToRem(152)};
+  width: ${pxToRem(340)};
 
   text-decoration: none;
 
@@ -40,44 +39,47 @@ const Wrapper = styled(Link)<{ isNext: boolean }>`
 
   box-shadow: ${({ theme }): string => theme.itemShadow};
 
-  border-radius: ${pxToRem(8)};
+  border-radius: ${pxToRem(4)};
 
   margin-top: ${pxToRem(20)};
   margin-bottom: ${pxToRem(56)};
 
-  padding: ${pxToRem(16)} ${pxToRem(20)};
+  padding: 0;
+  padding-top: ${pxToRem(16)};
+
+  :hover {
+    .guide {
+      background-position: left bottom;
+
+      color: #fff;
+      font-weight: bold;
+    }
+  }
 
   ${media.phone} {
     width: 100%;
     height: auto;
 
     margin: 0;
-  }
 
-  p {
-    color: ${Default.main};
-
-    margin: 0;
-  }
-
-  .date {
-    color: ${Default.date};
+    :first-of-type {
+      margin-top: ${pxToRem(16)};
+    }
   }
 
   h1 {
-    font-size: ${pxToRem(24)};
+    font-size: ${pxToRem(20)};
     color: ${({ theme }): string => theme.mainFont};
 
-    height: ${pxToRem(62)};
-    max-height: ${pxToRem(62)};
+    height: ${pxToRem(52)};
+    max-height: ${pxToRem(52)};
 
     text-overflow: ellipsis;
     overflow: hidden;
 
-    margin-top: ${pxToRem(16)};
-    margin-bottom: ${pxToRem(10)};
-
-    padding: 0;
+    margin: 0;
+    padding: 0 ${pxToRem(16)};
+    margin-bottom: ${pxToRem(14)};
 
     ${media.phone} {
       font-size: ${pxToRem(20)};
@@ -93,5 +95,24 @@ const Wrapper = styled(Link)<{ isNext: boolean }>`
     font-size: ${pxToRem(12)};
 
     text-align: ${({ isNext }): string => (isNext ? 'end' : 'start')};
+    color: ${Default.main};
+
+    border-top: 1px solid ${({ theme }): string => theme.itemBtnBorder};
+
+    padding: ${pxToRem(16)};
+    margin: 0;
+
+    background: linear-gradient(
+      to right,
+      ${Default.main} 50%,
+      ${({ theme }): string => theme.item} 50%
+    );
+    background-size: 200% 100%;
+    background-position: right bottom;
+
+    border-bottom-right-radius: ${pxToRem(4)};
+    border-bottom-left-radius: ${pxToRem(4)};
+
+    transition: all ease 0.4s;
   }
 `;

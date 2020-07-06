@@ -17,10 +17,13 @@ export default function TagBarComponent({
 }: Props): ReactElement {
   const data: TagBarQueryQuery = useStaticQuery(graphql`
     query TagBarQuery {
-      allMarkdownRemark(sort: { order: DESC, fields: frontmatter___tags }) {
+      allMarkdownRemark(
+        sort: { order: DESC, fields: frontmatter___tags }
+        filter: { frontmatter: { tags: { nin: "#About" } } }
+      ) {
         group(field: frontmatter___tags) {
-          tag: fieldValue
           totalCount
+          tag: fieldValue
         }
         totalCount
       }
