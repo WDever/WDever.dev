@@ -23,6 +23,8 @@ const DATE_FORMAT = 'yyyy-MM-dd HH:MM:SS';
 const includesStrInArr = (long: string[], short: string[]): boolean =>
   short.some((item) => long.includes(item));
 
+const replaceSpaceToDash = (str: string): string => str.split(/\s+/).join('-');
+
 const fetchTitle = async (): Promise<string> => {
   const { title } = await prompt<{ title: string }>([
     {
@@ -36,8 +38,8 @@ const fetchTitle = async (): Promise<string> => {
   return title;
 };
 
-const fetchDirName = async (): Promise<string> => {
-  const { dirName } = await prompt<{ dirName: string }>([
+const fetchDirName = async (defaultDirName: string): Promise<string> => {
+  const { input } = await prompt<{ input?: string }>([
     {
       type: 'input',
       name: 'dirName',
@@ -45,11 +47,15 @@ const fetchDirName = async (): Promise<string> => {
       default: (): string =>
         '(ex: new-post-file-name) Default value is same with title',
       validate: async (input: string): Promise<boolean | string> => {
-        const fileName = input.split(/\s+/).join('-');
+        if (input.length === 0) {
+          return true;
+        }
+
+        const dirName = replaceSpaceToDash(input);
 
         const existingDirs = await fs.readdir(TARGET_DIR);
 
-        if (existingDirs.includes(fileName)) {
+        if (existingDirs.includes(dirName)) {
           return 'Existing dir name';
         }
 
@@ -58,9 +64,14 @@ const fetchDirName = async (): Promise<string> => {
     },
   ]);
 
-  const fileName = dirName.split(/\s+/).join('-');
+  if (input === undefined) {
+    const dirName = replaceSpaceToDash(defaultDirName);
+    return `${TARGET_DIR}/${dirName}`;
+  }
 
-  return `${TARGET_DIR}/${fileName}`;
+  const dirName = input.split(/\s+/).join('-');
+
+  return `${TARGET_DIR}/${dirName}`;
 };
 
 const getTags = async (): Promise<string[]> => {
@@ -164,7 +175,7 @@ const createFrontMatter = (contents: IFrontMatter): string => {
   log.start(`Create post process`);
 
   const title = await fetchTitle();
-  const dirName = await fetchDirName();
+  const dirName = await fetchDirName(title);
 
   await fs.ensureDir(dirName);
 
