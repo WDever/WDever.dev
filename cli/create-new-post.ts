@@ -42,17 +42,14 @@ const fetchDirName = async (): Promise<string> => {
       type: 'input',
       name: 'dirName',
       message: `Directory name / URL (use '-' instead of space): `,
-      default: (): string => 'new-post-file-name',
+      default: (): string =>
+        '(ex: new-post-file-name) Default value is same with title',
       validate: async (input: string): Promise<boolean | string> => {
-        const isIncludeSpace: boolean = input.includes(' ');
-
-        if (isIncludeSpace) {
-          return 'File name contains spaces';
-        }
+        const fileName = input.split(/\s+/).join('-');
 
         const existingDirs = await fs.readdir(TARGET_DIR);
 
-        if (existingDirs.includes(input)) {
+        if (existingDirs.includes(fileName)) {
           return 'Existing dir name';
         }
 
@@ -61,17 +58,21 @@ const fetchDirName = async (): Promise<string> => {
     },
   ]);
 
-  return `${TARGET_DIR}/${dirName}`;
+  const fileName = dirName.split(/\s+/).join('-');
+
+  return `${TARGET_DIR}/${fileName}`;
 };
 
 const getTags = async (): Promise<string[]> => {
-  const mdFiles = await rr(TARGET_DIR, [
+  let mdFiles = await rr(TARGET_DIR, [
     '*.png',
     '*.jpg',
     '*.svg',
     '*.gif',
     '*.jpeg',
   ]);
+
+  mdFiles = mdFiles.filter((file: string) => !file.includes('.DS_Store'));
 
   const tagsArr: string[][] = [...new Set(mdFiles)]
     .map((file: string) => fs.readFileSync(file, UTF_8))
