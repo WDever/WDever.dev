@@ -13,7 +13,7 @@ import styled, { css } from 'styled-components';
 import { Link } from 'gatsby';
 import { pxToRem } from 'utils';
 import { BaseInner, Default, media } from 'utils/style';
-import { useCopyToClipboard } from 'utils/hooks';
+import { useCopyToClipboard } from 'hooks';
 
 interface Props {
   title: string;
