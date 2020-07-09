@@ -6,6 +6,8 @@
 
 [예시](https://gatsby-starter-devlog.vercel.app/)
 
+[사용 사례](USECASE.md)
+
 > 이 스타터를 사용하셨다면 이슈를 통해 알려주세요.
 
 ## 핵심 기능

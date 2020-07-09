@@ -8,6 +8,8 @@ gatsby starter for developer's blog.
 
 [demo](https://gatsby-starter-devlog.vercel.app/)
 
+[Use Cases](USECASE.md)
+
 > Tell me if you use this starter
 
 ## Features
