@@ -1,65 +1,63 @@
-[🇰🇷한국어](README-ko.md)
-
 # Gatsby-starter-devlog
 
-gatsby starter for developer's blog.
+개발자 블로그를 위한 gatsby starter
 
-## Demo
+## 예시
 
-[demo](https://gatsby-starter-devlog.vercel.app/)
+[예시](https://gatsby-starter-devlog.vercel.app/)
 
-> Tell me if you use this starter
+> 이 스타터를 사용하셨다면 이슈를 통해 알려주세요.
 
-## Features
+## 핵심 기능
 
-- Grid View 🌈
-- Code Highlight (Atom one dark + JetBrains Mono) ✨
-- Comment with Utterances 💬
-- Buy me a coffee ☕️💸
+- 그리드 뷰 🌈
+- 코드 하이라이트 (Atom one dark + JetBrains Mono) ✨
+- Utterances를 이용한 댓글 💬
+- Buy me a coffee를 이용한 기부 ☕️💸
 - Google Analytics 📊
-- Dark Mode Support !!! 🌗
+- 다크 모드 지원 !!! 🌗
 
 ## Getting Start
 
-1. Create a Gatsby app
+1. Gatsby 앱 생성
 
 ```sh
 yarn gatsby new my-blog https://github.com/WDever/gatsby-starter-devlog
 
-or
+혹은
 
 npx gatsby new my-blog https://github.com/WDever/gatsby-starter-devlog
 ```
 
-2. Start development server
+2. 개발 서버 시작
 
 ```sh
 yarn develop
 
-or
+혹은
 
 npm run develop
 ```
 
-3. Create your post
+3. 포스트 생성
 
-Create post in `content/articles` with **cli!!!**
+`content/articles`에 **cli!!!** 를 이용하여 포스트를 생성해보세요.
 
 ![create-post](assets/create-post.gif)
 
-4. Write your post
+4. 포스트 작성
 
-You can write your content with GitHub Flavor Markdown.
+GitHub Flavor Markdown 문법으로 포스트를 작성 하실 수 있습니다.
 
-Also you can add thumbnail images or not. If you won't add thumbnail images, remove `image` in metadata
+또한 썸네일 이미지를 추가하실 수도 있습니다. 만약 썸네일 이미지가 필요 없으시다면 자동으로 생성된 `image` 메타데이터를 삭제해주세요.
 
-5. Deploy to vercel
+5. Vercel로 배포
 
-Try to use Vercel!
+Vercel로 배포 해보세요!
 
 [![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/WDever/gatsby-starter-develog)
 
-## Structure
+## 구조
 
 ### root
 
@@ -106,26 +104,26 @@ content
     └── wdever-icon // Icon will be show in tab.
 ```
 
-## Customize
+## 커스터마이즈
 
-### Tab Icon
+### 탭 아이콘
 
-Replace `assets/wdever-icon` with your own icon and change path in `gatsby-plugin-manifest`. This config is in the `gatsby-config.js`
+`assets/wdever-icon` 를 본인만의 고유한 아이콘으로 변경한 후 `gatsby-plugin-manifest` 에서 경로를 수정해주세요. 해당 설정은 `gatsby-config.js`에 있습니다.
 
 ### Profile Image
 
-  Replace `assets/profile-pic` with your own profile pic
+`assets/profile-pic` 를 본인만의 프로필사진으로 변경해보세요.
 
 ### Utterances
 
-Add your repo name (username/repo) in `gatsby-config.js/siteMetadata.repo`
+블로그 프로젝트를 올린 저장소의 이름 (유저 이름 / 저장소 이름 형식) 을 `gatsby-config.js/siteMetadata.repo` 에 입력해주세요.
 
 ### Google Analytics
 
-Add tour trackingId in `gatsby-config.js/gatsby-plugin-google-analytics.options.trackingId`
+본인의 trackingId를 `gatsby-config.js/gatsby-plugin-google-analytics.options.trackingId` 에 추가해주세요.
 
-## Contributing
+## 기여
 
-I'm always waiting you guys's contribute. Please Contribute.
+많은 분들의 기여를 언제나 기다리고 있습니다. 함께 개선해주세요!
 
-Thanks.
+감사합니다.
