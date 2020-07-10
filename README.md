@@ -115,7 +115,7 @@ Replace `assets/wdever-icon` with your own icon and change path in `gatsby-plugi
 
 ### Profile Image
 
-  Replace `assets/profile-pic` with your own profile pic
+Replace `assets/profile-pic` with your own profile pic
 
 ### Utterances
 
@@ -124,6 +124,16 @@ Add your repo name (username/repo) in `gatsby-config.js/siteMetadata.repo`
 ### Google Analytics
 
 Add tour trackingId in `gatsby-config.js/gatsby-plugin-google-analytics.options.trackingId`
+
+## Trouble Shooting
+
+### Field "image" must not have a selection since type "String" has no subfields
+
+The reason why this issue occurs is because some post doesn't have correct `image` meatadata. Remove `image` in metadata or set Correct metadata.
+
+### localStorage is not defined
+
+I don't know why this issue occurs. I guess localStorage isn't defined at build time. But don't worry, everything will work fine.
 
 ## Contributing
 

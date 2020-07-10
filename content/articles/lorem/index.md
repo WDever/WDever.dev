@@ -3,7 +3,7 @@ title: Example
 date: '2020-05-04 22:05:52'
 description: 'example'
 tags: ['#Dev', '#Blog', '#Update']
-image: ./add-feature-and-debugging-cover.png
+image: ./hello!!!.png
 ---
 
 ![cover image](add-feature-and-debugging-cover.png)

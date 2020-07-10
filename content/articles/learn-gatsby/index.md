@@ -3,7 +3,7 @@ title: Gatsby
 date: '2020-05-12 01:05:11'
 description: 'example'
 tags: ['#Dev', '#Electron', '#TypeScript']
-image: ./electron-ts-parcel.png
+image: ./hello!!!.png
 ---
 
 ![](electron-ts-parcel.png)

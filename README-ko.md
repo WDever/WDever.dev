@@ -78,15 +78,15 @@ Vercel로 배포 해보세요!
 src
 ├── components // 스타일링과 로직이 포함된 컴포넌트들
 ├── hooks // 유용한 Hook들
-├── lib // Fonts & gatsby files rewrite with TypeScript
-├── pages // Routing except post: /(home), /about, /404
+├── lib // 폰트 & 타입스크립트로 재작성된 Gatsby 파일들
+├── pages // 포스트를 제외한 라우팅
 ├── templates
 │   ├── blog-post.tsx
 │   └── home.tsx
 
-├── types // Types that generate by graphql-codegen
+├── types // graphql-codegen로 생성된 타입들
 └── utils
-    ├── functions // Useful functions
+    ├── functions // 유용한 함수들
     └── hooks //
 ```
 
@@ -94,16 +94,16 @@ src
 
 ```sh
 content
-├── about // About you / resume
+├── about // 작성자에 대해서 / 이력서
 │   └── index.md
 │
-├── articles //  Posts
-│   ├── my-first-post-example // Name of this directory will be the path
-│       └── index.md // and some pictures or more...
+├── articles //  포스트들
+│   ├── my-first-post-example // 이 디렉토리의 이름이 곧 url이 됩니다.
+│       └── index.md // index.md 외의 사진과 같은 것들을 넣어두시면 됩니다.
 │
 ├── assets
-    ├── profile-pic // Profile picure that will use in BIO
-    └── wdever-icon // Icon will be show in tab.
+    ├── profile-pic // BIO에서 사용될 프로필 사진
+    └── wdever-icon // 탭에서 보여질 아이콘
 ```
 
 ## 커스터마이즈
@@ -123,6 +123,16 @@ content
 ### Google Analytics
 
 본인의 trackingId를 `gatsby-config.js/gatsby-plugin-google-analytics.options.trackingId` 에 추가해주세요.
+
+## 문제 해결
+
+### Field "image" must not have a selection since type "String" has no subfields
+
+어떤 포스트에서 `image` 메타데이터가 제대로 설정 되지 않았습니다. 잘못된 경로 혹은 잘못된 파일 이름일 수 있습니다. 썸네일이 필요 없다면 `image` 메타데이터를 삭제해주세요.
+
+### localStorage is not defined
+
+아직 이 이슈의 이유를 제대로 모릅니다. 그저 빌드할 때에 localStorage가 없어서 생기는 오류라고 추측중입니다. 하지만 모두 잘 작동하니 걱정하지 마세요.
 
 ## 기여
 
