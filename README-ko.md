@@ -65,19 +65,19 @@ Vercel로 배포 해보세요!
 
 ```sh
 /root
-├── .eslintrc.json // eslint config file
-├── .prettierrc // prettier config file
-├── gatsby-browser.js // font, code style
-├── gatsby-config.js // Gatsby config & metadata
-└── gatsby-node.js // import gatsby files from lib
+├── .eslintrc.json // eslint 설정 파일
+├── .prettierrc // prettier 설정 파일
+├── gatsby-browser.js // 폰트, 코드 하이라이트 스타일링
+├── gatsby-config.js // Gatsby 설정 & 메타데이터
+└── gatsby-node.js // Gatsby 관련 함수 파일들
 ```
 
 ### src
 
 ```sh
 src
-├── components // Components with styling & some logic
-├── hooks // Hooks that useful
+├── components // 스타일링과 로직이 포함된 컴포넌트들
+├── hooks // 유용한 Hook들
 ├── lib // Fonts & gatsby files rewrite with TypeScript
 ├── pages // Routing except post: /(home), /about, /404
 ├── templates

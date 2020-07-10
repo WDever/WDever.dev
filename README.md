@@ -88,8 +88,7 @@ src
 
 ├── types // Types that generate by graphql-codegen
 └── utils
-    ├── functions // Useful functions
-    └── hooks //
+    └── functions // Useful functions
 ```
 
 ### content
