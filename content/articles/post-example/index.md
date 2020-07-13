@@ -1,11 +1,9 @@
 ---
-title: 예시aafwaffsdfawfasdfaewfdsafaewfadsfewafasdfs
+title: Post without thumbnail
 date: '2020-05-03 05:48'
 description: 'test'
 tags: ['#Dev', '#Blog']
 ---
-
-![Hello my blog](./simple-wdever-dev.png '출처: 나의 Figma')
 
 # What is Lorem Ipsum?
 

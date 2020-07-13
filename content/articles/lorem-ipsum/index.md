@@ -1,11 +1,9 @@
 ---
-title: Deploy with vercel
+title: Why do we use it?
 date: '2020-05-03 07:07'
 description: 'example'
 tags: ['#Dev', '#Blog', '#Deployment']
 ---
-
-![Gatsby with Vercel](gatsbywvercel.png 'Gatsby: https://github.com/gatsbyjs/gatsby/blob/master/README.md, Vercel: https://vercel.com/blog/zeit-is-now-vercel')
 
 # What is Lorem Ipsum?
 
