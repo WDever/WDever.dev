@@ -39,7 +39,7 @@
     "react-icons": "^3.10.0",
     "react-switch": "^5.0.1",
     "react-typography": "^0.16.19",
-    "react-use": "^15.2.5",
+    "react-use": "^15.3.2",
     "recursive-readdir": "^2.2.2",
     "signale": "^1.4.0",
     "styled-components": "^5.1.1",
