@@ -1,8 +1,8 @@
 ---
-title: Gatsby
+title: Gatsby starter for developer's blog
 date: '2020-05-12 01:05:11'
-description: 'example'
-tags: ['#Dev', '#Electron', '#TypeScript']
+description: 'This starter will continue to be updated.'
+tags: ['#Dev', '#Update', '#Greeting']
 image: ./hello!!!.png
 ---
 

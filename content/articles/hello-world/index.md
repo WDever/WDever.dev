@@ -1,14 +1,12 @@
 ---
-title: Hello World Helo World HEllo World
+title: Hello World
 date: '2020-05-05 02:05:47'
-description: '리액트를 배우고 사용한지도 벌써 1년 반이 지나간다.
-그동안 리액트를 사용하며 느낀점과 개인적인
-팁과 같은 것들을 서술 해보았다.리액트를 배우고 사용한지도 벌써 1년 반이 지나간다. 그동안 리액트를 사용하며 느낀점과 개인적인 팁과 같은 것들을 서술 해보았다.'
-tags: ['#Blog', '#Deployment']
+description: 'Hello World from WDever'
+tags: ['#Hello', '#Greeting']
 image: ./hello!!!.png
 ---
 
-![now with google domain!](now-w-google.png)
+![now with google domain!](hello!!!.png)
 
 # What is Lorem Ipsum?
 

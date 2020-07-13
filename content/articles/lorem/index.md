@@ -1,5 +1,5 @@
 ---
-title: Example
+title: What is Lorem Ipsum?
 date: '2020-05-04 22:05:52'
 description: 'example'
 tags: ['#Dev', '#Blog', '#Update']
