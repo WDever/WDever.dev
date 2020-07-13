@@ -3,7 +3,6 @@ title: Deploy with vercel
 date: '2020-05-03 07:07'
 description: 'example'
 tags: ['#Dev', '#Blog', '#Deployment']
-image: ./gatsbywvercel.png
 ---
 
 ![Gatsby with Vercel](gatsbywvercel.png 'Gatsby: https://github.com/gatsbyjs/gatsby/blob/master/README.md, Vercel: https://vercel.com/blog/zeit-is-now-vercel')

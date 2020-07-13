@@ -1,7 +1,7 @@
 import React, { ReactNode, ReactElement } from 'react';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 import { Light, Dark, ThemeChangeTransition } from 'utils/style';
-import { useLocalStorage } from 'utils/hooks';
+import { useLocalStorage } from 'hooks';
 import { fontFiles } from 'lib/fonts/fonts';
 import FooterComponent from './footer';
 import HeaderComponent from './header';

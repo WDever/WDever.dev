@@ -4,17 +4,7 @@ export const useLocalStorage = <T>(
   key: string,
   initialValue?: T,
 ): [T | undefined, React.Dispatch<React.SetStateAction<T | undefined>>] => {
-  const [state, setState] = useState<T | undefined>(() => {
-    try {
-      const localStorageValue: string | null = localStorage.getItem(key);
-
-      if (localStorageValue !== null) {
-        return JSON.parse(localStorageValue);
-      }
-    } catch (e) {
-      console.log(e);
-    }
-  });
+  const [state, setState] = useState<T | undefined>(undefined);
   const isInit: MutableRefObject<boolean> = useRef(false);
 
   useEffect(() => {
@@ -30,10 +20,23 @@ export const useLocalStorage = <T>(
   }, [state]);
 
   useEffect(() => {
-    if (initialValue) {
-      localStorage.setItem(key, JSON.stringify(initialValue));
+    try {
+      const localStorageValue: string | null = localStorage.getItem(key);
+
+      if (localStorageValue !== null) {
+        setState(JSON.parse(localStorageValue));
+        isInit.current = true;
+        return;
+      }
+
+      if (initialValue) {
+        localStorage.setItem(key, JSON.stringify(initialValue));
+      }
+
+      isInit.current = true;
+    } catch (e) {
+      console.log(e);
     }
-    isInit.current = true;
   }, []);
 
   return [state, setState];

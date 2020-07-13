@@ -5,7 +5,7 @@ description: '리액트를 배우고 사용한지도 벌써 1년 반이 지나�
 그동안 리액트를 사용하며 느낀점과 개인적인
 팁과 같은 것들을 서술 해보았다.리액트를 배우고 사용한지도 벌써 1년 반이 지나간다. 그동안 리액트를 사용하며 느낀점과 개인적인 팁과 같은 것들을 서술 해보았다.'
 tags: ['#Blog', '#Deployment']
-image: ./now-w-google.png
+image: ./hello!!!.png
 ---
 
 ![now with google domain!](now-w-google.png)

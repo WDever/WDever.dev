@@ -1,29 +1,136 @@
 ---
-title: lorem ipsum
-date: '2020-05-05 21:05:05'
-description: 'example'
+title: Introduce gatsby-starter-blog
+date: '2020-05-10 21:05:05'
+description: "Gatsby starter for developer's blog"
 tags: ['#Dev', '#Blog']
 image: ./hello!!!.png
 ---
 
-![Hello](hello!!!.png)
+# Gatsby-starter-devlog
 
-# What is Lorem Ipsum?
+Gatsby starter for developer's blog.
 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+## Demo
 
-# Why do we use it?
+[demo](https://gatsby-starter-devlog.vercel.app/)
 
-It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+> Tell me if you use this starter
 
-# Where does it come from?
+## Features
 
-Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+- Grid View 🌈
+- Code Highlight ✨
+- Comment with Utterances 💬
+- Buy me a coffee ☕️💸
+- Google Analytics 📊
+- Considered UI / UX 🤓
+- Dark Mode Support !!! 🌗
 
-```typescript
-const test = () => console.log('test');
+## Getting Start
+
+1. Create a Gatsby app
+
+```sh
+yarn gatsby new my-blog https://github.com/WDever/gatsby-starter-devlog
+
+or
+
+npx gatsby new my-blog https://github.com/WDever/gatsby-starter-devlog
 ```
 
-The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
+2. Start development server
 
-> This is QUOTE!
+```sh
+yarn develop
+
+or
+
+npm run develop
+```
+
+3. Create your post
+
+Create post in `content/articles` with **cli!!!**
+
+![create-post](create-post.gif)
+
+4. Write your post
+
+You can write your content wit GitHub Flavor Markdown.
+
+Also you can add thumbnail images or not. If you won't add thumbnail images, remove `image` in metadata
+
+5. Deploy to vercel
+
+[![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/WDever/gatsby-starter-develog)
+
+## Structure
+
+### root
+
+```sh
+/root
+├── .eslintrc.json // eslint config file
+├── .prettierrc // prettier config file
+├── gatsby-browser.js // font, code style
+├── gatsby-config.js // Gatsby config & metadata
+└── gatsby-node.js // import gatsby files from lib
+```
+
+### src
+
+```sh
+src
+├── components // Components with styling & some logic
+├── hooks // Hooks that useful
+├── lib // Fonts & gatsby files rewrite with TypeScript
+├── pages // Routing except post: /(home), /about, /404
+├── templates
+│   ├── blog-post.tsx
+│   └── home.tsx
+
+├── types // Types that generate by graphql-codegen
+└── utils
+    ├── functions // Useful functions
+    └── hooks //
+```
+
+### content
+
+```sh
+content
+├── about // About you / resume
+│   └── index.md
+│
+├── articles //  Posts
+│   ├── my-first-post-example // Name of this directory will be the path
+│       └── index.md // and some pictures or more...
+│
+├── assets
+    ├── profile-pic // Profile picure that will use in BIO
+    └── wdever-icon // Icon will be show in tab.
+```
+
+## Customize
+
+### Tab Icon
+
+Replace `assets/wdever-icon` with your own icon and change path in `gatsby-plugin-manifest`. This config is in the `gatsby-config`
+
+### Profile Image
+
+Replace `assets/profile-pic` with your own profile pic
+
+### Utterances
+
+Add your repo name (username/repo) in `gatsby-config.js/siteMetadata.repo`
+
+### Google Analytics
+
+Add tour trackingId in `gatsby-config.js/gatsby-plugin-google-analytics.options.trackingId`
+
+## Contributing
+
+I'm always waiting you guys's contribute. Please Contribute.
+
+Thanks.

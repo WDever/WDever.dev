@@ -23,6 +23,8 @@ const DATE_FORMAT = 'yyyy-MM-dd HH:MM:SS';
 const includesStrInArr = (long: string[], short: string[]): boolean =>
   short.some((item) => long.includes(item));
 
+const replaceSpaceToDash = (str: string): string => str.split(/\s+/).join('-');
+
 const fetchTitle = async (): Promise<string> => {
   const { title } = await prompt<{ title: string }>([
     {
@@ -36,23 +38,24 @@ const fetchTitle = async (): Promise<string> => {
   return title;
 };
 
-const fetchDirName = async (): Promise<string> => {
-  const { dirName } = await prompt<{ dirName: string }>([
+const fetchDirName = async (defaultDirName: string): Promise<string> => {
+  const { input } = await prompt<{ input?: string }>([
     {
       type: 'input',
       name: 'dirName',
       message: `Directory name / URL (use '-' instead of space): `,
-      default: (): string => 'new-post-file-name',
+      default: (): string =>
+        '(ex: new-post-file-name) Default value is same with title',
       validate: async (input: string): Promise<boolean | string> => {
-        const isIncludeSpace: boolean = input.includes(' ');
-
-        if (isIncludeSpace) {
-          return 'File name contains spaces';
+        if (input.length === 0) {
+          return true;
         }
+
+        const dirName = replaceSpaceToDash(input);
 
         const existingDirs = await fs.readdir(TARGET_DIR);
 
-        if (existingDirs.includes(input)) {
+        if (existingDirs.includes(dirName)) {
           return 'Existing dir name';
         }
 
@@ -61,17 +64,26 @@ const fetchDirName = async (): Promise<string> => {
     },
   ]);
 
+  if (input === undefined) {
+    const dirName = replaceSpaceToDash(defaultDirName);
+    return `${TARGET_DIR}/${dirName}`;
+  }
+
+  const dirName = input.split(/\s+/).join('-');
+
   return `${TARGET_DIR}/${dirName}`;
 };
 
 const getTags = async (): Promise<string[]> => {
-  const mdFiles = await rr(TARGET_DIR, [
+  let mdFiles = await rr(TARGET_DIR, [
     '*.png',
     '*.jpg',
     '*.svg',
     '*.gif',
     '*.jpeg',
   ]);
+
+  mdFiles = mdFiles.filter((file: string) => !file.includes('.DS_Store'));
 
   const tagsArr: string[][] = [...new Set(mdFiles)]
     .map((file: string) => fs.readFileSync(file, UTF_8))
@@ -163,7 +175,7 @@ const createFrontMatter = (contents: IFrontMatter): string => {
   log.start(`Create post process`);
 
   const title = await fetchTitle();
-  const dirName = await fetchDirName();
+  const dirName = await fetchDirName(title);
 
   await fs.ensureDir(dirName);
 
