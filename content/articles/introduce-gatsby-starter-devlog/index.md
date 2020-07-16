@@ -1,24 +1,29 @@
-[🇰🇷한국어](README-ko.md)
+---
+title: Introduce gatsby-starter-blog
+date: '2020-05-10 21:05:05'
+description: "Gatsby starter for developer's blog"
+tags: ['#Dev', '#Blog']
+image: ./hello!!!.png
+---
 
 # Gatsby-starter-devlog
 
-gatsby starter for developer's blog.
+Gatsby starter for developer's blog.
 
 ## Demo
 
 [demo](https://gatsby-starter-devlog.vercel.app/)
-
-[Use Cases](USECASE.md)
 
 > Tell me if you use this starter
 
 ## Features
 
 - Grid View 🌈
-- Code Highlight (Atom one dark + JetBrains Mono) ✨
+- Code Highlight ✨
 - Comment with Utterances 💬
 - Buy me a coffee ☕️💸
 - Google Analytics 📊
+- Considered UI / UX 🤓
 - Dark Mode Support !!! 🌗
 
 ## Getting Start
@@ -47,17 +52,15 @@ npm run develop
 
 Create post in `content/articles` with **cli!!!**
 
-![create-post](assets/create-post.gif)
+![create-post](create-post.gif)
 
 4. Write your post
 
-You can write your content with GitHub Flavor Markdown.
+You can write your content wit GitHub Flavor Markdown.
 
 Also you can add thumbnail images or not. If you won't add thumbnail images, remove `image` in metadata
 
 5. Deploy to vercel
-
-Try to use Vercel!
 
 [![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/WDever/gatsby-starter-develog)
 
@@ -88,7 +91,8 @@ src
 
 ├── types // Types that generate by graphql-codegen
 └── utils
-    └── functions // Useful functions
+    ├── functions // Useful functions
+    └── hooks //
 ```
 
 ### content
@@ -111,7 +115,7 @@ content
 
 ### Tab Icon
 
-Replace `assets/wdever-icon` with your own icon and change path in `gatsby-plugin-manifest`. This config is in the `gatsby-config.js`
+Replace `assets/wdever-icon` with your own icon and change path in `gatsby-plugin-manifest`. This config is in the `gatsby-config`
 
 ### Profile Image
 
@@ -124,16 +128,6 @@ Add your repo name (username/repo) in `gatsby-config.js/siteMetadata.repo`
 ### Google Analytics
 
 Add tour trackingId in `gatsby-config.js/gatsby-plugin-google-analytics.options.trackingId`
-
-## Trouble Shooting
-
-### Field "image" must not have a selection since type "String" has no subfields
-
-The reason why this issue occurs is because some post doesn't have correct `image` meatadata. Remove `image` in metadata or set Correct metadata.
-
-### localStorage is not defined
-
-I don't know why this issue occurs. I guess localStorage isn't defined at build time. But don't worry, everything will work fine.
 
 ## Contributing
 

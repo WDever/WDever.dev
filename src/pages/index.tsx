@@ -39,10 +39,14 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { tags: { nin: "#About" } } }
+    ) {
       edges {
         node {
           excerpt(pruneLength: 100)
+          timeToRead
           fields {
             slug
           }

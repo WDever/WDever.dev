@@ -25,8 +25,8 @@ export const ThemeChangeTransition = css`
 export const CodeStyle = css`
   pre,
   code {
-    font-family: Hack, 'Fira Code', 'Consolas', 'Monaco', 'Andale Mono',
-      'Ubuntu Mono', monospace;
+    font-family: JetBrainsMono, Hack, 'Fira Code', 'Consolas', 'Monaco',
+      'Andale Mono', 'Ubuntu Mono', monospace;
 
     text-shadow: none;
 

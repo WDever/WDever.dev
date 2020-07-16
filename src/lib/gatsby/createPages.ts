@@ -8,7 +8,7 @@ export const createPages: ({
 }: CreatePagesArgs) => void = async ({ graphql, actions }: CreatePagesArgs) => {
   const { createPage }: { createPage: Actions['createPage'] } = actions;
 
-  const blogPost: string = path.resolve(`./src/templates/blog-post/index.tsx`);
+  const blogPost: string = path.resolve(`./src/templates/blog-post.tsx`);
   const result: {
     errors?: any;
     data?: ResultRemarkQueryQuery | undefined;
@@ -18,6 +18,7 @@ export const createPages: ({
         allMarkdownRemark(
           sort: { fields: [frontmatter___date], order: DESC }
           limit: 1000
+          filter: { frontmatter: { tags: { nin: "#About" } } }
         ) {
           edges {
             node {

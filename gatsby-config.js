@@ -1,15 +1,18 @@
 module.exports = {
   siteMetadata: {
     title: `WDever.dev`,
-    author: `최민규 WDever`,
+    author: `WDever`,
     description: `About My Development`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    authorDescription: '더 나은 코드를 위해 노력하는 개발자입니다.',
+    name: '최민규',
+    siteUrl: `https://WDever.dev/`,
     repo: 'WDever/WDever.dev',
     social: {
       instagram: 'https://www.instagram.com/_m1n_9_/',
       eMail: 'wdever0279@gmail.com',
       gitHub: 'github.com/wdever',
       blog: 'WDever.dev',
+      buyMeACoffee: 'WDever',
     },
   },
   plugins: [
@@ -23,16 +26,17 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        path: `${__dirname}/content/about`,
+        name: `about`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         path: `${__dirname}/content/assets`,
         name: `assets`,
       },
     },
-    // {
-    //   resolve: `gatsby-source-filesystem`,
-    //   options: {
-    //     path: `${__dirname}/`
-    //   }
-    // },
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -86,6 +90,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-styled-components`,
+    `gatsby-plugin-feed`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
