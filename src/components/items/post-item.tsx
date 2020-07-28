@@ -148,6 +148,8 @@ const PostInfo = styled.div`
 `;
 
 const TagList = styled.div`
+  display: inherit;
+
   max-width: 70%;
   overflow: scroll;
 `;
