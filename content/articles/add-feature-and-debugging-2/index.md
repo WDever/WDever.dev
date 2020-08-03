@@ -16,11 +16,11 @@ image: ./add-feature-and-debugging-cover.png
 
 ### CLI .DS_Store 관련 버그
 
-맥에서는 파일 시스템에 접근할 때 .DS_Store 라는 숨겨진 파일이 생성됩니다. FInder에서 폴더를 생성하고 일일히 메타데이터를 넣어주는 방식으로는 문제가 없겠지만, `yarn create-post` 커맨드를 이용해 간단하게 포스트를 생성할 때 .DS_Store가 문제를 일으켰습니다.
+맥에서는 파일 시스템에 접근할 때 .DS_Store 라는 숨겨진 파일이 생성됩니다. Finder에서 폴더를 생성하고 일일히 메타데이터를 넣어주는 방식으로는 문제가 없겠지만, `yarn create-post` 커맨드를 이용해 간단하게 포스트를 생성할 때 해당 파일이 문제를 일으켰습니다.
 
-문제를 발견된 곳은 `create-new-post.ts`의 getTags 함수 부분이었습니다. 해당 함수는 **recursive-readdir** 라는 라이브러리를 사용해 `content/articles` 내부의 디렉토리들의 파일들 중 이미지 파일들을 제외한, 즉 마크다운 파일들을 읽어들여 해당 파일들의 메타데이터에서 Tags를 추출해내는 기능을 합니다.
+문제를 발견한 곳은 `create-new-post.ts`의 getTags 함수 부분이었습니다. 해당 함수는 **recursive-readdir** 라는 라이브러리를 사용해 `content/articles` 내부의 디렉토리들의 파일들 중 이미지 파일들을 제외한, 즉 마크다운 파일들을 읽어들여 해당 파일들의 메타데이터에서 Tags를 추출해내는 기능을 합니다.
 
-여기서 .DS_Store가 문제를 일으킵니다. recursive-readdir을 이용하여 파일들을 읽을 때 당연히 마크다운 파일이 없는 .DS_Store은 의도대로 읽어들일 수 없었고, 파일들의 배열애서 .DS_Store 부분이 undefined가 되어 이후의 로직에서 에러를 일으키는 것이었습니다.
+여기서 **.DS_Store가** 문제를 일으킵니다. recursive-readdir을 이용하여 파일들을 읽을 때 당연히 마크다운 파일이 없는 **.DS_Store은** 의도대로 읽어들일 수 없었고, 파일들의 배열애서 **.DS_Store** 부분이 undefined가 되어 이후의 로직에서 에러를 일으키는 것이었습니다.
 
 해당 에러는 각 디렉토리에서 파일을 읽어들인 후 .DS_Store만 `Array.filter()`메소드를 사용하여 제거한 후 나머지 로직을 실행하는 방법으로 해결하였습니다.
 
