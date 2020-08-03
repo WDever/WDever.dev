@@ -6,7 +6,7 @@ tags: ['#JavaScript', '#Dev', '#TypeScript']
 image: ./algorithm.png
 ---
 
-> 경어체를 사용합니다.
+> 평어체를 사용합니다.
 
 ![https://icons8.com/icon/80351/brainstorm-skill | https://icons8.com/icon/108784/javascript | https://icons8.com/icon/uJM6fQYqDaZK/typescript](algorithm.png)
 
