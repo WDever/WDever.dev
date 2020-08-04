@@ -47,6 +47,10 @@ export const CodeStyle = css`
   pre[class*='language-'] {
     border-radius: ${pxToRem(8)};
   }
+
+  .line-numbers-rows {
+    padding: 1em;
+  }
 `;
 
 export * from './colors';
