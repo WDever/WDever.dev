@@ -147,4 +147,8 @@ export const Wrapper = styled.article`
 
     margin-bottom: ${pxToRem(20)};
   }
+
+  th, td {
+    border-color: ${({ theme }): string => theme.headerBorder}
+  }
 `;
