@@ -2,7 +2,7 @@
 title: JS / TS로 풀어보기 - 크레인 인형뽑기 게임
 date: '2020-08-03 09:08:40'
 description: ''
-tags: ['#JavaScript', '#Dev', '#TypeScript']
+tags: ['#CodingTest', '#JavaScript', '#Dev', '#TypeScript']
 image: ./algorithm.png
 ---
 
