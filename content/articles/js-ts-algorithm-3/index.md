@@ -1,5 +1,5 @@
 ---
-title: JS / TS로 풀어보기 - 다트 게
+title: JS / TS로 풀어보기 - 다트 게임
 date: '2020-08-13 00:08:30'
 description: ''
 tags: ['#Dev', '#TypeScript', '#CodingTest', '#JavaScript']
