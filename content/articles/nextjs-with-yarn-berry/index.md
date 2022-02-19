@@ -3,7 +3,7 @@ title: Next.js에 yarn berry 적용하기
 date: '2022-02-20 06:02:90'
 description: ''
 tags: ['#Dev']
-image: Add main image of post
+image: ./yarn-berry.svg
 ---
 
 ![yarn berry](yarn-berry.svg)
