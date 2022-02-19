@@ -6,7 +6,7 @@ tags: ['#Dev']
 image: ./yarn-berry.png
 ---
 
-![yarn berry](yarn-berry.svg)
+![yarn berry](yarn-berry.png)
 
 # [Yarn v2 : Yarn berry](https://github.com/yarnpkg/berry)
 
